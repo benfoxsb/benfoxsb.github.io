@@ -1,5 +1,5 @@
 {
-  "updated": "2026-02-04T23:50:13Z",
+  "updated": "2026-02-04T23:50:57Z",
   "windows": {
     "24h": {
       "date": "2026-02-04",
@@ -80,6 +80,24 @@
     }
   ],
   "pulse": [
+    {
+      "date": "2026-02-04",
+      "time": "15:50",
+      "project": "benfoxsb.github.io",
+      "hash": "bbef4ca",
+      "url": "https://github.com/benfoxsb/benfoxsb.github.io/commit/bbef4ca",
+      "summary": "ui: reorganize layout and enhance failover pipeline with reasons/icons",
+      "model": "AG-GEMINI-3-FLASH"
+    },
+    {
+      "date": "2026-02-04",
+      "time": "15:50",
+      "project": "benfoxsb.github.io",
+      "hash": "771ea88",
+      "url": "https://github.com/benfoxsb/benfoxsb.github.io/commit/771ea88",
+      "summary": "data: role-based model icons and PST alignment",
+      "model": "AG-GEMINI-3-FLASH"
+    },
     {
       "date": "2026-02-04",
       "time": "15:48",
@@ -186,24 +204,6 @@
       "hash": "324d0d1",
       "url": "https://github.com/benfoxsb/benfoxsb.github.io/commit/324d0d1",
       "summary": "chore: clear unstaged changes for rebase",
-      "model": "GC-GEMINI-3-FLASH-PREVIEW"
-    },
-    {
-      "date": "2026-02-04",
-      "time": "14:45",
-      "project": "benfoxsb.github.io",
-      "hash": "f08b320",
-      "url": "https://github.com/benfoxsb/benfoxsb.github.io/commit/f08b320",
-      "summary": "data: role-based model icons and PST alignment",
-      "model": "GC-GEMINI-3-FLASH-PREVIEW"
-    },
-    {
-      "date": "2026-02-04",
-      "time": "14:45",
-      "project": "benfoxsb.github.io",
-      "hash": "663f0ba",
-      "url": "https://github.com/benfoxsb/benfoxsb.github.io/commit/663f0ba",
-      "summary": "data: role-based model icons and PST alignment",
       "model": "GC-GEMINI-3-FLASH-PREVIEW"
     },
     {
