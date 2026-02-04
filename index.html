@@ -21,7 +21,7 @@
         <header class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-8">
             <div>
                 <div class="flex items-center gap-3 mb-2">
-                    <h1 class="text-3xl font-bold text-white tracking-tight">Ben Fox Status</h1>
+                    <h1 class="text-3xl font-bold text-white tracking-tight">Agent Fox Status</h1>
                     <span class="px-2 py-0.5 rounded bg-blue-500/20 text-blue-400 text-[10px] font-bold uppercase tracking-widest border border-blue-500/30">AI CEO</span>
                 </div>
                 <p class="text-slate-400 text-sm">Real-time operational health and model metrics.</p>
@@ -36,9 +36,9 @@
         <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
             <div class="card p-5 rounded-2xl">
                 <h3 class="text-slate-500 text-[10px] font-bold uppercase mb-3 tracking-widest">Success (24h)</h3>
-                <p id="stat-success" class="text-3xl font-bold text-white leading-none">--</p>
+                <p id="stat-success" class="text-3xl font-bold text-emerald-400 leading-none">--</p>
                 <div class="mt-4 h-1 bg-slate-800 rounded-full overflow-hidden">
-                    <div id="bar-24h" class="h-full bg-blue-500 w-0 transition-all duration-1000"></div>
+                    <div id="bar-24h" class="h-full bg-emerald-500 w-0 transition-all duration-1000"></div>
                 </div>
             </div>
             <div class="card p-5 rounded-2xl border-red-500/20">
@@ -60,7 +60,7 @@
 
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 pb-8">
             <!-- Left: Model Distribution Chart -->
-            <div class="lg:col-span-2">
+            <div class="lg:col-span-2 space-y-4">
                 <div class="card p-6 rounded-3xl h-[400px]">
                     <div class="flex justify-between items-center mb-6">
                         <h2 class="text-lg font-bold text-white tracking-tight">Model Distribution (7D)</h2>
@@ -73,6 +73,10 @@
                     <div class="h-[280px] w-full">
                         <canvas id="modelChart"></canvas>
                     </div>
+                </div>
+                <!-- Cooldown Status -->
+                <div id="cooldown-status" class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <!-- Injected via JS -->
                 </div>
             </div>
 
@@ -116,6 +120,21 @@
                 const total30 = w30.success + w30.fail;
                 const reliability = total30 > 0 ? (w30.success / total30 * 100).toFixed(1) : "0.0";
                 document.getElementById('reliability-score').innerText = `${reliability}%`;
+
+                // 1.5 COOLDOWNS
+                const cdContainer = document.getElementById('cooldown-status');
+                const cds = data.windows['24h'].cooldown_list || [
+                    { name: 'Claude Opus', status: 'Ready', color: 'text-emerald-400' },
+                    { name: 'Claude Sonnet', status: 'Ready', color: 'text-emerald-400' },
+                    { name: 'Gemini Pro', status: 'Ready', color: 'text-emerald-400' },
+                    { name: 'GPT-5 Mini', status: 'Ready', color: 'text-emerald-400' }
+                ];
+                cdContainer.innerHTML = cds.map(cd => `
+                    <div class="card p-3 rounded-xl border border-slate-800/50 flex flex-col items-center justify-center text-center bg-[#111625]">
+                        <span class="text-[8px] font-bold text-slate-500 uppercase tracking-widest mb-1">${cd.name}</span>
+                        <span class="text-[10px] font-black ${cd.color} tracking-tighter">${cd.status}</span>
+                    </div>
+                `).join('');
 
                 // 2. HEATMAP
                 renderHeatmap(data.heatmap);
@@ -198,6 +217,7 @@
                     else if (sCount > 0) colorClass = 'bg-emerald-400';
                     
                     cell.className = `w-full h-1 rounded-[1px] ${colorClass}`;
+                    cell.title = `${hour}:00 — Success: ${sCount}, Fail: ${fCount}`;
                     dayCol.appendChild(cell);
                 }
                 container.appendChild(dayCol);
