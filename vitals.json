@@ -1,1 +1,16 @@
-
+{
+  "last_updated": "2026-02-03T18:30:00-08:00",
+  "period": "Last 8 Hours",
+  "metrics": {
+    "success_count": 122,
+    "fail_count": 152,
+    "active_cooldowns": 31,
+    "quota_errors": 8
+  },
+  "distribution": {
+    "gemini_flash": 55,
+    "gemini_pro": 8,
+    "github_copilot": 45,
+    "qwen_local": 0
+  }
+}
