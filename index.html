@@ -17,9 +17,9 @@
         <header class="flex justify-between items-center mb-12">
             <div>
                 <h1 class="text-3xl font-bold text-white mb-2">Ben Fox AI Dashboard 🦊</h1>
-                <p class="text-slate-400 text-sm">Real-time system wellness</p>
+                <p class="text-slate-400 text-sm italic">"Scrappy CEO Ops in Action"</p>
             </div>
-            <div id="online-pulse" class="flex items-center gap-2 px-4 py-2 rounded-full bg-green-500/10 border border-green-500/20 text-green-400 text-sm">
+            <div id="online-pulse" class="flex items-center gap-2 px-4 py-2 rounded-full bg-green-500/10 border border-green-500/20 text-green-400 text-sm font-bold">
                 <span class="w-2 h-2 rounded-full bg-green-500 pulse"></span>
                 Monitoring Active
             </div>
@@ -27,64 +27,98 @@
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
             <div class="card p-6 rounded-2xl">
-                <h3 class="text-slate-400 text-xs font-bold uppercase mb-1 tracking-widest">Success (24h)</h3>
+                <h3 class="text-slate-400 text-[10px] font-bold uppercase mb-1 tracking-widest">Success (24h)</h3>
                 <p id="stat-success" class="text-4xl font-bold text-white">--</p>
             </div>
             <div class="card p-6 rounded-2xl">
-                <h3 class="text-slate-400 text-xs font-bold uppercase mb-1 tracking-widest">Fail (24h)</h3>
+                <h3 class="text-slate-400 text-[10px] font-bold uppercase mb-1 tracking-widest">Fail (24h)</h3>
                 <p id="stat-fail" class="text-4xl font-bold text-red-400">--</p>
             </div>
             <div class="card p-6 rounded-2xl">
-                <h3 class="text-slate-400 text-xs font-bold uppercase mb-1 tracking-widest">Last Update</h3>
-                <p id="last-update" class="text-xs font-mono text-blue-400 pt-5 text-center">...</p>
+                <h3 class="text-slate-400 text-[10px] font-bold uppercase mb-1 tracking-widest">7d Status</h3>
+                <p id="stat-7d" class="text-lg font-bold text-yellow-400 pt-3">Accumulating...</p>
             </div>
-            <div class="card p-6 rounded-2xl text-center">
-                 <h3 class="text-slate-400 text-xs font-bold uppercase mb-1 tracking-widest">Deployment</h3>
-                 <p class="text-xs font-bold text-emerald-400 pt-5 uppercase tracking-widest">Online</p>
+            <div class="card p-6 rounded-2xl">
+                <h3 class="text-slate-400 text-[10px] font-bold uppercase mb-1 tracking-widest">30d Status</h3>
+                <p id="stat-30d" class="text-lg font-bold text-blue-400 pt-3">Day 1 / 30</p>
             </div>
         </div>
 
-        <section class="grid grid-cols-1 md:grid-cols-1 gap-12">
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-12">
+            <div>
+                <h2 class="text-xl font-semibold mb-6">Model Distribution</h2>
+                <div class="space-y-6">
+                    <div>
+                        <div class="flex justify-between text-xs mb-1"><span class="text-slate-400 uppercase font-bold text-[10px]">Tier 2 (Gemini Flash)</span><span id="label-flash" class="text-white">0</span></div>
+                        <div class="h-1.5 bg-slate-800 rounded-full"><div id="bar-flash" class="h-full bg-blue-500 rounded-full" style="width: 0%"></div></div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between text-xs mb-1"><span class="text-slate-400 uppercase font-bold text-[10px]">Tier 1 (Copilot)</span><span id="label-copilot" class="text-white">0</span></div>
+                        <div class="h-1.5 bg-slate-800 rounded-full"><div id="bar-copilot" class="h-full bg-emerald-500 rounded-full" style="width: 0%"></div></div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between text-xs mb-1"><span class="text-slate-400 uppercase font-bold text-[10px]">Tier 3 (Gemini Pro)</span><span id="label-pro" class="text-white">0</span></div>
+                        <div class="h-1.5 bg-slate-800 rounded-full"><div id="bar-pro" class="h-full bg-purple-500 rounded-full" style="width: 0%"></div></div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between text-xs mb-1"><span class="text-slate-400 uppercase font-bold text-[10px]">Local Brain (Qwen)</span><span id="label-local" class="text-white">0</span></div>
+                        <div class="h-1.5 bg-slate-800 rounded-full"><div id="bar-local" class="h-full bg-slate-500 rounded-full" style="width: 0%"></div></div>
+                    </div>
+                </div>
+            </div>
             <div>
                 <h2 class="text-xl font-semibold mb-6">Recent System Pulse</h2>
                 <div id="system-log" class="space-y-3">
-                    <div class="card p-3 rounded-lg text-xs">
-                        <span class="text-blue-400 font-mono">21:50</span> - Dashboard Reliability Lockdown Applied
+                    <div class="card p-3 rounded-lg text-[11px]">
+                        <span class="text-blue-400 font-mono">22:00</span> - Restoration of Time-Series Visuals
+                    </div>
+                    <div class="card p-3 rounded-lg text-[11px]">
+                        <span class="text-emerald-400 font-mono">21:23</span> - Website ChatWidget Deployed
+                    </div>
+                    <div class="card p-3 rounded-lg text-[11px]">
+                        <span class="text-yellow-400 font-mono">19:01</span> - Safe Local Brain Worker Operational
                     </div>
                 </div>
             </div>
         </section>
 
         <footer class="mt-20 text-center text-slate-600 text-[10px] uppercase tracking-widest">
-            <p id="sync-status" class="mt-2 text-slate-500"></p>
+            <p>Last Sync: <span id="last-update">...</span></p>
         </footer>
     </div>
     <script>
         async function updateDashboard() {
-            const statusEl = document.getElementById('sync-status');
             try {
-                // Cache-busting URL to ensure fresh data
                 const url = 'https://benfoxsb.github.io/status/vitals.json?nocache=' + Date.now();
                 const response = await fetch(url);
-                if (!response.ok) throw new Error("HTTP " + response.status);
-                
                 const data = await response.json();
                 
-                // Realignment with flat metrics structure
-                document.getElementById('stat-success').innerText = data.metrics.success || 0;
-                document.getElementById('stat-fail').innerText = data.metrics.fail || 0;
-                document.getElementById('last-update').innerText = new Date(data.updated).toLocaleTimeString();
+                const win24 = data.windows['24h'];
+                document.getElementById('stat-success').innerText = win24.success || 0;
+                document.getElementById('stat-fail').innerText = win24.fail || 0;
                 
-                statusEl.innerText = "✓ Live Sync Active";
-                statusEl.classList.remove('text-red-400');
+                const usage = win24.usage;
+                const total = usage.flash + usage.pro + usage.copilot + usage.local;
+                
+                if (total > 0) {
+                    const updateBar = (id, val) => {
+                        const pct = Math.round((val / total) * 100);
+                        document.getElementById('bar-' + id).style.width = pct + '%';
+                        document.getElementById('label-' + id).innerText = pct + '%';
+                    };
+                    updateBar('flash', usage.flash);
+                    updateBar('pro', usage.pro);
+                    updateBar('copilot', usage.copilot);
+                    updateBar('local', usage.local);
+                }
+
+                document.getElementById('last-update').innerText = new Date(data.updated).toLocaleTimeString();
             } catch (e) {
-                console.error("Sync Error:", e);
-                statusEl.innerText = "⚠ Sync Error: " + e.message;
-                statusEl.classList.add('text-red-400');
+                console.error("Restoration failed", e);
             }
         }
         updateDashboard();
-        setInterval(updateDashboard, 30000); // 30s refresh
+        setInterval(updateDashboard, 15000);
     </script>
 </body>
 </html>
