@@ -1,0 +1,193 @@
+{
+  "updated": "2026-02-04T09:39:43Z",
+  "windows": {
+    "24h": {
+      "success": 13,
+      "fail": 2,
+      "cooldowns": 0,
+      "quotas": 2,
+      "usage": {
+        "flash": 18,
+        "pro": 2,
+        "copilot": 1,
+        "local": 0
+      }
+    },
+    "7d": {
+      "success": 205,
+      "fail": 162,
+      "days": 2,
+      "usage": {
+        "flash": 139,
+        "pro": 15,
+        "copilot": 50,
+        "local": 0
+      }
+    },
+    "30d": {
+      "success": 205,
+      "fail": 162,
+      "days": 2,
+      "usage": {
+        "flash": 139,
+        "pro": 15,
+        "copilot": 50,
+        "local": 0
+      }
+    }
+  },
+  "history": [
+    {
+      "date": "2026-02-03",
+      "success": 192,
+      "fail": 160,
+      "flash": 121,
+      "pro": 13,
+      "copilot": 49,
+      "local": 0
+    },
+    {
+      "date": "2026-02-04",
+      "success": 13,
+      "fail": 2,
+      "flash": 18,
+      "pro": 2,
+      "copilot": 1,
+      "local": 0
+    }
+  ],
+  "pulse": [
+    {
+      "date": "2026-02-03",
+      "time": "00:00",
+      "model": "AGENT",
+      "summary": "X Integration:"
+    },
+    {
+      "date": "2026-02-03",
+      "time": "00:00",
+      "model": "AGENT",
+      "summary": "Website Launch:"
+    },
+    {
+      "date": "2026-02-03",
+      "time": "00:00",
+      "model": "AGENT",
+      "summary": "Dashboard Restoration:"
+    },
+    {
+      "date": "2026-02-03",
+      "time": "00:00",
+      "model": "AGENT",
+      "summary": "Brain Hierarchy:"
+    },
+    {
+      "date": "2026-02-03",
+      "time": "00:00",
+      "model": "AGENT",
+      "summary": "Agile Infrastructure:"
+    },
+    {
+      "date": "2026-02-04",
+      "time": "00:00",
+      "model": "AGENT",
+      "summary": "Dashboard Upgrade:"
+    },
+    {
+      "date": "2026-02-04",
+      "time": "00:00",
+      "model": "AGENT",
+      "summary": "Visual Alignment:"
+    },
+    {
+      "date": "2026-02-04",
+      "time": "00:00",
+      "model": "AGENT",
+      "summary": "Data Engineering:"
+    },
+    {
+      "date": "2026-02-04",
+      "time": "00:00",
+      "model": "AGENT",
+      "summary": "Tier 3 Verification:"
+    }
+  ],
+  "heatmap": [
+    {
+      "date": "2026-01-29",
+      "success": {},
+      "fail": {}
+    },
+    {
+      "date": "2026-01-30",
+      "success": {},
+      "fail": {}
+    },
+    {
+      "date": "2026-01-31",
+      "success": {},
+      "fail": {}
+    },
+    {
+      "date": "2026-02-01",
+      "success": {},
+      "fail": {}
+    },
+    {
+      "date": "2026-02-02",
+      "success": {},
+      "fail": {}
+    },
+    {
+      "date": "2026-02-03",
+      "success": {
+        "00": "10",
+        "01": "8",
+        "02": "15",
+        "03": "8",
+        "04": "7",
+        "05": "16",
+        "06": "10",
+        "07": "16",
+        "08": "4",
+        "09": "20",
+        "10": "10",
+        "15": "1",
+        "16": "4",
+        "17": "18",
+        "18": "7",
+        "19": "8",
+        "20": "5",
+        "21": "5",
+        "22": "9",
+        "23": "13"
+      },
+      "fail": {
+        "00": "2",
+        "01": "6",
+        "02": "2",
+        "04": "2",
+        "05": "2",
+        "06": "2",
+        "08": "2",
+        "09": "68",
+        "10": "20",
+        "15": "6",
+        "16": "22",
+        "17": "24",
+        "19": "2",
+        "20": "2"
+      }
+    },
+    {
+      "date": "2026-02-04",
+      "success": {
+        "08": "4",
+        "09": "9"
+      },
+      "fail": {
+        "09": "2"
+      }
+    }
+  ]
+}
