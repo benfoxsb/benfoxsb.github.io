@@ -1,5 +1,5 @@
 {
-  "updated": "2026-02-04T22:46:28Z",
+  "updated": "2026-02-04T23:00:06Z",
   "windows": {
     "24h": {
       "date": "2026-02-04",
@@ -12,7 +12,7 @@
       "copilot": 6,
       "local": 0,
       "opus": 0,
-      "sonnet": 1,
+      "sonnet": 2,
       "cooldowns": 3,
       "quotas": 8,
       "timers": {
@@ -34,7 +34,7 @@
         "copilot": 55,
         "local": 0,
         "opus": 0,
-        "sonnet": 1
+        "sonnet": 2
       },
       "reliability": "62.0"
     },
@@ -50,7 +50,7 @@
         "copilot": 55,
         "local": 0,
         "opus": 0,
-        "sonnet": 1
+        "sonnet": 2
       },
       "reliability": "62.0"
     }
@@ -76,10 +76,19 @@
       "copilot": 6,
       "local": 0,
       "opus": 0,
-      "sonnet": 1
+      "sonnet": 2
     }
   ],
   "pulse": [
+    {
+      "date": "2026-02-04",
+      "time": "14:46",
+      "project": "benfoxsb.github.io",
+      "hash": "cee3fb0",
+      "url": "https://github.com/benfoxsb/benfoxsb.github.io/commit/cee3fb0",
+      "summary": "data: role-based model icons and PST alignment",
+      "model": "GC-GEMINI-3-FLASH-PREVIEW"
+    },
     {
       "date": "2026-02-04",
       "time": "14:46",
@@ -186,15 +195,6 @@
       "hash": "22413e7",
       "url": "https://github.com/benfoxsb/benfoxsb.github.io/commit/22413e7",
       "summary": "ui: unify model color mapping across all dashboard components",
-      "model": "AG-GEMINI-3-FLASH"
-    },
-    {
-      "date": "2026-02-04",
-      "time": "13:12",
-      "project": "benfoxsb.github.io",
-      "hash": "52a362b",
-      "url": "https://github.com/benfoxsb/benfoxsb.github.io/commit/52a362b",
-      "summary": "ui: implement collapsible day grouping and model color coding for pulse",
       "model": "AG-GEMINI-3-FLASH"
     },
     {
@@ -416,13 +416,13 @@
         "11": "11",
         "12": "19",
         "13": "10",
-        "14": "11"
+        "14": "13"
       },
       "fail": {
         "11": "2",
         "12": "4",
         "13": "2",
-        "14": "2"
+        "14": "4"
       }
     }
   ],
