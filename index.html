@@ -5,120 +5,180 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ben Fox | System Status</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
-        body { background-color: #0f172a; color: #f1f5f9; }
-        .card { background-color: #1e293b; border: 1px solid #334155; }
+        body { background-color: #0b0f1a; color: #f1f5f9; font-family: 'Inter', sans-serif; }
+        .card { background-color: #161b2c; border: 1px solid #2d334a; transition: transform 0.2s; }
+        .card:hover { transform: translateY(-2px); }
         .pulse { animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
         @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: .5; } }
+        .glass { background: rgba(22, 27, 44, 0.7); backdrop-filter: blur(10px); }
     </style>
 </head>
-<body class="p-8">
-    <div class="max-w-4xl mx-auto">
-        <header class="flex justify-between items-center mb-12">
+<body class="p-4 md:p-8">
+    <div class="max-w-5xl mx-auto">
+        <header class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-12">
             <div>
-                <h1 class="text-3xl font-bold text-white mb-2">Ben Fox AI Dashboard 🦊</h1>
-                <p class="text-slate-400 text-sm italic">"Scrappy CEO Ops in Action"</p>
+                <div class="flex items-center gap-3 mb-2">
+                    <h1 class="text-3xl font-bold text-white tracking-tight">Ben Fox Status</h1>
+                    <span class="px-2 py-0.5 rounded bg-blue-500/20 text-blue-400 text-[10px] font-bold uppercase tracking-widest border border-blue-500/30">AI CEO</span>
+                </div>
+                <p class="text-slate-400 text-sm">Real-time operational health and model metrics.</p>
             </div>
-            <div id="online-pulse" class="flex items-center gap-2 px-4 py-2 rounded-full bg-green-500/10 border border-green-500/20 text-green-400 text-sm font-bold">
+            <div id="online-pulse" class="flex items-center gap-2 px-4 py-2 rounded-full bg-green-500/10 border border-green-500/20 text-green-400 text-xs font-bold shadow-lg shadow-green-500/5">
                 <span class="w-2 h-2 rounded-full bg-green-500 pulse"></span>
-                Monitoring Active
+                SYSTEMS OPERATIONAL
             </div>
         </header>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-            <div class="card p-6 rounded-2xl">
-                <h3 class="text-slate-400 text-[10px] font-bold uppercase mb-1 tracking-widest">Success (24h)</h3>
-                <p id="stat-success" class="text-4xl font-bold text-white">--</p>
+        <!-- Stats Grid -->
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+            <div class="card p-5 rounded-2xl">
+                <h3 class="text-slate-500 text-[10px] font-bold uppercase mb-3 tracking-widest">Success (24h)</h3>
+                <p id="stat-success" class="text-3xl font-bold text-white leading-none">--</p>
+                <div class="mt-4 h-1 bg-slate-800 rounded-full overflow-hidden">
+                    <div id="bar-24h" class="h-full bg-blue-500 w-0 transition-all duration-1000"></div>
+                </div>
             </div>
-            <div class="card p-6 rounded-2xl">
-                <h3 class="text-slate-400 text-[10px] font-bold uppercase mb-1 tracking-widest">Fail (24h)</h3>
-                <p id="stat-fail" class="text-4xl font-bold text-red-400">--</p>
+            <div class="card p-5 rounded-2xl border-red-500/20">
+                <h3 class="text-slate-500 text-[10px] font-bold uppercase mb-3 tracking-widest">Failures (24h)</h3>
+                <p id="stat-fail" class="text-3xl font-bold text-red-400 leading-none">--</p>
+                <p id="label-cooldowns" class="text-[9px] text-slate-500 mt-2">0 active cooldowns</p>
             </div>
-            <div class="card p-6 rounded-2xl">
-                <h3 class="text-slate-400 text-[10px] font-bold uppercase mb-1 tracking-widest">7d Status</h3>
-                <p id="stat-7d" class="text-lg font-bold text-yellow-400 pt-3">Accumulating...</p>
+            <div class="card p-5 rounded-2xl">
+                <h3 class="text-slate-500 text-[10px] font-bold uppercase mb-3 tracking-widest text-blue-400">Rolling 7d</h3>
+                <p id="stat-7d" class="text-3xl font-bold text-white leading-none">--</p>
+                <p id="days-7d" class="text-[9px] text-slate-500 mt-2 italic">Accumulating...</p>
             </div>
-            <div class="card p-6 rounded-2xl">
-                <h3 class="text-slate-400 text-[10px] font-bold uppercase mb-1 tracking-widest">30d Status</h3>
-                <p id="stat-30d" class="text-lg font-bold text-blue-400 pt-3">Day 1 / 30</p>
+            <div class="card p-5 rounded-2xl">
+                <h3 class="text-slate-500 text-[10px] font-bold uppercase mb-3 tracking-widest text-purple-400">Rolling 30d</h3>
+                <p id="stat-30d" class="text-3xl font-bold text-white leading-none">--</p>
+                <p id="days-30d" class="text-[9px] text-slate-500 mt-2 italic">Accumulating...</p>
             </div>
         </div>
 
-        <section class="grid grid-cols-1 md:grid-cols-2 gap-12">
-            <div>
-                <h2 class="text-xl font-semibold mb-6">Model Distribution</h2>
-                <div class="space-y-6">
-                    <div>
-                        <div class="flex justify-between text-xs mb-1"><span class="text-slate-400 uppercase font-bold text-[10px]">Tier 2 (Gemini Flash)</span><span id="label-flash" class="text-white">0</span></div>
-                        <div class="h-1.5 bg-slate-800 rounded-full"><div id="bar-flash" class="h-full bg-blue-500 rounded-full" style="width: 0%"></div></div>
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <!-- Left: Model Distribution Chart -->
+            <div class="lg:col-span-2 space-y-8">
+                <div class="card p-6 rounded-3xl h-full">
+                    <div class="flex justify-between items-center mb-8">
+                        <h2 class="text-lg font-bold text-white tracking-tight">Model Distribution (7D)</h2>
+                        <div class="flex gap-4 text-[10px] font-bold">
+                            <div class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-blue-500"></span> FLASH</div>
+                            <div class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-purple-500"></span> PRO</div>
+                            <div class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-emerald-500"></span> COPILOT</div>
+                        </div>
                     </div>
-                    <div>
-                        <div class="flex justify-between text-xs mb-1"><span class="text-slate-400 uppercase font-bold text-[10px]">Tier 1 (Copilot)</span><span id="label-copilot" class="text-white">0</span></div>
-                        <div class="h-1.5 bg-slate-800 rounded-full"><div id="bar-copilot" class="h-full bg-emerald-500 rounded-full" style="width: 0%"></div></div>
-                    </div>
-                    <div>
-                        <div class="flex justify-between text-xs mb-1"><span class="text-slate-400 uppercase font-bold text-[10px]">Tier 3 (Gemini Pro)</span><span id="label-pro" class="text-white">0</span></div>
-                        <div class="h-1.5 bg-slate-800 rounded-full"><div id="bar-pro" class="h-full bg-purple-500 rounded-full" style="width: 0%"></div></div>
-                    </div>
-                    <div>
-                        <div class="flex justify-between text-xs mb-1"><span class="text-slate-400 uppercase font-bold text-[10px]">Local Brain (Qwen)</span><span id="label-local" class="text-white">0</span></div>
-                        <div class="h-1.5 bg-slate-800 rounded-full"><div id="bar-local" class="h-full bg-slate-500 rounded-full" style="width: 0%"></div></div>
+                    <div class="h-[300px] w-full">
+                        <canvas id="modelChart"></canvas>
                     </div>
                 </div>
             </div>
-            <div>
-                <h2 class="text-xl font-semibold mb-6">Recent System Pulse</h2>
-                <div id="system-log" class="space-y-3">
-                    <div class="card p-3 rounded-lg text-[11px]">
-                        <span class="text-blue-400 font-mono">22:00</span> - Restoration of Time-Series Visuals
-                    </div>
-                    <div class="card p-3 rounded-lg text-[11px]">
-                        <span class="text-emerald-400 font-mono">21:23</span> - Website ChatWidget Deployed
-                    </div>
-                    <div class="card p-3 rounded-lg text-[11px]">
-                        <span class="text-yellow-400 font-mono">19:01</span> - Safe Local Brain Worker Operational
-                    </div>
-                </div>
-            </div>
-        </section>
 
-        <footer class="mt-20 text-center text-slate-600 text-[10px] uppercase tracking-widest">
-            <p>Last Sync: <span id="last-update">...</span></p>
+            <!-- Right: System Pulse -->
+            <div class="space-y-6">
+                <h2 class="text-sm font-bold text-slate-400 uppercase tracking-widest ml-1">Live Pulse</h2>
+                <div id="system-log" class="space-y-2 overflow-y-auto max-h-[420px] pr-2">
+                    <!-- Items will be injected here -->
+                    <div class="text-center py-10 text-slate-600 italic text-xs">Waiting for pulse data...</div>
+                </div>
+            </div>
+        </div>
+
+        <footer class="mt-20 flex justify-between items-center px-2 py-8 border-t border-slate-900">
+            <p class="text-slate-600 text-[10px] uppercase font-bold tracking-[0.2em]">Sync: <span id="last-update" class="text-slate-400">...</span></p>
+            <p class="text-slate-700 text-[10px]">&copy; 2026 Ben Fox Operational Unit</p>
         </footer>
     </div>
+
     <script>
+        let chartInstance = null;
+
         async function updateDashboard() {
             try {
                 const url = 'https://benfoxsb.github.io/status/vitals.json?nocache=' + Date.now();
                 const response = await fetch(url);
                 const data = await response.json();
                 
-                const win24 = data.windows['24h'];
-                document.getElementById('stat-success').innerText = win24.success || 0;
-                document.getElementById('stat-fail').innerText = win24.fail || 0;
+                // 1. TOP CARDS
+                const w24 = data.windows['24h'];
+                const w7 = data.windows['7d'];
+                const w30 = data.windows['30d'];
+
+                document.getElementById('stat-success').innerText = w24.success;
+                document.getElementById('stat-fail').innerText = w24.fail;
+                document.getElementById('label-cooldowns').innerText = `${w24.cooldowns || 0} active cooldowns`;
                 
-                const usage = win24.usage;
-                const total = usage.flash + usage.pro + usage.copilot + usage.local;
+                const total24 = w24.success + w24.fail;
+                document.getElementById('bar-24h').style.width = total24 > 0 ? (w24.success / total24 * 100) + '%' : '0%';
+
+                document.getElementById('stat-7d').innerText = w7.success;
+                document.getElementById('days-7d').innerText = `Based on last ${w7.days} days`;
                 
-                if (total > 0) {
-                    const updateBar = (id, val) => {
-                        const pct = Math.round((val / total) * 100);
-                        document.getElementById('bar-' + id).style.width = pct + '%';
-                        document.getElementById('label-' + id).innerText = pct + '%';
-                    };
-                    updateBar('flash', usage.flash);
-                    updateBar('pro', usage.pro);
-                    updateBar('copilot', usage.copilot);
-                    updateBar('local', usage.local);
+                document.getElementById('stat-30d').innerText = w30.success;
+                document.getElementById('days-30d').innerText = `Based on last ${w30.days} days`;
+
+                // 2. CHART
+                renderChart(data.history);
+
+                // 3. PULSE
+                const pulseContainer = document.getElementById('system-log');
+                if (data.pulse && data.pulse.length > 0) {
+                    pulseContainer.innerHTML = data.pulse.reverse().map(item => `
+                        <div class="card p-3 rounded-xl border-l-2 border-l-blue-500/50 flex justify-between items-center group">
+                            <div class="flex flex-col">
+                                <span class="text-[10px] text-slate-500 font-mono leading-none mb-1">${item.time}</span>
+                                <span class="text-[11px] text-slate-200 font-medium">Task Completed</span>
+                            </div>
+                            <span class="text-[9px] font-bold text-slate-500 group-hover:text-blue-400 transition-colors">${item.model || 'AGENT'}</span>
+                        </div>
+                    `).join('');
                 }
 
                 document.getElementById('last-update').innerText = new Date(data.updated).toLocaleTimeString();
             } catch (e) {
-                console.error("Restoration failed", e);
+                console.error("Dashboard sync failed", e);
             }
         }
+
+        function renderChart(history) {
+            const ctx = document.getElementById('modelChart').getContext('2d');
+            
+            const labels = history.map(d => d.date.split('-').slice(1).join('/'));
+            const flashData = history.map(d => d.flash);
+            const proData = history.map(d => d.pro);
+            const copilotData = history.map(d => d.copilot);
+            const localData = history.map(d => d.local);
+
+            if (chartInstance) chartInstance.destroy();
+
+            chartInstance = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: labels,
+                    datasets: [
+                        { label: 'Flash', data: flashData, backgroundColor: '#3b82f6', borderRadius: 4 },
+                        { label: 'Pro', data: proData, backgroundColor: '#a855f7', borderRadius: 4 },
+                        { label: 'Copilot', data: copilotData, backgroundColor: '#10b981', borderRadius: 4 },
+                        { label: 'Local', data: localData, backgroundColor: '#64748b', borderRadius: 4 }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        x: { stacked: true, grid: { display: false }, ticks: { color: '#64748b', font: { size: 10 } } },
+                        y: { stacked: true, grid: { color: '#1e293b' }, ticks: { color: '#64748b', font: { size: 10 } } }
+                    },
+                    plugins: {
+                        legend: { display: false }
+                    }
+                }
+            });
+        }
+
         updateDashboard();
-        setInterval(updateDashboard, 15000);
+        setInterval(updateDashboard, 30000);
     </script>
 </body>
 </html>
