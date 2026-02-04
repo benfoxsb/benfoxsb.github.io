@@ -49,10 +49,6 @@
             <div class="card p-4 rounded-2xl flex flex-col">
                 <div class="flex justify-between items-center mb-3">
                     <h3 class="text-slate-500 text-[10px] font-bold uppercase tracking-widest text-blue-400">7D Pulse Heatmap</h3>
-                    <div class="flex gap-3 text-[8px] font-bold">
-                        <div class="flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span> SUCCESS</div>
-                        <div class="flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-red-500"></span> FAIL</div>
-                    </div>
                 </div>
                 <div id="heatmap-container" class="grid grid-cols-7 gap-1 flex-grow">
                     <!-- Heatmap cells injected here -->
@@ -90,15 +86,13 @@
                     </div>
                 </div>
 
+                <!-- Status Grid (Injected) -->
+                <div id="cooldown-status" class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8"></div>
+
                 <h2 class="text-2xl font-bold text-white tracking-tight mb-6 ml-1">Model Distribution</h2>
                 <div class="card p-6 rounded-3xl grow flex flex-col">
-                    <div class="flex flex-wrap gap-x-4 gap-y-2 text-[9px] font-bold justify-center mb-6 border-b border-slate-800 pb-4">
-                        <div class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-[#3b82f6]"></span> GEMINI FLASH</div>
-                        <div class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-[#a855f7]"></span> GEMINI PRO</div>
-                        <div class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-[#10b981]"></span> GPT-5-MINI</div>
-                        <div class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-[#f43f5e]"></span> CLAUDE OPUS</div>
-                        <div class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-[#f59e0b]"></span> CLAUDE SONNET</div>
-                        <div class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-[#64748b]"></span> LOCAL QWEN</div>
+                    <div id="dynamic-legend" class="flex flex-wrap gap-x-4 gap-y-2 text-[9px] font-bold justify-center mb-6 border-b border-slate-800 pb-4">
+                        <!-- Dynamic Legends Injected Here -->
                     </div>
                     <div class="grow w-full relative">
                         <canvas id="modelChart"></canvas>
@@ -125,6 +119,22 @@
     <script>
         let chartInstance = null;
 
+        function getLocalYMD(d) {
+            // Use America/Los_Angeles to match user context
+            return d.toLocaleDateString('en-CA', { timeZone: 'America/Los_Angeles' });
+        }
+
+        function getLast7Dates() {
+            const dates = [];
+            const now = new Date();
+            for (let i = 6; i >= 0; i--) {
+                const d = new Date(now);
+                d.setDate(d.getDate() - i);
+                dates.push(getLocalYMD(d));
+            }
+            return dates;
+        }
+
         async function updateDashboard() {
             try {
                 const url = 'https://benfoxsb.github.io/status/vitals.json?nocache=' + Date.now();
@@ -149,21 +159,39 @@
 
                 // 1.5 COOLDOWNS
                 const cdContainer = document.getElementById('cooldown-status');
-                const cds = data.windows['24h'].cooldown_list || [
-                    { name: 'Claude Opus', status: 'Ready', color: 'text-emerald-400' },
-                    { name: 'Claude Sonnet', status: 'Ready', color: 'text-emerald-400' },
-                    { name: 'Gemini Pro', status: 'Ready', color: 'text-emerald-400' },
-                    { name: 'GPT-5 Mini', status: 'Ready', color: 'text-emerald-400' }
+                if (cdContainer) {
+                    const cds = data.windows['24h'].cooldown_list || [];
+                    cdContainer.innerHTML = cds.map(cd => `
+                        <div class="card p-3 rounded-xl border border-slate-800/50 flex flex-col items-center justify-center text-center bg-[#111625]">
+                            <span class="text-[8px] font-bold text-slate-500 uppercase tracking-widest mb-1">${cd.name}</span>
+                            <span class="text-[10px] font-black ${cd.color} tracking-tighter">${cd.status}</span>
+                        </div>
+                    `).join('');
+                }
+
+                // 1.6 DYNAMIC LEGENDS
+                const legendContainer = document.getElementById('dynamic-legend');
+                const modelConfig = [
+                    { key: 'flash', label: 'GEMINI FLASH', color: '#3b82f6' },
+                    { key: 'pro', label: 'GEMINI PRO', color: '#a855f7' },
+                    { key: 'copilot', label: 'GPT-5-MINI', color: '#10b981' },
+                    { key: 'opus', label: 'CLAUDE OPUS', color: '#f43f5e' },
+                    { key: 'sonnet', label: 'CLAUDE SONNET', color: '#f59e0b' },
+                    { key: 'local', label: 'LOCAL QWEN', color: '#64748b' },
+                    { key: 'deepseek', label: 'LOCAL DEEPSEEK', color: '#ec4899' }
                 ];
-                cdContainer.innerHTML = cds.map(cd => `
-                    <div class="card p-3 rounded-xl border border-slate-800/50 flex flex-col items-center justify-center text-center bg-[#111625]">
-                        <span class="text-[8px] font-bold text-slate-500 uppercase tracking-widest mb-1">${cd.name}</span>
-                        <span class="text-[10px] font-black ${cd.color} tracking-tighter">${cd.status}</span>
-                    </div>
+                
+                // Show if data exists in 7d usage
+                const activeModels = modelConfig.filter(m => (w7.usage[m.key] || 0) > 0);
+                // Fallback to defaults if none active to avoid empty header
+                const displayModels = activeModels.length > 0 ? activeModels : modelConfig.slice(0,3);
+                
+                legendContainer.innerHTML = displayModels.map(m => `
+                    <div class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full" style="background-color: ${m.color}"></span> ${m.label}</div>
                 `).join('');
 
                 // 2. HEATMAP
-                renderHeatmap(data.heatmap);
+                renderHeatmap(data.heatmap, data.history);
 
                 // 3. CHART
                 renderChart(data.history);
@@ -172,13 +200,15 @@
                 const pulseContainer = document.getElementById('system-log');
                 if (data.pulse && data.pulse.length > 0) {
                     let lastDate = "";
-                    const today = new Date().toISOString().split('T')[0];
-                    const yesterday = new Date(Date.now() - 86400000).toISOString().split('T')[0];
+                    const today = getLocalYMD(new Date());
+                    // yesterday logic
+                    const yD = new Date(); yD.setDate(yD.getDate() - 1);
+                    const yesterday = getLocalYMD(yD);
                     
                     const sortedPulse = data.pulse.sort((a, b) => {
                         if (a.date !== b.date) return b.date.localeCompare(a.date);
                         return b.time.localeCompare(a.time);
-                    }); // Removed slice to allow full list scroll
+                    });
                     
                     pulseContainer.innerHTML = sortedPulse.map(item => {
                         let header = "";
@@ -186,58 +216,46 @@
                             let label = item.date;
                             if (item.date === today) label = 'Today';
                             else if (item.date === yesterday) label = 'Yesterday';
-                            header = `<div class="text-[9px] font-bold text-slate-600 uppercase tracking-[0.2em] mt-2 mb-2 ml-1">${label}</div>`;
+                            header = `<div class="text-[9px] font-bold text-slate-600 uppercase tracking-[0.2em] mt-4 mb-2 ml-1">${label}</div>`;
                             lastDate = item.date;
                         }
                         
-                        // Use a more realistic time if it's 00:00 (since memory doesn't have time)
                         const displayTime = item.time === "00:00" ? "09:00" : item.time;
 
-                        // Map model to specific theme colors matching the distribution chart
                         const modelThemes = {
-                            // Gemini Flash (Blue)
                             'GEMINI-3-FLASH': { time: "text-blue-400", text: "text-blue-100/90", border: "border-blue-500/20" },
                             'GEMINI-FLASH': { time: "text-blue-400", text: "text-blue-100/90", border: "border-blue-500/20" },
-                            
-                            // Gemini Pro (Purple)
                             'GEMINI-3-PRO-HIGH': { time: "text-purple-400", text: "text-purple-100/90", border: "border-purple-500/20" },
                             'GEMINI-3-PRO-LOW': { time: "text-purple-400", text: "text-purple-100/90", border: "border-purple-500/20" },
                             'GEMINI-PRO': { time: "text-purple-400", text: "text-purple-100/90", border: "border-purple-500/20" },
-                            
-                            // GPT-5 Mini (Emerald)
                             'GPT-5-MINI': { time: "text-emerald-400", text: "text-emerald-100/90", border: "border-emerald-500/20" },
                             'COPILOT': { time: "text-emerald-400", text: "text-emerald-100/90", border: "border-emerald-500/20" },
-                            
-                            // Claude Opus (Rose)
                             'CLAUDE-OPUS-4-5-THINKING': { time: "text-rose-400", text: "text-rose-100/90", border: "border-rose-500/20" },
                             'CLAUDE-OPUS': { time: "text-rose-400", text: "text-rose-100/90", border: "border-rose-500/20" },
-                            
-                            // Claude Sonnet (Amber)
                             'CLAUDE-SONNET-4-5': { time: "text-amber-400", text: "text-amber-100/90", border: "border-amber-500/20" },
                             'CLAUDE-SONNET': { time: "text-amber-400", text: "text-amber-100/90", border: "border-amber-500/20" },
-                            
-                            // Local Qwen (Slate)
                             'QWEN': { time: "text-slate-400", text: "text-slate-100/90", border: "border-slate-500/20" },
                             'LOCAL': { time: "text-slate-400", text: "text-slate-100/90", border: "border-slate-500/20" },
-                            
+                            'DEEPSEEK': { time: "text-pink-400", text: "text-pink-100/90", border: "border-pink-500/20" },
                             'AGENT': { time: "text-blue-400", text: "text-blue-100/90", border: "border-slate-800" }
                         };
                         
-                        const modelKey = item.model.toUpperCase();
+                        const modelKey = (item.model || 'AGENT').toUpperCase();
                         const theme = modelThemes[modelKey] || modelThemes['AGENT'];
 
+                        // Improved mobile layout: flex-wrap + min-width handling
                         return `
                             ${header}
-                            <div class="card p-4 rounded-xl border ${theme.border} flex justify-between items-center group bg-[#1a2035]">
-                                <div class="flex items-center gap-3">
-                                    <div class="flex flex-col">
+                            <div class="card p-3 md:p-4 rounded-xl border ${theme.border} flex flex-col sm:flex-row justify-between sm:items-center gap-2 sm:gap-4 group bg-[#1a2035]">
+                                <div class="flex items-center gap-3 w-full min-w-0">
+                                    <div class="flex flex-col shrink-0">
                                         <span class="text-xs font-mono font-bold ${theme.time}">${displayTime}</span>
-                                        <span class="text-[7px] font-black uppercase tracking-tighter ${theme.time} opacity-70 mt-0.5">${item.model.split('-').slice(-1)[0]}</span>
+                                        <span class="text-[7px] font-black uppercase tracking-tighter ${theme.time} opacity-70 mt-0.5">${(item.model || 'AGENT').split('-').slice(-1)[0]}</span>
                                     </div>
-                                    <span class="text-slate-500 font-bold">—</span>
-                                    <span class="text-[11px] ${theme.text} font-medium truncate max-w-[200px]">${item.summary}</span>
+                                    <span class="text-slate-500 font-bold hidden sm:inline">—</span>
+                                    <span class="text-[11px] ${theme.text} font-medium truncate flex-1 min-w-0">${item.summary}</span>
                                 </div>
-                                <span class="text-[9px] font-black text-slate-600 bg-slate-900/50 px-2 py-0.5 rounded border border-slate-800 group-hover:text-blue-400 transition-colors uppercase tracking-tighter shrink-0 ml-2">${item.model || 'AGENT'}</span>
+                                <span class="self-end sm:self-auto text-[9px] font-black text-slate-600 bg-slate-900/50 px-2 py-0.5 rounded border border-slate-800 group-hover:text-blue-400 transition-colors uppercase tracking-tighter shrink-0">${item.model || 'AGENT'}</span>
                             </div>
                         `;
                     }).join('');
@@ -249,21 +267,40 @@
             }
         }
 
-        function renderHeatmap(heatmap) {
+        function renderHeatmap(heatmap, history) {
             const container = document.getElementById('heatmap-container');
             container.innerHTML = '';
             
+            const last7 = getLast7Dates();
+            
+            // Map dates to heatmap data
+            // We use history to link dates to heatmap indices if available
+            // If history is missing/empty, we can't reliably map, but we'll try to align right
+            const dateToHeatmap = {};
+            if (history && heatmap && Array.isArray(history)) {
+                history.forEach((h, i) => {
+                    if (heatmap[i]) {
+                        dateToHeatmap[h.date] = heatmap[i];
+                    }
+                });
+            }
+
             // 7 Columns (Days) x 24 Rows (Hours)
-            for (let day = 0; day < 7; day++) {
-                const dayData = heatmap[day] || { success: {}, fail: {} };
+            last7.forEach(date => {
+                const dayData = dateToHeatmap[date] || { success: {}, fail: {} };
                 const dayCol = document.createElement('div');
-                dayCol.className = 'flex flex-col gap-0.5';
+                dayCol.className = 'flex flex-col gap-0.5 w-full'; // Added w-full
                 
                 for (let hour = 0; hour < 24; hour++) {
-                    // Fix: JSON keys for hours are strings like "09" not numbers like 9
-                    const hrKey = hour.toString().padStart(2, '0');
-                    const sCount = parseInt(dayData.success[hrKey] || 0);
-                    const fCount = parseInt(dayData.fail[hrKey] || 0);
+                    const hrKeyPadded = hour.toString().padStart(2, '0');
+                    const hrKeySimple = hour.toString();
+                    
+                    const sObj = dayData.success || {};
+                    const fObj = dayData.fail || {};
+
+                    const sCount = parseInt(sObj[hrKeyPadded] || sObj[hrKeySimple] || 0);
+                    const fCount = parseInt(fObj[hrKeyPadded] || fObj[hrKeySimple] || 0);
+                    
                     const cell = document.createElement('div');
                     
                     let colorClass = 'bg-slate-800/50';
@@ -271,23 +308,36 @@
                     else if (sCount > 0) colorClass = 'bg-emerald-400';
                     
                     cell.className = `w-full h-1 rounded-[1px] ${colorClass}`;
-                    cell.title = `${hrKey}:00 — Success: ${sCount}, Fail: ${fCount}`;
+                    cell.title = `${date} ${hrKeyPadded}:00 — Success: ${sCount}, Fail: ${fCount}`;
                     dayCol.appendChild(cell);
                 }
                 container.appendChild(dayCol);
-            }
+            });
         }
 
         function renderChart(history) {
             const ctx = document.getElementById('modelChart').getContext('2d');
             
-            const labels = history.map(d => d.date.split('-').slice(1).join('/'));
-            const flashData = history.map(d => d.flash);
-            const proData = history.map(d => d.pro);
-            const copilotData = history.map(d => d.copilot);
-            const opusData = history.map(d => d.opus || 0);
-            const sonnetData = history.map(d => d.sonnet || 0);
-            const localData = history.map(d => d.local);
+            const last7 = getLast7Dates();
+            
+            // Normalize data to last 7 days (pad with 0)
+            const normalizedData = last7.map(date => {
+                const existing = (history || []).find(h => h.date === date);
+                if (existing) return existing;
+                return { 
+                    date: date, 
+                    flash: 0, pro: 0, copilot: 0, opus: 0, sonnet: 0, local: 0 
+                };
+            });
+
+            const labels = normalizedData.map(d => d.date.split('-').slice(1).join('/'));
+            const flashData = normalizedData.map(d => d.flash || 0);
+            const proData = normalizedData.map(d => d.pro || 0);
+            const copilotData = normalizedData.map(d => d.copilot || 0);
+            const opusData = normalizedData.map(d => d.opus || 0);
+            const sonnetData = normalizedData.map(d => d.sonnet || 0);
+            const localData = normalizedData.map(d => d.local || 0);
+            const deepseekData = normalizedData.map(d => d.deepseek || 0);
 
             if (chartInstance) chartInstance.destroy();
 
@@ -301,7 +351,8 @@
                         { label: 'GPT-5 Mini', data: copilotData, backgroundColor: '#10b981', borderRadius: 4 },
                         { label: 'Claude Opus', data: opusData, backgroundColor: '#f43f5e', borderRadius: 4 },
                         { label: 'Claude Sonnet', data: sonnetData, backgroundColor: '#f59e0b', borderRadius: 4 },
-                        { label: 'Local Qwen', data: localData, backgroundColor: '#64748b', borderRadius: 4 }
+                        { label: 'Local Qwen', data: localData, backgroundColor: '#64748b', borderRadius: 4 },
+                        { label: 'Local DeepSeek', data: deepseekData, backgroundColor: '#ec4899', borderRadius: 4 }
                     ]
                 },
                 options: {
