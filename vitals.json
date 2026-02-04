@@ -1,5 +1,5 @@
 {
-  "updated": "2026-02-04T20:35:47Z",
+  "updated": "2026-02-04T20:39:48Z",
   "windows": {
     "24h": {
       "date": "2026-02-04",
@@ -87,6 +87,14 @@
       "hash": "67aa62f",
       "url": "https://github.com/benfoxsb/benfoxsb.github.io/commit/67aa62f",
       "summary": "feat: move dashboard to root for direct benfoxsb.github.io serving"
+    },
+    {
+      "date": "2026-02-04",
+      "time": "12:35",
+      "project": "benfoxsb.github.io",
+      "hash": "3089bbb",
+      "url": "https://github.com/benfoxsb/benfoxsb.github.io/commit/3089bbb",
+      "summary": "data: focus pulse on code check-ins"
     },
     {
       "date": "2026-02-04",
@@ -183,14 +191,6 @@
       "hash": "ef83605",
       "url": "https://github.com/benfoxsb/benfoxsb.github.io/commit/ef83605",
       "summary": "ui: unified layout with multi-project pulse columns"
-    },
-    {
-      "date": "2026-02-04",
-      "time": "12:06",
-      "project": "benfoxsb.github.io",
-      "hash": "b4eba86",
-      "url": "https://github.com/benfoxsb/benfoxsb.github.io/commit/b4eba86",
-      "summary": "data: focus pulse on code check-ins"
     },
     {
       "date": "2026-02-03",
@@ -385,7 +385,7 @@
       "success": {
         "10": "5",
         "11": "11",
-        "12": "13"
+        "12": "14"
       },
       "fail": {
         "11": "2",
