@@ -1,5 +1,5 @@
 {
-  "updated": "2026-02-04T20:39:48Z",
+  "updated": "2026-02-04T20:45:23Z",
   "windows": {
     "24h": {
       "date": "2026-02-04",
@@ -80,6 +80,14 @@
     }
   ],
   "pulse": [
+    {
+      "date": "2026-02-04",
+      "time": "12:39",
+      "project": "benfoxsb.github.io",
+      "hash": "f9ac521",
+      "url": "https://github.com/benfoxsb/benfoxsb.github.io/commit/f9ac521",
+      "summary": "data: focus pulse on code check-ins"
+    },
     {
       "date": "2026-02-04",
       "time": "12:35",
@@ -183,14 +191,6 @@
       "hash": "089f1a2",
       "url": "https://github.com/benfoxsb/benfoxsb.github.io/commit/089f1a2",
       "summary": "data: focus pulse on code check-ins"
-    },
-    {
-      "date": "2026-02-04",
-      "time": "12:06",
-      "project": "benfoxsb.github.io",
-      "hash": "ef83605",
-      "url": "https://github.com/benfoxsb/benfoxsb.github.io/commit/ef83605",
-      "summary": "ui: unified layout with multi-project pulse columns"
     },
     {
       "date": "2026-02-03",
@@ -385,7 +385,7 @@
       "success": {
         "10": "5",
         "11": "11",
-        "12": "14"
+        "12": "15"
       },
       "fail": {
         "11": "2",
@@ -414,19 +414,19 @@
     },
     {
       "id": "sonnet",
-      "name": "Claude Sonnet",
+      "name": "AG Claude Sonnet",
       "quota_id": "ag_rl",
       "rl_id": "ag_rl"
     },
     {
       "id": "copilot",
-      "name": "Copilot",
+      "name": "CP GPT-5-Mini",
       "quota_id": "",
       "rl_id": ""
     },
     {
       "id": "local",
-      "name": "Local Qwen",
+      "name": "LC Qwen",
       "quota_id": "",
       "rl_id": ""
     }
