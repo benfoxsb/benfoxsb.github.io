@@ -1,5 +1,5 @@
 {
-  "updated": "2026-02-04T21:55:54Z",
+  "updated": "2026-02-04T22:11:16Z",
   "windows": {
     "24h": {
       "date": "2026-02-04",
@@ -80,6 +80,15 @@
     }
   ],
   "pulse": [
+    {
+      "date": "2026-02-04",
+      "time": "13:55",
+      "project": "benfoxsb.github.io",
+      "hash": "3abd67e",
+      "url": "https://github.com/benfoxsb/benfoxsb.github.io/commit/3abd67e",
+      "summary": "data: focus pulse on code check-ins",
+      "model": "GC-GEMINI-3-FLASH-PREVIEW"
+    },
     {
       "date": "2026-02-04",
       "time": "13:40",
@@ -194,15 +203,6 @@
       "project": "benfoxsb.github.io",
       "hash": "5f03f94",
       "url": "https://github.com/benfoxsb/benfoxsb.github.io/commit/5f03f94",
-      "summary": "data: focus pulse on code check-ins",
-      "model": "AG-GEMINI-3-FLASH"
-    },
-    {
-      "date": "2026-02-04",
-      "time": "12:39",
-      "project": "benfoxsb.github.io",
-      "hash": "f9ac521",
-      "url": "https://github.com/benfoxsb/benfoxsb.github.io/commit/f9ac521",
       "summary": "data: focus pulse on code check-ins",
       "model": "AG-GEMINI-3-FLASH"
     },
@@ -415,7 +415,7 @@
         "10": "5",
         "11": "11",
         "12": "19",
-        "13": "8"
+        "13": "10"
       },
       "fail": {
         "11": "2",
