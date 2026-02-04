@@ -1,5 +1,5 @@
 {
-  "updated": "2026-02-04T21:12:20Z",
+  "updated": "2026-02-04T21:16:27Z",
   "windows": {
     "24h": {
       "date": "2026-02-04",
@@ -87,6 +87,15 @@
       "hash": "52a362b",
       "url": "https://github.com/benfoxsb/benfoxsb.github.io/commit/52a362b",
       "summary": "ui: implement collapsible day grouping and model color coding for pulse",
+      "model": "AG-GEMINI-3-FLASH"
+    },
+    {
+      "date": "2026-02-04",
+      "time": "13:12",
+      "project": "benfoxsb.github.io",
+      "hash": "3c45aa0",
+      "url": "https://github.com/benfoxsb/benfoxsb.github.io/commit/3c45aa0",
+      "summary": "data: focus pulse on code check-ins",
       "model": "AG-GEMINI-3-FLASH"
     },
     {
@@ -195,15 +204,6 @@
       "hash": "ade646b",
       "url": "https://github.com/benfoxsb/benfoxsb.github.io/commit/ade646b",
       "summary": "feat: move dashboard to /site and configure root deployment",
-      "model": "AG-GEMINI-3-FLASH"
-    },
-    {
-      "date": "2026-02-04",
-      "time": "12:24",
-      "project": "benfoxsb.github.io",
-      "hash": "83357e7",
-      "url": "https://github.com/benfoxsb/benfoxsb.github.io/commit/83357e7",
-      "summary": "data: focus pulse on code check-ins",
       "model": "AG-GEMINI-3-FLASH"
     },
     {
@@ -415,7 +415,7 @@
         "10": "5",
         "11": "11",
         "12": "19",
-        "13": "2"
+        "13": "3"
       },
       "fail": {
         "11": "2",
