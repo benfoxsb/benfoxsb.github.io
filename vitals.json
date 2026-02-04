@@ -1,5 +1,5 @@
 {
-  "updated": "2026-02-04T19:25:37Z",
+  "updated": "2026-02-04T19:27:02Z",
   "windows": {
     "24h": {
       "date": "2026-02-04",
@@ -82,9 +82,27 @@
   "pulse": [
     {
       "date": "2026-02-04",
+      "time": "11:25",
+      "model": "AGENT",
+      "summary": "data: recover historical heatmap and improve pulse summaries"
+    },
+    {
+      "date": "2026-02-04",
+      "time": "11:24",
+      "model": "AGENT",
+      "summary": "data: fix timestamps and heatmap gaps"
+    },
+    {
+      "date": "2026-02-04",
       "time": "11:24",
       "model": "AGENT",
       "summary": "Request: I was hoping you could use the vitals Jason from check in in your GitHub from a"
+    },
+    {
+      "date": "2026-02-04",
+      "time": "11:20",
+      "model": "AGENT",
+      "summary": "data: fix timestamps and heatmap gaps"
     },
     {
       "date": "2026-02-04",
@@ -94,45 +112,39 @@
     },
     {
       "date": "2026-02-04",
+      "time": "11:08",
+      "model": "AGENT",
+      "summary": "data: ensure data persistence across log clearing"
+    },
+    {
+      "date": "2026-02-04",
+      "time": "10:58",
+      "model": "AGENT",
+      "summary": "data: implement log persistence and monotonic history updates"
+    },
+    {
+      "date": "2026-02-04",
+      "time": "10:58",
+      "model": "AGENT",
+      "summary": "data: ensure data persistence across log clearing"
+    },
+    {
+      "date": "2026-02-04",
       "time": "10:57",
       "model": "AGENT",
       "summary": "Request: I just noticed that the data collector may have reset it the whole data It look"
     },
     {
       "date": "2026-02-04",
+      "time": "10:53",
+      "model": "AGENT",
+      "summary": "data: model-specific cooldown timers"
+    },
+    {
+      "date": "2026-02-04",
       "time": "10:42",
       "model": "AGENT",
       "summary": "Request: The dashboard looks great Use the space in the operations card to list the acti"
-    },
-    {
-      "date": "2026-02-04",
-      "time": "10:38",
-      "model": "AGENT",
-      "summary": "Request: "
-    },
-    {
-      "date": "2026-02-04",
-      "time": "09:00",
-      "model": "AG-GEMINI-3-FLASH",
-      "summary": "Visual Alignment:"
-    },
-    {
-      "date": "2026-02-04",
-      "time": "09:00",
-      "model": "AG-GEMINI-3-FLASH",
-      "summary": "Tier 3 Verification:"
-    },
-    {
-      "date": "2026-02-04",
-      "time": "09:00",
-      "model": "AG-GEMINI-3-FLASH",
-      "summary": "Data Engineering:"
-    },
-    {
-      "date": "2026-02-04",
-      "time": "09:00",
-      "model": "AG-GEMINI-3-FLASH",
-      "summary": "Dashboard Upgrade:"
     }
   ],
   "heatmap": [
