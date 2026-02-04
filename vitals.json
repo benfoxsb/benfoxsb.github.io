@@ -1,5 +1,5 @@
 {
-  "updated": "2026-02-04T23:32:55Z",
+  "updated": "2026-02-04T23:33:36Z",
   "windows": {
     "24h": {
       "date": "2026-02-04",
@@ -7,14 +7,14 @@
       "fail": 20,
       "ag_flash": 82,
       "ag_pro": 9,
-      "gcli_flash": 22,
+      "gcli_flash": 23,
       "gcli_pro": 0,
       "copilot": 6,
       "local": 0,
       "opus": 0,
       "sonnet": 4,
       "cooldowns": 3,
-      "quotas": 8,
+      "quotas": 10,
       "timers": {
         "ag_rl": "0.0",
         "ag_quota": "0.9",
@@ -29,7 +29,7 @@
       "usage": {
         "ag_flash": 203,
         "ag_pro": 22,
-        "gcli_flash": 22,
+        "gcli_flash": 23,
         "gcli_pro": 0,
         "copilot": 55,
         "local": 0,
@@ -45,7 +45,7 @@
       "usage": {
         "ag_flash": 203,
         "ag_pro": 22,
-        "gcli_flash": 22,
+        "gcli_flash": 23,
         "gcli_pro": 0,
         "copilot": 55,
         "local": 0,
@@ -71,7 +71,7 @@
       "fail": 20,
       "ag_flash": 82,
       "ag_pro": 9,
-      "gcli_flash": 22,
+      "gcli_flash": 23,
       "gcli_pro": 0,
       "copilot": 6,
       "local": 0,
@@ -80,6 +80,15 @@
     }
   ],
   "pulse": [
+    {
+      "date": "2026-02-04",
+      "time": "15:32",
+      "project": "benfoxsb.github.io",
+      "hash": "e2ae92d",
+      "url": "https://github.com/benfoxsb/benfoxsb.github.io/commit/e2ae92d",
+      "summary": "data: role-based model icons and PST alignment",
+      "model": "GC-GEMINI-3-FLASH-PREVIEW"
+    },
     {
       "date": "2026-02-04",
       "time": "15:18",
@@ -196,15 +205,6 @@
       "url": "https://github.com/benfoxsb/benfoxsb.github.io/commit/3abd67e",
       "summary": "data: focus pulse on code check-ins",
       "model": "GC-GEMINI-3-FLASH-PREVIEW"
-    },
-    {
-      "date": "2026-02-04",
-      "time": "13:40",
-      "project": "benfoxsb.github.io",
-      "hash": "0e65c50",
-      "url": "https://github.com/benfoxsb/benfoxsb.github.io/commit/0e65c50",
-      "summary": "data: focus pulse on code check-ins",
-      "model": "AG-GEMINI-3-FLASH"
     },
     {
       "date": "2026-02-03",
@@ -417,14 +417,14 @@
         "12": "19",
         "13": "10",
         "14": "13",
-        "15": "9"
+        "15": "10"
       },
       "fail": {
         "11": "2",
         "12": "4",
         "13": "2",
         "14": "4",
-        "15": "4"
+        "15": "6"
       }
     }
   ],
@@ -439,15 +439,6 @@
       "rl_id": "ag_rl"
     },
     {
-      "id": "sonnet",
-      "name": "Antigravity Claude Sonnet 4.5",
-      "display": "AG SONNET",
-      "role": "Complex Reasoning",
-      "icon": "🧠",
-      "quota_id": "ag_rl",
-      "rl_id": "ag_rl"
-    },
-    {
       "id": "gcli_flash",
       "name": "Gemini CLI Flash",
       "display": "GC FLASH",
@@ -457,11 +448,20 @@
       "rl_id": "gcli_rl"
     },
     {
+      "id": "sonnet",
+      "name": "Antigravity Claude Sonnet 4.5",
+      "display": "AG SONNET",
+      "role": "Complex Reasoning",
+      "icon": "🔬",
+      "quota_id": "ag_rl",
+      "rl_id": "ag_rl"
+    },
+    {
       "id": "ag_pro",
       "name": "Antigravity Gemini 3 Pro",
       "display": "AG PRO",
       "role": "Vision & Audit",
-      "icon": "🔬",
+      "icon": "👁️",
       "quota_id": "ag_quota",
       "rl_id": "ag_rl"
     },
