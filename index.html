@@ -17,7 +17,7 @@
         <header class="flex justify-between items-center mb-12">
             <div>
                 <h1 class="text-3xl font-bold text-white mb-2">Ben Fox AI Dashboard 🦊</h1>
-                <p class="text-slate-400">Live system wellness and model metrics</p>
+                <p class="text-slate-400 text-sm">Real-time system wellness (24h Window)</p>
             </div>
             <div id="online-pulse" class="flex items-center gap-2 px-4 py-2 rounded-full bg-green-500/10 border border-green-500/20 text-green-400 text-sm">
                 <span class="w-2 h-2 rounded-full bg-green-500 pulse"></span>
@@ -27,21 +27,20 @@
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
             <div class="card p-6 rounded-2xl">
-                <h3 class="text-slate-400 text-sm font-medium mb-1">Total Success</h3>
+                <h3 class="text-slate-400 text-xs font-bold uppercase mb-1 tracking-widest">Success (24h)</h3>
                 <p id="stat-success" class="text-4xl font-bold text-white">--</p>
             </div>
             <div class="card p-6 rounded-2xl">
-                <h3 class="text-slate-400 text-sm font-medium mb-1">Throttles (429)</h3>
-                <p id="stat-quotas" class="text-4xl font-bold text-red-400">--</p>
+                <h3 class="text-slate-400 text-xs font-bold uppercase mb-1 tracking-widest">Fail (24h)</h3>
+                <p id="stat-fail" class="text-4xl font-bold text-red-400">--</p>
             </div>
             <div class="card p-6 rounded-2xl">
-                <h3 class="text-slate-400 text-sm font-medium mb-1">Active Cooldowns</h3>
-                <p id="stat-cooldowns" class="text-4xl font-bold text-yellow-400">--</p>
+                <h3 class="text-slate-400 text-xs font-bold uppercase mb-1 tracking-widest">7d Status</h3>
+                <p id="stat-7d" class="text-lg font-bold text-yellow-400 pt-3">Accumulating...</p>
             </div>
             <div class="card p-6 rounded-2xl">
-                <h3 class="text-slate-400 text-sm font-medium mb-1">Local Efficiency</h3>
-                <p class="text-4xl font-bold text-blue-400">32k</p>
-                <p class="text-[10px] text-slate-500 uppercase mt-1">Qwen 2.5 Coder</p>
+                <h3 class="text-slate-400 text-xs font-bold uppercase mb-1 tracking-widest">30d Status</h3>
+                <p id="stat-30d" class="text-lg font-bold text-blue-400 pt-3">Day 1 / 30</p>
             </div>
         </div>
 
@@ -50,34 +49,23 @@
                 <h2 class="text-xl font-semibold mb-6">Model Distribution</h2>
                 <div class="space-y-4">
                     <div>
-                        <div class="flex justify-between text-xs mb-1"><span class="text-slate-400 uppercase">Tier 2 (Flash)</span><span id="label-flash" class="text-white">0</span></div>
-                        <div class="h-2 bg-slate-800 rounded-full"><div id="bar-flash" class="h-full bg-blue-500 rounded-full" style="width: 0%"></div></div>
+                        <div class="flex justify-between text-xs mb-1"><span class="text-slate-400 uppercase tracking-tighter font-bold text-[10px]">Tier 2 (Gemini Flash)</span><span id="label-flash" class="text-white">0</span></div>
+                        <div class="h-1.5 bg-slate-800 rounded-full"><div id="bar-flash" class="h-full bg-blue-500 rounded-full" style="width: 0%"></div></div>
                     </div>
                     <div>
-                        <div class="flex justify-between text-xs mb-1"><span class="text-slate-400 uppercase">Tier 1 (Copilot)</span><span id="label-copilot" class="text-white">0</span></div>
-                        <div class="h-2 bg-slate-800 rounded-full"><div id="bar-copilot" class="h-full bg-emerald-500 rounded-full" style="width: 0%"></div></div>
-                    </div>
-                    <div>
-                        <div class="flex justify-between text-xs mb-1"><span class="text-slate-400 uppercase">Tier 3 (Pro)</span><span id="label-pro" class="text-white">0</span></div>
-                        <div class="h-2 bg-slate-800 rounded-full"><div id="bar-pro" class="h-full bg-purple-500 rounded-full" style="width: 0%"></div></div>
-                    </div>
-                    <div>
-                        <div class="flex justify-between text-xs mb-1"><span class="text-slate-400 uppercase">Final Fallback (Local)</span><span id="label-local" class="text-white">0</span></div>
-                        <div class="h-2 bg-slate-800 rounded-full"><div id="bar-local" class="h-full bg-slate-500 rounded-full" style="width: 0%"></div></div>
+                        <div class="flex justify-between text-xs mb-1"><span class="text-slate-400 uppercase tracking-tighter font-bold text-[10px]">Tier 1 (Copilot)</span><span id="label-copilot" class="text-white">0</span></div>
+                        <div class="h-1.5 bg-slate-800 rounded-full"><div id="bar-copilot" class="h-full bg-emerald-500 rounded-full" style="width: 0%"></div></div>
                     </div>
                 </div>
             </div>
             <div>
-                <h2 class="text-xl font-semibold mb-6">System Log</h2>
+                <h2 class="text-xl font-semibold mb-6">Recent System Pulse</h2>
                 <div class="space-y-3">
                     <div class="card p-3 rounded-lg text-xs">
-                        <span class="text-blue-400 font-mono">15:54</span> - Nightly CEO Automation Set
+                        <span class="text-blue-400 font-mono">18:49</span> - Implementing Time-Series Visualization
                     </div>
                     <div class="card p-3 rounded-lg text-xs">
-                        <span class="text-emerald-400 font-mono">14:12</span> - Qwen 2.5 Coder 14B Pull Complete
-                    </div>
-                    <div class="card p-3 rounded-lg text-xs">
-                        <span class="text-yellow-400 font-mono">11:03</span> - Primary model set to Gemini Flash
+                        <span class="text-emerald-400 font-mono">15:54</span> - CEO Brain Routine Automated
                     </div>
                 </div>
             </div>
@@ -93,11 +81,12 @@
                 const response = await fetch('./vitals.json?t=' + Date.now());
                 const data = await response.json();
                 
-                document.getElementById('stat-success').innerText = data.success_count || 0;
-                document.getElementById('stat-cooldowns').innerText = data.active_cooldowns || 0;
-                document.getElementById('stat-quotas').innerText = data.quota_errors || 0;
+                // New logic to parse nested windows
+                const win24 = data.windows['24h'];
+                document.getElementById('stat-success').innerText = win24.success || 0;
+                document.getElementById('stat-fail').innerText = win24.fail || 0;
                 
-                const total = (data.usage_flash || 0) + (data.usage_pro || 0) + (data.usage_copilot || 0) + (data.usage_local || 0);
+                const total = (win24.usage.flash || 0) + (win24.usage.copilot || 0);
                 
                 if (total > 0) {
                     const updateBar = (id, val) => {
@@ -105,10 +94,8 @@
                         document.getElementById('bar-' + id).style.width = pct + '%';
                         document.getElementById('label-' + id).innerText = pct + '%';
                     };
-                    updateBar('flash', data.usage_flash);
-                    updateBar('pro', data.usage_pro);
-                    updateBar('copilot', data.usage_copilot);
-                    updateBar('local', data.usage_local);
+                    updateBar('flash', win24.usage.flash);
+                    updateBar('copilot', win24.usage.copilot);
                 }
 
                 document.getElementById('last-update').innerText = new Date().toLocaleTimeString();
