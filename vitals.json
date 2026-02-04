@@ -1,5 +1,5 @@
 {
-  "updated": "2026-02-04T19:32:11Z",
+  "updated": "2026-02-04T19:39:09Z",
   "windows": {
     "24h": {
       "date": "2026-02-04",
@@ -82,6 +82,18 @@
   "pulse": [
     {
       "date": "2026-02-04",
+      "time": "11:32",
+      "model": "AGENT",
+      "summary": "ui: implement live failover pipeline and strategy tracking"
+    },
+    {
+      "date": "2026-02-04",
+      "time": "11:32",
+      "model": "AGENT",
+      "summary": "data: integrate model failover path tracking"
+    },
+    {
+      "date": "2026-02-04",
       "time": "11:30",
       "model": "AGENT",
       "summary": "Request: This is great progress Agent Fox a few more enhancements If you will one is I"
@@ -148,12 +160,6 @@
     },
     {
       "date": "2026-02-04",
-      "time": "10:53",
-      "model": "AGENT",
-      "summary": "data: model-specific cooldown timers"
-    },
-    {
-      "date": "2026-02-04",
       "time": "10:51",
       "model": "AGENT",
       "summary": "Request: Another change I wanted you to do is to remove or the model name mentioned in th"
@@ -163,12 +169,6 @@
       "time": "10:49",
       "model": "AGENT",
       "summary": "Request: media audio"
-    },
-    {
-      "date": "2026-02-04",
-      "time": "10:42",
-      "model": "AGENT",
-      "summary": "Request: The dashboard looks great Use the space in the operations card to list the acti"
     }
   ],
   "heatmap": [
@@ -242,7 +242,7 @@
       "date": "2026-02-04",
       "success": {
         "10": "5",
-        "11": "5"
+        "11": "7"
       },
       "fail": {
         "11": "2"
@@ -286,9 +286,5 @@
       "quota_id": "",
       "rl_id": ""
     }
-  ],
-  "metrics": {
-    "success": 10,
-    "fail": 2
-  }
+  ]
 }
