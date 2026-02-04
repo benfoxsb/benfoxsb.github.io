@@ -1,10 +1,10 @@
 {
-  "updated": "2026-02-04T10:54:38Z",
+  "updated": "2026-02-04T10:59:23Z",
   "windows": {
     "24h": {
-      "success": 39,
+      "success": 43,
       "fail": 2,
-      "cooldowns": 2,
+      "cooldowns": 3,
       "quotas": 2,
       "cooldown_list": [
         {
@@ -29,8 +29,8 @@
         }
       ],
       "usage": {
-        "flash": 41,
-        "pro": 5,
+        "flash": 44,
+        "pro": 6,
         "copilot": 1,
         "local": 0,
         "opus": 0,
@@ -38,12 +38,12 @@
       }
     },
     "7d": {
-      "success": 231,
+      "success": 235,
       "fail": 162,
       "days": 2,
       "usage": {
-        "flash": 162,
-        "pro": 18,
+        "flash": 165,
+        "pro": 19,
         "copilot": 50,
         "local": 0,
         "opus": 0,
@@ -51,12 +51,12 @@
       }
     },
     "30d": {
-      "success": 231,
+      "success": 235,
       "fail": 162,
       "days": 2,
       "usage": {
-        "flash": 162,
-        "pro": 18,
+        "flash": 165,
+        "pro": 19,
         "copilot": 50,
         "local": 0,
         "opus": 0,
@@ -76,10 +76,10 @@
     },
     {
       "date": "2026-02-04",
-      "success": 39,
+      "success": 43,
       "fail": 2,
-      "flash": 41,
-      "pro": 5,
+      "flash": 44,
+      "pro": 6,
       "copilot": 1,
       "local": 0,
       "opus": 0,
@@ -119,25 +119,25 @@
     },
     {
       "date": "2026-02-04",
-      "time": "10:41",
+      "time": "10:54",
       "model": "gemini-3-pro-high",
       "summary": "Dashboard Upgrade:"
     },
     {
       "date": "2026-02-04",
-      "time": "10:41",
+      "time": "10:54",
       "model": "gemini-3-pro-high",
       "summary": "Visual Alignment:"
     },
     {
       "date": "2026-02-04",
-      "time": "10:41",
+      "time": "10:54",
       "model": "gemini-3-pro-high",
       "summary": "Data Engineering:"
     },
     {
       "date": "2026-02-04",
-      "time": "10:41",
+      "time": "10:54",
       "model": "gemini-3-pro-high",
       "summary": "Tier 3 Verification:"
     }
@@ -214,7 +214,7 @@
       "success": {
         "08": "4",
         "09": "17",
-        "10": "18"
+        "10": "22"
       },
       "fail": {
         "09": "2"
