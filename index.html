@@ -197,9 +197,12 @@
                         const mKey = getModelKey(item.id);
                         const cfg = modelConfig.find(c => c.key === mKey) || { tw: 'emerald' };
                         let statusText = "STANDBY"; let statusColor = "text-slate-500"; let border = "border-slate-800";
+                        let icon = item.icon || "🛡️";
+                        
                         if (isHit) { statusText = "COOLDOWN"; statusColor = "text-red-500"; }
-                        else if (!activeFound) { statusText = "ACTIVE"; statusColor = `text-${cfg.tw}-400`; border = `border-${cfg.tw}-500/50 active-model`; activeFound = true; }
-                        return `<div class="card p-4 rounded-xl border-2 ${border} relative overflow-hidden" title="${item.name}"><span class="absolute top-0 right-0 px-2 py-0.5 bg-slate-900 text-[8px] font-black text-slate-500 border-b border-l border-slate-800">${idx === 0 ? 'PRIME' : 'F-BACK'}</span><p class="text-sm font-bold text-slate-200 truncate">${item.display || item.name}</p><p class="text-xs font-black ${statusColor} mt-2 uppercase tracking-widest">${statusText}</p></div>`;
+                        else if (!activeFound) { statusText = "ACTIVE"; statusColor = `text-${cfg.tw}-400`; border = `border-${cfg.tw}-500/50 active-model`; icon = "🧠"; activeFound = true; }
+                        
+                        return `<div class="card p-4 rounded-xl border-2 ${border} relative overflow-hidden" title="${item.name} | ${item.role}"><span class="absolute top-0 right-0 px-2 py-0.5 bg-slate-900 text-[8px] font-black text-slate-500 border-b border-l border-slate-800">${idx === 0 ? 'PRIME' : 'F-BACK'}</span><div class="flex items-center gap-2"><span class="text-lg">${icon}</span><p class="text-sm font-bold text-slate-200 truncate">${item.display || item.name}</p></div><p class="text-[10px] font-black ${statusColor} mt-2 uppercase tracking-widest">${statusText}</p></div>`;
                     }).join('');
                 }
 
@@ -211,7 +214,7 @@
 
                 const pulseContainer = document.getElementById('project-columns');
                 if (data.pulse && data.pulse.length > 0) {
-                    const groups = {}; const today = getLocalYMD(new Date()); const yesterday = getLocalYMD(new Date(Date.now() - 86400000));
+                    const groups = {}; today = getLocalYMD(new Date()); yesterday = getLocalYMD(new Date(Date.now() - 86400000));
                     data.pulse.forEach(item => { if (!groups[item.project]) groups[item.project] = []; groups[item.project].push(item); });
                     
                     pulseContainer.innerHTML = Object.keys(groups).sort().map((proj, pIdx) => {
