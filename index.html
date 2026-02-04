@@ -44,9 +44,6 @@
                         <div id="bar-success-24h" class="h-full bg-emerald-500 transition-all duration-1000" style="width: 0%"></div>
                         <div id="bar-fail-24h" class="h-full bg-red-500 transition-all duration-1000" style="width: 0%"></div>
                     </div>
-                    <div id="label-cooldowns" class="text-[9px] text-slate-500 mt-2 uppercase tracking-tighter leading-tight">
-                        Initializing health state...
-                    </div>
                 </div>
             </div>
 
@@ -156,26 +153,6 @@
                 if (total24 > 0) {
                     document.getElementById('bar-success-24h').style.width = (w24.success / total24 * 100) + '%';
                     document.getElementById('bar-fail-24h').style.width = (w24.fail / total24 * 100) + '%';
-                }
-
-                // Update Active Cooldown List in Operations Card
-                const cdListEl = document.getElementById('label-cooldowns');
-                const activeCDs = [];
-                if (t.ag_quota && t.ag_quota !== "0.0") activeCDs.push(`AG Quota (${t.ag_quota}d)`);
-                if (t.ag_rl && t.ag_rl !== "0.0") activeCDs.push(`AG RL (${t.ag_rl}d)`);
-                if (t.gcli_quota && t.gcli_quota !== "0.0") activeCDs.push(`GCLI Quota (${t.gcli_quota}d)`);
-                if (t.gcli_rl && t.gcli_rl !== "0.0") activeCDs.push(`GCLI RL (${t.gcli_rl}d)`);
-                
-                (w24.cooldown_list || []).forEach(c => {
-                    if (c.status !== "Ready" && !c.status.includes("HEALTHY")) {
-                        activeCDs.push(`${c.name} (${c.status})`);
-                    }
-                });
-
-                if (activeCDs.length > 0) {
-                    cdListEl.innerHTML = activeCDs.map(txt => `<span class="text-red-500 font-black">${txt}</span>`).join(' • ');
-                } else {
-                    cdListEl.innerHTML = '<span class="text-emerald-500 font-bold">ALL SYSTEMS HEALTHY</span>';
                 }
 
                 document.getElementById('reliability-7d').innerText = `${w7.reliability || '0.0'}%`;
