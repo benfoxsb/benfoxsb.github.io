@@ -1,5 +1,5 @@
 {
-  "updated": "2026-02-04T19:27:33Z",
+  "updated": "2026-02-04T19:32:04Z",
   "windows": {
     "24h": {
       "date": "2026-02-04",
@@ -82,6 +82,12 @@
   "pulse": [
     {
       "date": "2026-02-04",
+      "time": "11:30",
+      "model": "AGENT",
+      "summary": "Request: This is great progress Agent Fox a few more enhancements If you will one is I"
+    },
+    {
+      "date": "2026-02-04",
       "time": "11:27",
       "model": "AGENT",
       "summary": "data: recover historical heatmap and integrate git-based pulse"
@@ -145,12 +151,6 @@
       "time": "10:53",
       "model": "AGENT",
       "summary": "data: model-specific cooldown timers"
-    },
-    {
-      "date": "2026-02-04",
-      "time": "10:52",
-      "model": "AGENT",
-      "summary": "ui: remove model names from system pulse cards to maximize space"
     },
     {
       "date": "2026-02-04",
@@ -242,11 +242,49 @@
       "date": "2026-02-04",
       "success": {
         "10": "5",
-        "11": "4"
+        "11": "5"
       },
       "fail": {
         "11": "2"
       }
+    }
+  ],
+  "failover": [
+    {
+      "id": "ag_flash",
+      "name": "AG Gemini Flash",
+      "quota_id": "ag_quota",
+      "rl_id": "ag_rl"
+    },
+    {
+      "id": "gcli_flash",
+      "name": "GCLI Flash",
+      "quota_id": "gcli_quota",
+      "rl_id": "gcli_rl"
+    },
+    {
+      "id": "ag_pro",
+      "name": "AG Gemini Pro",
+      "quota_id": "ag_quota",
+      "rl_id": "ag_rl"
+    },
+    {
+      "id": "sonnet",
+      "name": "Claude Sonnet",
+      "quota_id": "ag_rl",
+      "rl_id": "ag_rl"
+    },
+    {
+      "id": "copilot",
+      "name": "Copilot",
+      "quota_id": "",
+      "rl_id": ""
+    },
+    {
+      "id": "local",
+      "name": "Local Qwen",
+      "quota_id": "",
+      "rl_id": ""
     }
   ]
 }
