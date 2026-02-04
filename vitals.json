@@ -1,59 +1,59 @@
 {
-  "updated": "2026-02-04T18:24:08Z",
+  "updated": "2026-02-04T18:53:50Z",
   "windows": {
     "24h": {
-      "success": 102,
-      "fail": 20,
-      "cooldowns": 8,
-      "quotas": 12,
+      "success": 3,
+      "fail": 0,
+      "cooldowns": 2,
+      "quotas": 0,
       "timers": {
         "ag_rl": "0.0",
-        "ag_quota": "0.9",
+        "ag_quota": "0.0",
         "gcli_rl": "0.0",
-        "gcli_quota": "0.9"
+        "gcli_quota": "0.0"
       },
       "usage": {
-        "ag_flash": 82,
-        "ag_pro": 9,
-        "gcli_flash": 18,
+        "ag_flash": 4,
+        "ag_pro": 0,
+        "gcli_flash": 0,
         "gcli_pro": 0,
-        "copilot": 6,
+        "copilot": 0,
         "local": 0,
         "opus": 0,
         "sonnet": 0
       }
     },
     "7d": {
-      "success": 294,
-      "fail": 180,
+      "success": 195,
+      "fail": 160,
       "days": 2,
       "usage": {
-        "ag_flash": 203,
-        "ag_pro": 22,
-        "gcli_flash": 18,
+        "ag_flash": 125,
+        "ag_pro": 13,
+        "gcli_flash": 0,
         "gcli_pro": 0,
-        "copilot": 55,
+        "copilot": 49,
         "local": 0,
         "opus": 0,
         "sonnet": 0
       },
-      "reliability": "62.0"
+      "reliability": "54.9"
     },
     "30d": {
-      "success": 294,
-      "fail": 180,
+      "success": 195,
+      "fail": 160,
       "days": 2,
       "usage": {
-        "ag_flash": 203,
-        "ag_pro": 22,
-        "gcli_flash": 18,
+        "ag_flash": 125,
+        "ag_pro": 13,
+        "gcli_flash": 0,
         "gcli_pro": 0,
-        "copilot": 55,
+        "copilot": 49,
         "local": 0,
         "opus": 0,
         "sonnet": 0
       },
-      "reliability": "62.0"
+      "reliability": "54.9"
     }
   },
   "history": [
@@ -68,13 +68,13 @@
     },
     {
       "date": "2026-02-04",
-      "success": 102,
-      "fail": 20,
-      "ag_flash": 82,
-      "ag_pro": 9,
-      "gcli_flash": 18,
+      "success": 3,
+      "fail": 0,
+      "ag_flash": 4,
+      "ag_pro": 0,
+      "gcli_flash": 0,
       "gcli_pro": 0,
-      "copilot": 6,
+      "copilot": 0,
       "local": 0,
       "opus": 0,
       "sonnet": 0
@@ -82,56 +82,26 @@
   ],
   "pulse": [
     {
-      "date": "2026-02-03",
-      "time": "08:12",
-      "model": "GCLI-GEMINI-3-FLASH-PREVIEW",
-      "summary": "X Integration:"
-    },
-    {
-      "date": "2026-02-03",
-      "time": "08:12",
-      "model": "GCLI-GEMINI-3-FLASH-PREVIEW",
-      "summary": "Website Launch:"
-    },
-    {
-      "date": "2026-02-03",
-      "time": "08:12",
-      "model": "GCLI-GEMINI-3-FLASH-PREVIEW",
-      "summary": "Dashboard Restoration:"
-    },
-    {
-      "date": "2026-02-03",
-      "time": "08:12",
-      "model": "GCLI-GEMINI-3-FLASH-PREVIEW",
-      "summary": "Brain Hierarchy:"
-    },
-    {
-      "date": "2026-02-03",
-      "time": "08:12",
-      "model": "GCLI-GEMINI-3-FLASH-PREVIEW",
-      "summary": "Agile Infrastructure:"
-    },
-    {
       "date": "2026-02-04",
-      "time": "18:24",
+      "time": "18:53",
       "model": "AG-GEMINI-3-FLASH",
       "summary": "Dashboard Upgrade:"
     },
     {
       "date": "2026-02-04",
-      "time": "18:24",
+      "time": "18:53",
       "model": "AG-GEMINI-3-FLASH",
       "summary": "Visual Alignment:"
     },
     {
       "date": "2026-02-04",
-      "time": "18:24",
+      "time": "18:53",
       "model": "AG-GEMINI-3-FLASH",
       "summary": "Data Engineering:"
     },
     {
       "date": "2026-02-04",
-      "time": "18:24",
+      "time": "18:53",
       "model": "AG-GEMINI-3-FLASH",
       "summary": "Tier 3 Verification:"
     }
@@ -164,70 +134,15 @@
     },
     {
       "date": "2026-02-03",
-      "success": {
-        "00": "10",
-        "01": "8",
-        "02": "15",
-        "03": "8",
-        "04": "7",
-        "05": "16",
-        "06": "10",
-        "07": "16",
-        "08": "4",
-        "09": "20",
-        "10": "10",
-        "15": "1",
-        "16": "4",
-        "17": "18",
-        "18": "7",
-        "19": "8",
-        "20": "5",
-        "21": "5",
-        "22": "9",
-        "23": "13"
-      },
-      "fail": {
-        "00": "2",
-        "01": "6",
-        "02": "2",
-        "04": "2",
-        "05": "2",
-        "06": "2",
-        "08": "2",
-        "09": "68",
-        "10": "20",
-        "15": "6",
-        "16": "22",
-        "17": "24",
-        "19": "2",
-        "20": "2"
-      }
+      "success": {},
+      "fail": {}
     },
     {
       "date": "2026-02-04",
       "success": {
-        "08": "4",
-        "09": "17",
-        "10": "22",
-        "11": "12",
-        "12": "6",
-        "13": "6",
-        "14": "6",
-        "15": "6",
-        "16": "7",
-        "17": "14",
-        "18": "2"
+        "18": "3"
       },
-      "fail": {
-        "09": "2",
-        "11": "2",
-        "12": "2",
-        "13": "2",
-        "15": "4",
-        "16": "2",
-        "17": "2",
-        "18": "4"
-      }
+      "fail": {}
     }
   ]
 }
