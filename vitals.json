@@ -1,5 +1,5 @@
 {
-  "updated": "2026-02-04T23:00:06Z",
+  "updated": "2026-02-04T23:15:23Z",
   "windows": {
     "24h": {
       "date": "2026-02-04",
@@ -12,7 +12,7 @@
       "copilot": 6,
       "local": 0,
       "opus": 0,
-      "sonnet": 2,
+      "sonnet": 3,
       "cooldowns": 3,
       "quotas": 8,
       "timers": {
@@ -34,7 +34,7 @@
         "copilot": 55,
         "local": 0,
         "opus": 0,
-        "sonnet": 2
+        "sonnet": 3
       },
       "reliability": "62.0"
     },
@@ -50,7 +50,7 @@
         "copilot": 55,
         "local": 0,
         "opus": 0,
-        "sonnet": 2
+        "sonnet": 3
       },
       "reliability": "62.0"
     }
@@ -76,10 +76,19 @@
       "copilot": 6,
       "local": 0,
       "opus": 0,
-      "sonnet": 2
+      "sonnet": 3
     }
   ],
   "pulse": [
+    {
+      "date": "2026-02-04",
+      "time": "15:00",
+      "project": "benfoxsb.github.io",
+      "hash": "e3dec6d",
+      "url": "https://github.com/benfoxsb/benfoxsb.github.io/commit/e3dec6d",
+      "summary": "data: role-based model icons and PST alignment",
+      "model": "AG-GEMINI-3-FLASH"
+    },
     {
       "date": "2026-02-04",
       "time": "14:46",
@@ -195,15 +204,6 @@
       "hash": "22413e7",
       "url": "https://github.com/benfoxsb/benfoxsb.github.io/commit/22413e7",
       "summary": "ui: unify model color mapping across all dashboard components",
-      "model": "AG-GEMINI-3-FLASH"
-    },
-    {
-      "date": "2026-02-04",
-      "time": "13:12",
-      "project": "benfoxsb.github.io",
-      "hash": "3c45aa0",
-      "url": "https://github.com/benfoxsb/benfoxsb.github.io/commit/3c45aa0",
-      "summary": "data: focus pulse on code check-ins",
       "model": "AG-GEMINI-3-FLASH"
     },
     {
@@ -416,13 +416,15 @@
         "11": "11",
         "12": "19",
         "13": "10",
-        "14": "13"
+        "14": "13",
+        "15": "2"
       },
       "fail": {
         "11": "2",
         "12": "4",
         "13": "2",
-        "14": "4"
+        "14": "4",
+        "15": "2"
       }
     }
   ],
