@@ -1,5 +1,5 @@
 {
-  "updated": "2026-02-04T20:51:16Z",
+  "updated": "2026-02-04T20:54:56Z",
   "windows": {
     "24h": {
       "date": "2026-02-04",
@@ -80,6 +80,22 @@
     }
   ],
   "pulse": [
+    {
+      "date": "2026-02-04",
+      "time": "12:51",
+      "project": "benfoxsb.github.io",
+      "hash": "6ca994b",
+      "url": "https://github.com/benfoxsb/benfoxsb.github.io/commit/6ca994b",
+      "summary": "ui: update model prefixes and add pipeline tooltips"
+    },
+    {
+      "date": "2026-02-04",
+      "time": "12:51",
+      "project": "benfoxsb.github.io",
+      "hash": "1d0bcb7",
+      "url": "https://github.com/benfoxsb/benfoxsb.github.io/commit/1d0bcb7",
+      "summary": "data: focus pulse on code check-ins"
+    },
     {
       "date": "2026-02-04",
       "time": "12:45",
@@ -175,22 +191,6 @@
       "hash": "978e65e",
       "url": "https://github.com/benfoxsb/benfoxsb.github.io/commit/978e65e",
       "summary": "data: focus pulse on code check-ins"
-    },
-    {
-      "date": "2026-02-04",
-      "time": "12:14",
-      "project": "benfoxsb.github.io",
-      "hash": "4f2c941",
-      "url": "https://github.com/benfoxsb/benfoxsb.github.io/commit/4f2c941",
-      "summary": "data: focus pulse on code check-ins"
-    },
-    {
-      "date": "2026-02-04",
-      "time": "12:14",
-      "project": "benfoxsb.github.io",
-      "hash": "46aaab3",
-      "url": "https://github.com/benfoxsb/benfoxsb.github.io/commit/46aaab3",
-      "summary": "ui: fix heatmap alignment in Operational Hub"
     },
     {
       "date": "2026-02-03",
@@ -385,7 +385,7 @@
       "success": {
         "10": "5",
         "11": "11",
-        "12": "16"
+        "12": "18"
       },
       "fail": {
         "11": "2",
