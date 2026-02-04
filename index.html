@@ -48,12 +48,20 @@
             <div class="card p-5 rounded-2xl">
                 <h3 class="text-slate-500 text-[10px] font-bold uppercase mb-3 tracking-widest text-blue-400">Rolling 7d</h3>
                 <p id="stat-7d" class="text-3xl font-bold text-white leading-none">--</p>
-                <p id="days-7d" class="text-[9px] text-slate-500 mt-2 italic">Accumulating...</p>
+                <div class="mt-4 h-6">
+                    <canvas id="sparkline7d"></canvas>
+                </div>
             </div>
             <div class="card p-5 rounded-2xl">
                 <h3 class="text-slate-500 text-[10px] font-bold uppercase mb-3 tracking-widest text-purple-400">Rolling 30d</h3>
-                <p id="stat-30d" class="text-3xl font-bold text-white leading-none">--</p>
-                <p id="days-30d" class="text-[9px] text-slate-500 mt-2 italic">Accumulating...</p>
+                <div class="flex items-end justify-between">
+                    <p id="stat-30d" class="text-3xl font-bold text-white leading-none">--</p>
+                    <div class="text-right">
+                        <p id="reliability-score" class="text-xs font-bold text-emerald-400 leading-none">--%</p>
+                        <p class="text-[8px] text-slate-500 uppercase font-bold mt-1">Reliability</p>
+                    </div>
+                </div>
+                <p id="days-30d" class="text-[9px] text-slate-500 mt-4 italic">Accumulating...</p>
             </div>
         </div>
 
@@ -93,6 +101,7 @@
 
     <script>
         let chartInstance = null;
+        let sparklineInstance = null;
 
         async function updateDashboard() {
             try {
@@ -113,13 +122,17 @@
                 document.getElementById('bar-24h').style.width = total24 > 0 ? (w24.success / total24 * 100) + '%' : '0%';
 
                 document.getElementById('stat-7d').innerText = w7.success;
-                document.getElementById('days-7d').innerText = `Based on last ${w7.days} days`;
                 
                 document.getElementById('stat-30d').innerText = w30.success;
                 document.getElementById('days-30d').innerText = `Based on last ${w30.days} days`;
 
+                const total30 = w30.success + w30.fail;
+                const reliability = total30 > 0 ? (w30.success / total30 * 100).toFixed(1) : "0.0";
+                document.getElementById('reliability-score').innerText = `${reliability}%`;
+
                 // 2. CHART
                 renderChart(data.history);
+                renderSparkline(data.history);
 
                 // 3. PULSE
                 const pulseContainer = document.getElementById('system-log');
@@ -144,7 +157,7 @@
                             <div class="card p-3 rounded-xl border-l-2 border-l-blue-500/50 flex justify-between items-center group">
                                 <div class="flex flex-col">
                                     <span class="text-[10px] text-slate-500 font-mono leading-none mb-1">${item.time}</span>
-                                    <span class="text-[11px] text-slate-200 font-medium">Task Started</span>
+                                    <span class="text-[11px] text-slate-200 font-medium">${item.summary || 'System Pulse'}</span>
                                 </div>
                                 <span class="text-[9px] font-bold text-slate-500 group-hover:text-blue-400 transition-colors uppercase">${item.model || 'AGENT'}</span>
                             </div>
@@ -156,6 +169,35 @@
             } catch (e) {
                 console.error("Dashboard sync failed", e);
             }
+        }
+
+        function renderSparkline(history) {
+            const ctx = document.getElementById('sparkline7d').getContext('2d');
+            const data = history.slice(-7).map(d => d.success);
+            
+            if (sparklineInstance) sparklineInstance.destroy();
+
+            sparklineInstance = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: data.map((_, i) => i),
+                    datasets: [{
+                        data: data,
+                        borderColor: '#3b82f6',
+                        borderWidth: 2,
+                        pointRadius: 0,
+                        tension: 0.4,
+                        fill: true,
+                        backgroundColor: 'rgba(59, 130, 246, 0.1)'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: { legend: { display: false }, tooltip: { enabled: false } },
+                    scales: { x: { display: false }, y: { display: false } }
+                }
+            });
         }
 
         function renderChart(history) {
