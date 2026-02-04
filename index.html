@@ -59,7 +59,7 @@
                 </div>
                 <div class="mt-auto">
                     <h3 class="text-[10px] font-bold uppercase tracking-widest text-slate-500 mb-3">7D Activity Pattern</h3>
-                    <div id="heatmap-container" class="grid grid-cols-7 gap-1 h-24">
+                    <div id="heatmap-container" class="grid grid-cols-7 gap-1 h-32">
                     </div>
                 </div>
             </div>
@@ -241,12 +241,12 @@
             container.innerHTML = ''; const last7 = getLast7Dates(); const dateToHeatmap = {}; heatmap.forEach(h => { if (h.date) dateToHeatmap[h.date] = h; });
             last7.forEach(date => {
                 const dayData = dateToHeatmap[date] || { success: {}, fail: {} };
-                const dayCol = document.createElement('div'); dayCol.className = 'flex flex-col gap-1 w-full';
+                const dayCol = document.createElement('div'); dayCol.className = 'flex flex-col gap-[2px] w-full';
                 for (let hour = 0; hour < 24; hour++) {
                     const hrKey = hour.toString().padStart(2, '0'); const s = parseInt(dayData.success[hrKey] || 0); const f = parseInt(dayData.fail[hrKey] || 0);
                     const cell = document.createElement('div'); let color = 'bg-slate-800/50';
                     if (f > 0 && (s === 0 || f >= s)) color = 'bg-red-500'; else if (s > 0) color = 'bg-emerald-400';
-                    cell.className = `w-full h-1.5 rounded-[1px] ${color}`; dayCol.appendChild(cell);
+                    cell.className = `w-full h-1 rounded-[1px] ${color}`; dayCol.appendChild(cell);
                 }
                 container.appendChild(dayCol);
             });
