@@ -1,0 +1,254 @@
+{
+  "updated": "2026-02-04T19:20:56Z",
+  "windows": {
+    "24h": {
+      "date": "2026-02-04",
+      "success": 93,
+      "fail": 16,
+      "ag_flash": 77,
+      "ag_pro": 8,
+      "gcli_flash": 16,
+      "gcli_pro": 0,
+      "copilot": 6,
+      "local": 0,
+      "opus": 0,
+      "sonnet": 0,
+      "cooldowns": 2,
+      "quotas": 2,
+      "timers": {
+        "ag_rl": "0.0",
+        "ag_quota": "0.9",
+        "gcli_rl": "0.0",
+        "gcli_quota": "0.0"
+      }
+    },
+    "7d": {
+      "success": 285,
+      "fail": 176,
+      "days": 2,
+      "usage": {
+        "ag_flash": 198,
+        "ag_pro": 21,
+        "gcli_flash": 16,
+        "gcli_pro": 0,
+        "copilot": 55,
+        "local": 0,
+        "opus": 0,
+        "sonnet": 0
+      },
+      "reliability": "61.8"
+    },
+    "30d": {
+      "success": 285,
+      "fail": 176,
+      "days": 2,
+      "usage": {
+        "ag_flash": 198,
+        "ag_pro": 21,
+        "gcli_flash": 16,
+        "gcli_pro": 0,
+        "copilot": 55,
+        "local": 0,
+        "opus": 0,
+        "sonnet": 0
+      },
+      "reliability": "61.8"
+    }
+  },
+  "history": [
+    {
+      "date": "2026-02-03",
+      "success": 192,
+      "fail": 160,
+      "flash": 121,
+      "pro": 13,
+      "copilot": 49,
+      "local": 0
+    },
+    {
+      "date": "2026-02-04",
+      "success": 93,
+      "fail": 16,
+      "ag_flash": 77,
+      "ag_pro": 8,
+      "gcli_flash": 16,
+      "gcli_pro": 0,
+      "copilot": 6,
+      "local": 0,
+      "opus": 0,
+      "sonnet": 0
+    }
+  ],
+  "pulse": [
+    {
+      "date": "2026-02-04",
+      "time": "11:20",
+      "model": "AG-GEMINI-3-FLASH",
+      "summary": "Executing tool: write"
+    },
+    {
+      "date": "2026-02-04",
+      "time": "11:20",
+      "model": "AG-GEMINI-3-FLASH",
+      "summary": "Executing tool: read"
+    },
+    {
+      "date": "2026-02-04",
+      "time": "11:20",
+      "model": "AG-GEMINI-3-FLASH",
+      "summary": "Executing tool: exec"
+    },
+    {
+      "date": "2026-02-04",
+      "time": "11:19",
+      "model": "AG-GEMINI-3-FLASH",
+      "summary": "Executing tool: exec"
+    },
+    {
+      "date": "2026-02-04",
+      "time": "11:10",
+      "model": "AG-GEMINI-3-FLASH",
+      "summary": "Executing tool: session_status"
+    },
+    {
+      "date": "2026-02-04",
+      "time": "11:10",
+      "model": "AG-GEMINI-3-FLASH",
+      "summary": "Executing tool: exec"
+    },
+    {
+      "date": "2026-02-04",
+      "time": "11:09",
+      "model": "AG-GEMINI-3-FLASH",
+      "summary": "Executing tool: web_fetch"
+    },
+    {
+      "date": "2026-02-04",
+      "time": "11:09",
+      "model": "AG-GEMINI-3-FLASH",
+      "summary": "Executing tool: read"
+    },
+    {
+      "date": "2026-02-04",
+      "time": "11:08",
+      "model": "AG-GEMINI-3-FLASH",
+      "summary": "Visual Alignment:"
+    },
+    {
+      "date": "2026-02-04",
+      "time": "11:08",
+      "model": "AG-GEMINI-3-FLASH",
+      "summary": "Tier 3 Verification:"
+    },
+    {
+      "date": "2026-02-04",
+      "time": "11:08",
+      "model": "AG-GEMINI-3-FLASH",
+      "summary": "Executing tool: exec"
+    },
+    {
+      "date": "2026-02-04",
+      "time": "11:08",
+      "model": "AG-GEMINI-3-FLASH",
+      "summary": "Data Engineering:"
+    },
+    {
+      "date": "2026-02-04",
+      "time": "11:08",
+      "model": "AG-GEMINI-3-FLASH",
+      "summary": "Dashboard Upgrade:"
+    },
+    {
+      "date": "2026-02-04",
+      "time": "10:52",
+      "model": "AG-GEMINI-3-FLASH",
+      "summary": "Executing tool: exec"
+    },
+    {
+      "date": "2026-02-04",
+      "time": "10:52",
+      "model": "AG-GEMINI-3-FLASH",
+      "summary": "Executing tool: edit"
+    }
+  ],
+  "heatmap": [
+    {
+      "date": "2026-01-29",
+      "success": {},
+      "fail": {}
+    },
+    {
+      "date": "2026-01-30",
+      "success": {},
+      "fail": {}
+    },
+    {
+      "date": "2026-01-31",
+      "success": {},
+      "fail": {}
+    },
+    {
+      "date": "2026-02-01",
+      "success": {},
+      "fail": {}
+    },
+    {
+      "date": "2026-02-02",
+      "success": {},
+      "fail": {}
+    },
+    {
+      "date": "2026-02-03",
+      "success": {
+        "0": "21",
+        "1": "21",
+        "2": "21",
+        "3": "21",
+        "4": "21",
+        "5": "21",
+        "6": "21",
+        "7": "21",
+        "8": "21",
+        "9": "21",
+        "10": "21",
+        "11": "21",
+        "12": "21",
+        "13": "21",
+        "14": "21",
+        "15": "21",
+        "16": "21",
+        "17": "21"
+      },
+      "fail": {
+        "0": "17",
+        "1": "17",
+        "2": "17",
+        "3": "17",
+        "4": "17",
+        "5": "17",
+        "6": "17",
+        "7": "17",
+        "8": "17",
+        "9": "17",
+        "10": "17",
+        "11": "17",
+        "12": "17",
+        "13": "17",
+        "14": "17",
+        "15": "17",
+        "16": "17",
+        "17": "17"
+      }
+    },
+    {
+      "date": "2026-02-04",
+      "success": {
+        "10": "5",
+        "11": "2"
+      },
+      "fail": {
+        "11": "2"
+      }
+    }
+  ]
+}
