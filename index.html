@@ -17,7 +17,7 @@
         <header class="flex justify-between items-center mb-12">
             <div>
                 <h1 class="text-3xl font-bold text-white mb-2">Ben Fox AI Dashboard 🦊</h1>
-                <p class="text-slate-400 text-sm">Real-time system wellness (24h Window)</p>
+                <p class="text-slate-400 text-sm">Real-time system wellness</p>
             </div>
             <div id="online-pulse" class="flex items-center gap-2 px-4 py-2 rounded-full bg-green-500/10 border border-green-500/20 text-green-400 text-sm">
                 <span class="w-2 h-2 rounded-full bg-green-500 pulse"></span>
@@ -35,76 +35,56 @@
                 <p id="stat-fail" class="text-4xl font-bold text-red-400">--</p>
             </div>
             <div class="card p-6 rounded-2xl">
-                <h3 class="text-slate-400 text-xs font-bold uppercase mb-1 tracking-widest">7d Status</h3>
-                <p id="stat-7d" class="text-lg font-bold text-yellow-400 pt-3">Accumulating...</p>
+                <h3 class="text-slate-400 text-xs font-bold uppercase mb-1 tracking-widest">Last Update</h3>
+                <p id="last-update" class="text-xs font-mono text-blue-400 pt-5 text-center">...</p>
             </div>
-            <div class="card p-6 rounded-2xl">
-                <h3 class="text-slate-400 text-xs font-bold uppercase mb-1 tracking-widest">30d Status</h3>
-                <p id="stat-30d" class="text-lg font-bold text-blue-400 pt-3">Day 1 / 30</p>
+            <div class="card p-6 rounded-2xl text-center">
+                 <h3 class="text-slate-400 text-xs font-bold uppercase mb-1 tracking-widest">Deployment</h3>
+                 <p class="text-xs font-bold text-emerald-400 pt-5 uppercase tracking-widest">Online</p>
             </div>
         </div>
 
-        <section class="grid grid-cols-1 md:grid-cols-2 gap-12">
-            <div>
-                <h2 class="text-xl font-semibold mb-6">Model Distribution</h2>
-                <div class="space-y-4">
-                    <div>
-                        <div class="flex justify-between text-xs mb-1"><span class="text-slate-400 uppercase tracking-tighter font-bold text-[10px]">Tier 2 (Gemini Flash)</span><span id="label-flash" class="text-white">0</span></div>
-                        <div class="h-1.5 bg-slate-800 rounded-full"><div id="bar-flash" class="h-full bg-blue-500 rounded-full" style="width: 0%"></div></div>
-                    </div>
-                    <div>
-                        <div class="flex justify-between text-xs mb-1"><span class="text-slate-400 uppercase tracking-tighter font-bold text-[10px]">Tier 1 (Copilot)</span><span id="label-copilot" class="text-white">0</span></div>
-                        <div class="h-1.5 bg-slate-800 rounded-full"><div id="bar-copilot" class="h-full bg-emerald-500 rounded-full" style="width: 0%"></div></div>
-                    </div>
-                </div>
-            </div>
+        <section class="grid grid-cols-1 md:grid-cols-1 gap-12">
             <div>
                 <h2 class="text-xl font-semibold mb-6">Recent System Pulse</h2>
-                <div class="space-y-3">
+                <div id="system-log" class="space-y-3">
                     <div class="card p-3 rounded-lg text-xs">
-                        <span class="text-blue-400 font-mono">18:49</span> - Implementing Time-Series Visualization
-                    </div>
-                    <div class="card p-3 rounded-lg text-xs">
-                        <span class="text-emerald-400 font-mono">15:54</span> - CEO Brain Routine Automated
+                        <span class="text-blue-400 font-mono">21:50</span> - Dashboard Reliability Lockdown Applied
                     </div>
                 </div>
             </div>
         </section>
 
         <footer class="mt-20 text-center text-slate-600 text-[10px] uppercase tracking-widest">
-            <p>Last Sync: <span id="last-update">...</span></p>
+            <p id="sync-status" class="mt-2 text-slate-500"></p>
         </footer>
     </div>
     <script>
         async function updateDashboard() {
+            const statusEl = document.getElementById('sync-status');
             try {
-                const response = await fetch('./vitals.json?t=' + Date.now());
+                // Cache-busting URL to ensure fresh data
+                const url = 'https://benfoxsb.github.io/status/vitals.json?nocache=' + Date.now();
+                const response = await fetch(url);
+                if (!response.ok) throw new Error("HTTP " + response.status);
+                
                 const data = await response.json();
                 
-                // New logic to parse nested windows
-                const win24 = data.windows['24h'];
-                document.getElementById('stat-success').innerText = win24.success || 0;
-                document.getElementById('stat-fail').innerText = win24.fail || 0;
+                // Realignment with flat metrics structure
+                document.getElementById('stat-success').innerText = data.metrics.success || 0;
+                document.getElementById('stat-fail').innerText = data.metrics.fail || 0;
+                document.getElementById('last-update').innerText = new Date(data.updated).toLocaleTimeString();
                 
-                const total = (win24.usage.flash || 0) + (win24.usage.copilot || 0);
-                
-                if (total > 0) {
-                    const updateBar = (id, val) => {
-                        const pct = Math.round((val / total) * 100);
-                        document.getElementById('bar-' + id).style.width = pct + '%';
-                        document.getElementById('label-' + id).innerText = pct + '%';
-                    };
-                    updateBar('flash', win24.usage.flash);
-                    updateBar('copilot', win24.usage.copilot);
-                }
-
-                document.getElementById('last-update').innerText = new Date().toLocaleTimeString();
+                statusEl.innerText = "✓ Live Sync Active";
+                statusEl.classList.remove('text-red-400');
             } catch (e) {
-                console.error("Dashboard sync failed", e);
+                console.error("Sync Error:", e);
+                statusEl.innerText = "⚠ Sync Error: " + e.message;
+                statusEl.classList.add('text-red-400');
             }
         }
         updateDashboard();
-        setInterval(updateDashboard, 60000);
+        setInterval(updateDashboard, 30000); // 30s refresh
     </script>
 </body>
 </html>
