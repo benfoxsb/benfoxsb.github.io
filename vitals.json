@@ -1,5 +1,5 @@
 {
-  "updated": "2026-02-04T17:13:53Z",
+  "updated": "2026-02-04T17:14:47Z",
   "windows": {
     "24h": {
       "success": 90,
@@ -10,7 +10,7 @@
         "ag_rl": "0.0",
         "ag_quota": "0.9",
         "gcli_rl": "0.0",
-        "gcli_quota": "0.0"
+        "gcli_quota": "0.9"
       },
       "usage": {
         "ag_flash": 73,
