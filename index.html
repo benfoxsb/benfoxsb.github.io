@@ -46,22 +46,14 @@
                 <p id="label-cooldowns" class="text-[9px] text-slate-500 mt-2">0 active cooldowns</p>
             </div>
             <div class="card p-5 rounded-2xl">
-                <h3 class="text-slate-500 text-[10px] font-bold uppercase mb-3 tracking-widest text-blue-400">Rolling 7d</h3>
-                <p id="stat-7d" class="text-3xl font-bold text-white leading-none">--</p>
-                <div class="mt-4 h-6">
-                    <canvas id="sparkline7d"></canvas>
+                <h3 class="text-slate-500 text-[10px] font-bold uppercase mb-3 tracking-widest text-blue-400">7D Heatmap</h3>
+                <div id="heatmap-container" class="grid grid-cols-7 gap-1 mt-2">
+                    <!-- Heatmap cells injected here -->
                 </div>
             </div>
-            <div class="card p-5 rounded-2xl">
-                <h3 class="text-slate-500 text-[10px] font-bold uppercase mb-3 tracking-widest text-purple-400">Rolling 30d</h3>
-                <div class="flex items-end justify-between">
-                    <p id="stat-30d" class="text-3xl font-bold text-white leading-none">--</p>
-                    <div class="text-right">
-                        <p id="reliability-score" class="text-xs font-bold text-emerald-400 leading-none">--%</p>
-                        <p class="text-[8px] text-slate-500 uppercase font-bold mt-1">Reliability</p>
-                    </div>
-                </div>
-                <p id="days-30d" class="text-[9px] text-slate-500 mt-4 italic">Accumulating...</p>
+            <div class="card p-5 rounded-2xl flex flex-col justify-center items-center">
+                <h3 class="text-slate-500 text-[10px] font-bold uppercase mb-4 tracking-widest text-purple-400">30D Reliability</h3>
+                <p id="reliability-score" class="text-5xl font-black text-emerald-400 leading-none tracking-tighter">--%</p>
             </div>
         </div>
 
@@ -77,7 +69,7 @@
                             <div class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-emerald-500"></span> COPILOT</div>
                         </div>
                     </div>
-                    <div class="h-[300px] w-full">
+                    <div class="h-[280px] w-full">
                         <canvas id="modelChart"></canvas>
                     </div>
                 </div>
@@ -85,8 +77,8 @@
 
             <!-- Right: System Pulse -->
             <div class="space-y-6">
-                <h2 class="text-sm font-bold text-slate-400 uppercase tracking-widest ml-1">Live Pulse</h2>
-                <div id="system-log" class="space-y-2 overflow-y-auto max-h-[420px] pr-2">
+                <h2 class="text-xl font-bold text-white tracking-tight ml-1">Recent System Pulse</h2>
+                <div id="system-log" class="space-y-3 overflow-hidden">
                     <!-- Items will be injected here -->
                     <div class="text-center py-10 text-slate-600 italic text-xs">Waiting for pulse data...</div>
                 </div>
@@ -101,7 +93,6 @@
 
     <script>
         let chartInstance = null;
-        let sparklineInstance = null;
 
         async function updateDashboard() {
             try {
@@ -121,45 +112,52 @@
                 const total24 = w24.success + w24.fail;
                 document.getElementById('bar-24h').style.width = total24 > 0 ? (w24.success / total24 * 100) + '%' : '0%';
 
-                document.getElementById('stat-7d').innerText = w7.success;
-                
-                document.getElementById('stat-30d').innerText = w30.success;
-                document.getElementById('days-30d').innerText = `Based on last ${w30.days} days`;
-
                 const total30 = w30.success + w30.fail;
                 const reliability = total30 > 0 ? (w30.success / total30 * 100).toFixed(1) : "0.0";
                 document.getElementById('reliability-score').innerText = `${reliability}%`;
 
-                // 2. CHART
-                renderChart(data.history);
-                renderSparkline(data.history);
+                // 2. HEATMAP
+                renderHeatmap(data.heatmap);
 
-                // 3. PULSE
+                // 3. CHART
+                renderChart(data.history);
+
+                // 4. PULSE
                 const pulseContainer = document.getElementById('system-log');
                 if (data.pulse && data.pulse.length > 0) {
                     let lastDate = "";
                     const today = new Date().toISOString().split('T')[0];
+                    const yesterday = new Date(Date.now() - 86400000).toISOString().split('T')[0];
                     
                     const sortedPulse = data.pulse.sort((a, b) => {
                         if (a.date !== b.date) return b.date.localeCompare(a.date);
                         return b.time.localeCompare(a.time);
-                    });
+                    }).slice(0, 10); // Limit to prevent scrolling
                     
                     pulseContainer.innerHTML = sortedPulse.map(item => {
                         let header = "";
                         if (item.date !== lastDate) {
-                            const label = item.date === today ? 'Today' : item.date;
-                            header = `<div class="text-[10px] font-bold text-slate-600 uppercase tracking-[0.2em] mt-6 mb-2 ml-1">${label}</div>`;
+                            let label = item.date;
+                            if (item.date === today) label = 'Today';
+                            else if (item.date === yesterday) label = 'Yesterday';
+                            header = `<div class="text-[9px] font-bold text-slate-600 uppercase tracking-[0.2em] mt-2 mb-2 ml-1">${label}</div>`;
                             lastDate = item.date;
                         }
+                        
+                        // Reference Image Colors: Blue for 22:00, Emerald for 21:23, Yellow for 19:01
+                        let timeColor = "text-blue-400";
+                        if (parseInt(item.time.split(':')[0]) < 22) timeColor = "text-emerald-400";
+                        if (parseInt(item.time.split(':')[0]) < 20) timeColor = "text-yellow-400";
+
                         return `
                             ${header}
-                            <div class="card p-3 rounded-xl border-l-2 border-l-blue-500/50 flex justify-between items-center group">
-                                <div class="flex flex-col">
-                                    <span class="text-[10px] text-slate-500 font-mono leading-none mb-1">${item.time}</span>
-                                    <span class="text-[11px] text-slate-200 font-medium">${item.summary || 'System Pulse'}</span>
+                            <div class="card p-4 rounded-xl border border-slate-800 flex justify-between items-center group bg-[#1a2035]">
+                                <div class="flex items-center gap-3">
+                                    <span class="text-xs font-mono font-bold ${timeColor}">${item.time}</span>
+                                    <span class="text-slate-500 font-bold">—</span>
+                                    <span class="text-[11px] text-slate-300 font-medium">${item.summary}</span>
                                 </div>
-                                <span class="text-[9px] font-bold text-slate-500 group-hover:text-blue-400 transition-colors uppercase">${item.model || 'AGENT'}</span>
+                                <span class="text-[9px] font-black text-slate-600 bg-slate-900/50 px-2 py-0.5 rounded border border-slate-800 group-hover:text-blue-400 transition-colors uppercase tracking-tighter">${item.model || 'AGENT'}</span>
                             </div>
                         `;
                     }).join('');
@@ -171,33 +169,25 @@
             }
         }
 
-        function renderSparkline(history) {
-            const ctx = document.getElementById('sparkline7d').getContext('2d');
-            const data = history.slice(-7).map(d => d.success);
+        function renderHeatmap(heatmap) {
+            const container = document.getElementById('heatmap-container');
+            container.innerHTML = '';
             
-            if (sparklineInstance) sparklineInstance.destroy();
-
-            sparklineInstance = new Chart(ctx, {
-                type: 'line',
-                data: {
-                    labels: data.map((_, i) => i),
-                    datasets: [{
-                        data: data,
-                        borderColor: '#3b82f6',
-                        borderWidth: 2,
-                        pointRadius: 0,
-                        tension: 0.4,
-                        fill: true,
-                        backgroundColor: 'rgba(59, 130, 246, 0.1)'
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    plugins: { legend: { display: false }, tooltip: { enabled: false } },
-                    scales: { x: { display: false }, y: { display: false } }
+            // 7 Columns (Days) x 24 Rows (Hours)
+            // Vertical axis = time of day
+            for (let day = 0; day < 7; day++) {
+                const dayData = heatmap[day] || { hours: {} };
+                const dayCol = document.createElement('div');
+                dayCol.className = 'flex flex-col gap-0.5';
+                
+                for (let hour = 0; hour < 24; hour++) {
+                    const count = dayData.hours[hour] || 0;
+                    const cell = document.createElement('div');
+                    cell.className = `w-full h-1 rounded-[1px] ${count > 0 ? (count > 5 ? 'bg-blue-400' : 'bg-blue-600') : 'bg-slate-800/50'}`;
+                    dayCol.appendChild(cell);
                 }
-            });
+                container.appendChild(dayCol);
+            }
         }
 
         function renderChart(history) {
