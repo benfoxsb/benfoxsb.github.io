@@ -19,6 +19,8 @@
         .pulse-card:hover { background: #1e253a; }
         .pulse-expanded { display: none; margin-top: 1rem; padding-top: 1rem; border-top: 1px solid #2d334a; }
         .proj-col { min-width: 340px; flex-shrink: 0; flex-grow: 1; }
+        .tooltip { position: relative; }
+        .tooltip:hover::after { content: attr(data-tip); position: absolute; bottom: 100%; left: 50%; transform: translateX(-50%); background: #1e293b; color: white; padding: 4px 8px; border-radius: 4px; font-size: 10px; white-space: nowrap; z-index: 10; border: 1px solid #334155; }
     </style>
 </head>
 <body class="p-4 md:p-8">
@@ -31,8 +33,9 @@
             </div>
         </header>
 
+        <!-- Top Operational Layer -->
         <div class="grid grid-cols-1 lg:grid-cols-6 gap-6 mb-8">
-            <!-- Operational Hub -->
+            <!-- Unified Performance Hub -->
             <div class="lg:col-span-2 card p-6 rounded-3xl flex flex-col">
                 <div class="mb-6">
                     <h3 class="text-xs font-bold uppercase mb-6 tracking-widest text-emerald-400">System Performance</h3>
@@ -63,36 +66,50 @@
                 </div>
             </div>
 
-            <!-- Health Stacks -->
-            <div class="lg:col-span-1 flex flex-col gap-4">
-                <div id="card-ag" class="card p-5 rounded-2xl flex-1 border-l-4 border-l-slate-700">
-                    <h3 class="text-[10px] font-bold uppercase mb-4 tracking-widest text-slate-400">AG Reset</h3>
-                    <div class="space-y-4">
-                        <div><p class="text-[9px] font-bold text-slate-500 uppercase">Quota</p><p id="timer-ag-quota" class="text-2xl font-black leading-none mt-1">--</p></div>
-                        <div><p class="text-[9px] font-bold text-slate-500 uppercase">Rate Limit</p><p id="timer-ag-rl" class="text-2xl font-black leading-none mt-1">--</p></div>
-                    </div>
-                </div>
-                <div id="card-gcli" class="card p-5 rounded-2xl flex-1 border-l-4 border-l-slate-700">
-                    <h3 class="text-[10px] font-bold uppercase mb-4 tracking-widest text-slate-400">GC Reset</h3>
-                    <div class="space-y-4">
-                        <div><p class="text-[9px] font-bold text-slate-500 uppercase">Quota</p><p id="timer-gcli-quota" class="text-2xl font-black leading-none mt-1">--</p></div>
-                        <div><p class="text-[9px] font-bold text-slate-500 uppercase">Rate Limit</p><p id="timer-gcli-rl" class="text-2xl font-black leading-none mt-1">--</p></div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Histogram -->
+            <!-- Model Distribution Histogram -->
             <div class="lg:col-span-3 card p-6 rounded-3xl">
                 <h3 class="text-xs font-bold uppercase mb-4 tracking-widest text-blue-400">Model Distribution</h3>
                 <div id="dynamic-legend" class="flex flex-wrap gap-x-4 gap-y-2 text-[10px] font-bold mb-6">
                 </div>
-                <div class="h-64 w-full relative">
+                <div class="h-[280px] w-full relative">
                     <canvas id="modelChart"></canvas>
+                </div>
+            </div>
+
+            <!-- Infrastructure & Billing Stacks -->
+            <div class="lg:col-span-1 flex flex-col gap-4">
+                <div id="card-ag" class="card p-5 rounded-2xl flex-1 border-l-4 border-l-slate-700 overflow-hidden">
+                    <div class="flex justify-between items-start mb-4">
+                        <h3 class="text-[10px] font-bold uppercase tracking-widest text-slate-400">AG / Project</h3>
+                        <span class="text-[8px] font-bold text-slate-600 bg-slate-800/50 px-1.5 py-0.5 rounded truncate max-w-[100px]" title="gen-lang-client-0036704643">gen-lang...643</span>
+                    </div>
+                    <div class="grid grid-cols-2 gap-4 mb-4">
+                        <div><p class="text-[8px] font-bold text-slate-500 uppercase">Quota</p><p id="timer-ag-quota" class="text-lg font-black leading-none mt-1">--</p></div>
+                        <div><p class="text-[8px] font-bold text-slate-500 uppercase">Rate Limit</p><p id="timer-ag-rl" class="text-lg font-black leading-none mt-1">--</p></div>
+                    </div>
+                    <div class="pt-3 border-t border-slate-800/50">
+                        <p class="text-[8px] font-bold text-slate-500 uppercase mb-1">Estimated Cost</p>
+                        <p class="text-lg font-black text-emerald-400 leading-none">$0.00 <span class="text-[8px] text-slate-600 font-normal">MTD</span></p>
+                    </div>
+                </div>
+                <div id="card-gcli" class="card p-5 rounded-2xl flex-1 border-l-4 border-l-slate-700 overflow-hidden">
+                    <div class="flex justify-between items-start mb-4">
+                        <h3 class="text-[10px] font-bold uppercase tracking-widest text-slate-400">GC / Project</h3>
+                        <span class="text-[8px] font-bold text-slate-600 bg-slate-800/50 px-1.5 py-0.5 rounded">Ben Fox Agent</span>
+                    </div>
+                    <div class="grid grid-cols-2 gap-4 mb-4">
+                        <div><p class="text-[8px] font-bold text-slate-500 uppercase">Quota</p><p id="timer-gcli-quota" class="text-lg font-black leading-none mt-1">--</p></div>
+                        <div><p class="text-[8px] font-bold text-slate-500 uppercase">Rate Limit</p><p id="timer-gcli-rl" class="text-lg font-black leading-none mt-1">--</p></div>
+                    </div>
+                    <div class="pt-3 border-t border-slate-800/50">
+                        <p class="text-[8px] font-bold text-slate-500 uppercase mb-1">Estimated Cost</p>
+                        <p class="text-lg font-black text-emerald-400 leading-none">$0.00 <span class="text-[8px] text-slate-600 font-normal">MTD</span></p>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <!-- Strategy Layer -->
+        <!-- Failover Pipeline Layer -->
         <div class="card p-6 rounded-3xl mb-8 border-emerald-500/10">
             <h3 class="text-xs font-bold uppercase mb-6 tracking-widest text-emerald-500">Failover Pipeline</h3>
             <div id="failover-path" class="grid grid-cols-2 md:grid-cols-6 gap-4">
@@ -198,17 +215,21 @@
                 if (data.failover) {
                     let activeFound = false;
                     pipelineEl.innerHTML = data.failover.map((item, idx) => {
-                        const isHit = (t[item.quota_id] && t[item.quota_id] !== "0.0") || (t[item.rl_id] && t[item.rl_id] !== "0.0");
+                        const qVal = t[item.quota_id]; const rVal = t[item.rl_id];
+                        const isHit = (qVal && qVal !== "0.0") || (rVal && rVal !== "0.0");
                         const mKey = getModelKey(item.id);
                         const cfg = modelConfig.find(c => c.key === mKey) || { tw: 'emerald' };
                         let statusText = "STANDBY"; let statusColor = "text-slate-500"; let border = "border-slate-800";
-                        let roleIcon = item.icon || "🛡️"; let brainIndicator = "";
+                        let roleIcon = item.icon || "🛡️"; let brainIndicator = ""; let reason = "";
                         
-                        if (isHit) { statusText = "COOLDOWN"; statusColor = "text-red-500"; }
+                        if (isHit) { 
+                            statusText = "COOLDOWN"; statusColor = "text-red-500"; 
+                            reason = (qVal && qVal !== "0.0") ? `QUOTA (${qVal}d)` : `RL (${rVal}d)`;
+                        }
                         else if (!activeFound) { statusText = "ACTIVE"; statusColor = `text-${cfg.tw}-400`; border = `border-${cfg.tw}-500/50 active-model`; brainIndicator = "🧠"; activeFound = true; }
                         
                         return `
-                            <div class="card p-4 rounded-xl border-2 ${border} relative overflow-hidden" title="${item.name} | ${item.role}">
+                            <div class="card p-4 rounded-xl border-2 ${border} relative overflow-hidden transition-all duration-300" title="${item.name} | ${item.role}">
                                 <span class="absolute top-0 right-0 px-2 py-0.5 bg-slate-900 text-[8px] font-black text-slate-500 border-b border-l border-slate-800">${idx === 0 ? 'PRIME' : 'F-BACK'}</span>
                                 <div class="flex items-center gap-3">
                                     <div class="relative">
@@ -217,7 +238,7 @@
                                     </div>
                                     <p class="text-sm font-bold text-slate-200 truncate">${item.display || item.name}</p>
                                 </div>
-                                <p class="text-[10px] font-black ${statusColor} mt-2 uppercase tracking-widest">${statusText}</p>
+                                <p class="text-[9px] font-black ${statusColor} mt-2 uppercase tracking-widest">${reason || statusText}</p>
                             </div>
                         `;
                     }).join('');
