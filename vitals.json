@@ -1,8 +1,8 @@
 {
-  "last_updated": "2026-02-03T18:46:48-08:00",
-  "windows": {
-    "24h": { "success": 125, "fail": 154, "usage": { "flash": 58, "copilot": 46 } },
-    "7d": { "status": "accumulating", "days_tracked": 1 },
-    "30d": { "status": "accumulating", "days_tracked": 1 }
-  }
+  "updated": "2026-02-04T05:06:44Z",
+  "metrics": {
+    "success": 148,
+    "fail": 156
+  },
+  "status": "live"
 }
