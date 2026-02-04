@@ -67,16 +67,20 @@
                     <!-- Injected via JS -->
                 </div>
 
-                <div class="card p-6 rounded-3xl h-[400px]">
-                    <div class="flex justify-between items-center mb-6">
-                        <h2 class="text-lg font-bold text-white tracking-tight">Model Distribution (7D)</h2>
-                        <div class="flex gap-4 text-[10px] font-bold">
-                            <div class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-blue-500"></span> FLASH</div>
-                            <div class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-purple-500"></span> PRO</div>
-                            <div class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-emerald-500"></span> COPILOT</div>
-                        </div>
+                <div class="flex justify-between items-center mb-6 ml-1">
+                    <h2 class="text-2xl font-bold text-white tracking-tight">Model Distribution</h2>
+                    <div class="flex flex-wrap gap-x-4 gap-y-2 text-[10px] font-bold max-w-[400px] justify-end">
+                        <div class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-[#3b82f6]"></span> GEMINI FLASH</div>
+                        <div class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-[#a855f7]"></span> GEMINI PRO</div>
+                        <div class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-[#10b981]"></span> GPT-5-MINI</div>
+                        <div class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-[#f43f5e]"></span> CLAUDE OPUS</div>
+                        <div class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-[#f59e0b]"></span> CLAUDE SONNET</div>
+                        <div class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-[#64748b]"></span> LOCAL QWEN</div>
                     </div>
-                    <div class="h-[280px] w-full">
+                </div>
+
+                <div class="card p-6 rounded-3xl h-[400px]">
+                    <div class="grow w-full relative">
                         <canvas id="modelChart"></canvas>
                     </div>
                 </div>
@@ -171,14 +175,36 @@
 
                         // Map model to specific theme colors matching the distribution chart
                         const modelThemes = {
-                            'FLASH': { time: "text-blue-400", text: "text-blue-100/90", border: "border-blue-500/20" },
-                            'PRO': { time: "text-purple-400", text: "text-purple-100/90", border: "border-purple-500/20" },
+                            // Gemini Flash (Blue)
+                            'GEMINI-3-FLASH': { time: "text-blue-400", text: "text-blue-100/90", border: "border-blue-500/20" },
+                            'GEMINI-FLASH': { time: "text-blue-400", text: "text-blue-100/90", border: "border-blue-500/20" },
+                            
+                            // Gemini Pro (Purple)
+                            'GEMINI-3-PRO-HIGH': { time: "text-purple-400", text: "text-purple-100/90", border: "border-purple-500/20" },
+                            'GEMINI-3-PRO-LOW': { time: "text-purple-400", text: "text-purple-100/90", border: "border-purple-500/20" },
+                            'GEMINI-PRO': { time: "text-purple-400", text: "text-purple-100/90", border: "border-purple-500/20" },
+                            
+                            // GPT-5 Mini (Emerald)
+                            'GPT-5-MINI': { time: "text-emerald-400", text: "text-emerald-100/90", border: "border-emerald-500/20" },
                             'COPILOT': { time: "text-emerald-400", text: "text-emerald-100/90", border: "border-emerald-500/20" },
+                            
+                            // Claude Opus (Rose)
+                            'CLAUDE-OPUS-4-5-THINKING': { time: "text-rose-400", text: "text-rose-100/90", border: "border-rose-500/20" },
+                            'CLAUDE-OPUS': { time: "text-rose-400", text: "text-rose-100/90", border: "border-rose-500/20" },
+                            
+                            // Claude Sonnet (Amber)
+                            'CLAUDE-SONNET-4-5': { time: "text-amber-400", text: "text-amber-100/90", border: "border-amber-500/20" },
+                            'CLAUDE-SONNET': { time: "text-amber-400", text: "text-amber-100/90", border: "border-amber-500/20" },
+                            
+                            // Local Qwen (Slate)
+                            'QWEN': { time: "text-slate-400", text: "text-slate-100/90", border: "border-slate-500/20" },
                             'LOCAL': { time: "text-slate-400", text: "text-slate-100/90", border: "border-slate-500/20" },
+                            
                             'AGENT': { time: "text-blue-400", text: "text-blue-100/90", border: "border-slate-800" }
                         };
                         
-                        const theme = modelThemes[item.model.toUpperCase()] || modelThemes['AGENT'];
+                        const modelKey = item.model.toUpperCase();
+                        const theme = modelThemes[modelKey] || modelThemes['AGENT'];
 
                         return `
                             ${header}
@@ -233,6 +259,8 @@
             const flashData = history.map(d => d.flash);
             const proData = history.map(d => d.pro);
             const copilotData = history.map(d => d.copilot);
+            const opusData = history.map(d => d.opus || 0);
+            const sonnetData = history.map(d => d.sonnet || 0);
             const localData = history.map(d => d.local);
 
             if (chartInstance) chartInstance.destroy();
@@ -242,10 +270,12 @@
                 data: {
                     labels: labels,
                     datasets: [
-                        { label: 'Flash', data: flashData, backgroundColor: '#3b82f6', borderRadius: 4 },
-                        { label: 'Pro', data: proData, backgroundColor: '#a855f7', borderRadius: 4 },
-                        { label: 'Copilot', data: copilotData, backgroundColor: '#10b981', borderRadius: 4 },
-                        { label: 'Local', data: localData, backgroundColor: '#64748b', borderRadius: 4 }
+                        { label: 'Gemini Flash', data: flashData, backgroundColor: '#3b82f6', borderRadius: 4 },
+                        { label: 'Gemini Pro', data: proData, backgroundColor: '#a855f7', borderRadius: 4 },
+                        { label: 'GPT-5 Mini', data: copilotData, backgroundColor: '#10b981', borderRadius: 4 },
+                        { label: 'Claude Opus', data: opusData, backgroundColor: '#f43f5e', borderRadius: 4 },
+                        { label: 'Claude Sonnet', data: sonnetData, backgroundColor: '#f59e0b', borderRadius: 4 },
+                        { label: 'Local Qwen', data: localData, backgroundColor: '#64748b', borderRadius: 4 }
                     ]
                 },
                 options: {
