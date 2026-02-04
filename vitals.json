@@ -1,5 +1,5 @@
 {
-  "updated": "2026-02-04T20:45:23Z",
+  "updated": "2026-02-04T20:51:16Z",
   "windows": {
     "24h": {
       "date": "2026-02-04",
@@ -80,6 +80,14 @@
     }
   ],
   "pulse": [
+    {
+      "date": "2026-02-04",
+      "time": "12:45",
+      "project": "benfoxsb.github.io",
+      "hash": "5f03f94",
+      "url": "https://github.com/benfoxsb/benfoxsb.github.io/commit/5f03f94",
+      "summary": "data: focus pulse on code check-ins"
+    },
     {
       "date": "2026-02-04",
       "time": "12:39",
@@ -183,14 +191,6 @@
       "hash": "46aaab3",
       "url": "https://github.com/benfoxsb/benfoxsb.github.io/commit/46aaab3",
       "summary": "ui: fix heatmap alignment in Operational Hub"
-    },
-    {
-      "date": "2026-02-04",
-      "time": "12:09",
-      "project": "benfoxsb.github.io",
-      "hash": "089f1a2",
-      "url": "https://github.com/benfoxsb/benfoxsb.github.io/commit/089f1a2",
-      "summary": "data: focus pulse on code check-ins"
     },
     {
       "date": "2026-02-03",
@@ -385,7 +385,7 @@
       "success": {
         "10": "5",
         "11": "11",
-        "12": "15"
+        "12": "16"
       },
       "fail": {
         "11": "2",
@@ -396,37 +396,43 @@
   "failover": [
     {
       "id": "ag_flash",
-      "name": "AG Gemini Flash",
+      "name": "Antigravity Gemini 3 Flash",
+      "display": "AG FLASH",
       "quota_id": "ag_quota",
       "rl_id": "ag_rl"
     },
     {
       "id": "gcli_flash",
-      "name": "GCLI Flash",
+      "name": "Gemini CLI Flash",
+      "display": "GC FLASH",
       "quota_id": "gcli_quota",
       "rl_id": "gcli_rl"
     },
     {
       "id": "ag_pro",
-      "name": "AG Gemini Pro",
+      "name": "Antigravity Gemini 3 Pro",
+      "display": "AG PRO",
       "quota_id": "ag_quota",
       "rl_id": "ag_rl"
     },
     {
       "id": "sonnet",
-      "name": "AG Claude Sonnet",
+      "name": "Antigravity Claude Sonnet 4.5",
+      "display": "AG SONNET",
       "quota_id": "ag_rl",
       "rl_id": "ag_rl"
     },
     {
       "id": "copilot",
-      "name": "CP GPT-5-Mini",
+      "name": "GitHub Copilot GPT-5-Mini",
+      "display": "GH GPT-5",
       "quota_id": "",
       "rl_id": ""
     },
     {
       "id": "local",
-      "name": "LC Qwen",
+      "name": "Local Ollama Qwen Coder",
+      "display": "LC QWEN",
       "quota_id": "",
       "rl_id": ""
     }
