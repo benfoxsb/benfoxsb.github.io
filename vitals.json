@@ -1,35 +1,57 @@
 {
-  "updated": "2026-02-04T09:53:17Z",
+  "updated": "2026-02-04T09:59:35Z",
   "windows": {
     "24h": {
-      "success": 18,
+      "success": 20,
       "fail": 2,
-      "cooldowns": 0,
+      "cooldowns": 1,
       "quotas": 2,
+      "cooldown_list": [
+        {
+          "name": "Claude Opus",
+          "status": "Ready",
+          "color": "text-emerald-400"
+        },
+        {
+          "name": "Claude Sonnet",
+          "status": "Ready",
+          "color": "text-emerald-400"
+        },
+        {
+          "name": "Gemini Pro",
+          "status": "4h wait",
+          "color": "text-amber-400"
+        },
+        {
+          "name": "GPT-5 Mini",
+          "status": "Ready",
+          "color": "text-emerald-400"
+        }
+      ],
       "usage": {
-        "flash": 22,
+        "flash": 24,
         "pro": 3,
         "copilot": 1,
         "local": 0
       }
     },
     "7d": {
-      "success": 210,
+      "success": 212,
       "fail": 162,
       "days": 2,
       "usage": {
-        "flash": 143,
+        "flash": 145,
         "pro": 16,
         "copilot": 50,
         "local": 0
       }
     },
     "30d": {
-      "success": 210,
+      "success": 212,
       "fail": 162,
       "days": 2,
       "usage": {
-        "flash": 143,
+        "flash": 145,
         "pro": 16,
         "copilot": 50,
         "local": 0
@@ -48,9 +70,9 @@
     },
     {
       "date": "2026-02-04",
-      "success": 18,
+      "success": 20,
       "fail": 2,
-      "flash": 22,
+      "flash": 24,
       "pro": 3,
       "copilot": 1,
       "local": 0
@@ -60,55 +82,55 @@
     {
       "date": "2026-02-03",
       "time": "08:07",
-      "model": "AGENT",
+      "model": "gpt-5-mini",
       "summary": "X Integration:"
     },
     {
       "date": "2026-02-03",
       "time": "08:07",
-      "model": "AGENT",
+      "model": "gpt-5-mini",
       "summary": "Website Launch:"
     },
     {
       "date": "2026-02-03",
       "time": "08:07",
-      "model": "AGENT",
+      "model": "gpt-5-mini",
       "summary": "Dashboard Restoration:"
     },
     {
       "date": "2026-02-03",
       "time": "08:07",
-      "model": "AGENT",
+      "model": "gpt-5-mini",
       "summary": "Brain Hierarchy:"
     },
     {
       "date": "2026-02-03",
       "time": "08:07",
-      "model": "AGENT",
+      "model": "gpt-5-mini",
       "summary": "Agile Infrastructure:"
     },
     {
       "date": "2026-02-04",
-      "time": "09:51",
-      "model": "AGENT",
+      "time": "09:56",
+      "model": "gemini-3-pro-high",
       "summary": "Dashboard Upgrade:"
     },
     {
       "date": "2026-02-04",
-      "time": "09:51",
-      "model": "AGENT",
+      "time": "09:56",
+      "model": "gemini-3-pro-high",
       "summary": "Visual Alignment:"
     },
     {
       "date": "2026-02-04",
-      "time": "09:51",
-      "model": "AGENT",
+      "time": "09:56",
+      "model": "gemini-3-pro-high",
       "summary": "Data Engineering:"
     },
     {
       "date": "2026-02-04",
-      "time": "09:51",
-      "model": "AGENT",
+      "time": "09:56",
+      "model": "gemini-3-pro-high",
       "summary": "Tier 3 Verification:"
     }
   ],
@@ -183,7 +205,7 @@
       "date": "2026-02-04",
       "success": {
         "08": "4",
-        "09": "14"
+        "09": "16"
       },
       "fail": {
         "09": "2"
