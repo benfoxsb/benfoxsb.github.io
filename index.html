@@ -44,7 +44,9 @@
                         <div id="bar-success-24h" class="h-full bg-emerald-500 transition-all duration-1000" style="width: 0%"></div>
                         <div id="bar-fail-24h" class="h-full bg-red-500 transition-all duration-1000" style="width: 0%"></div>
                     </div>
-                    <p id="label-cooldowns" class="text-[10px] text-slate-500 mt-2 uppercase tracking-tighter">0 active cooldowns</p>
+                    <div id="label-cooldowns" class="text-[9px] text-slate-500 mt-2 uppercase tracking-tighter leading-tight">
+                        Initializing health state...
+                    </div>
                 </div>
             </div>
 
@@ -74,21 +76,21 @@
                 
                 <!-- Cooldown Status Grid -->
                 <div id="cooldown-timers" class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
-                    <div class="card p-4 rounded-2xl border-l-4 border-l-amber-500/50 bg-[#1a2035]">
+                    <div class="card p-4 rounded-2xl border-l-4 border-l-slate-700 bg-[#1a2035]">
                         <p class="text-[10px] font-bold text-slate-500 uppercase tracking-widest">AG Quota Reset</p>
-                        <p class="text-2xl font-black text-amber-400 leading-none mt-1"><span id="timer-ag-quota">--</span><span id="unit-ag-quota" class="text-[10px] ml-1 opacity-60">DAYS</span></p>
+                        <p class="text-2xl font-black mt-1"><span id="timer-ag-quota">--</span><span id="unit-ag-quota" class="text-[10px] ml-1 opacity-60">DAYS</span></p>
                     </div>
-                    <div class="card p-4 rounded-2xl border-l-4 border-l-amber-500/50 bg-[#1a2035]">
+                    <div class="card p-4 rounded-2xl border-l-4 border-l-slate-700 bg-[#1a2035]">
                         <p class="text-[10px] font-bold text-slate-500 uppercase tracking-widest">AG Rate Limit Reset</p>
-                        <p class="text-2xl font-black text-amber-400 leading-none mt-1"><span id="timer-ag-rl">--</span><span id="unit-ag-rl" class="text-[10px] ml-1 opacity-60">DAYS</span></p>
+                        <p class="text-2xl font-black mt-1"><span id="timer-ag-rl">--</span><span id="unit-ag-rl" class="text-[10px] ml-1 opacity-60">DAYS</span></p>
                     </div>
-                    <div class="card p-4 rounded-2xl border-l-4 border-l-blue-500/50 bg-[#1a2035]">
+                    <div class="card p-4 rounded-2xl border-l-4 border-l-slate-700 bg-[#1a2035]">
                         <p class="text-[10px] font-bold text-slate-500 uppercase tracking-widest">GCLI Quota Reset</p>
-                        <p class="text-2xl font-black text-blue-400 leading-none mt-1"><span id="timer-gcli-quota">--</span><span id="unit-gcli-quota" class="text-[10px] ml-1 opacity-60">DAYS</span></p>
+                        <p class="text-2xl font-black mt-1"><span id="timer-gcli-quota">--</span><span id="unit-gcli-quota" class="text-[10px] ml-1 opacity-60">DAYS</span></p>
                     </div>
-                    <div class="card p-4 rounded-2xl border-l-4 border-l-blue-500/50 bg-[#1a2035]">
+                    <div class="card p-4 rounded-2xl border-l-4 border-l-slate-700 bg-[#1a2035]">
                         <p class="text-[10px] font-bold text-slate-500 uppercase tracking-widest">GCLI Rate Limit Reset</p>
-                        <p class="text-2xl font-black text-blue-400 leading-none mt-1"><span id="timer-gcli-rl">--</span><span id="unit-gcli-rl" class="text-[10px] ml-1 opacity-60">DAYS</span></p>
+                        <p class="text-2xl font-black mt-1"><span id="timer-gcli-rl">--</span><span id="unit-gcli-rl" class="text-[10px] ml-1 opacity-60">DAYS</span></p>
                     </div>
                 </div>
 
@@ -144,35 +146,58 @@
                 const w24 = data.windows['24h'];
                 const w7 = data.windows['7d'];
                 const w30 = data.windows['30d'];
+                const t = w24.timers || {};
 
                 document.getElementById('stat-success').innerText = w24.success;
                 document.getElementById('stat-fail').innerText = w24.fail;
-                document.getElementById('label-cooldowns').innerText = `${w24.cooldowns || 0} active cooldowns`;
                 
+                // Update Operations Bar
                 const total24 = w24.success + w24.fail;
                 if (total24 > 0) {
                     document.getElementById('bar-success-24h').style.width = (w24.success / total24 * 100) + '%';
                     document.getElementById('bar-fail-24h').style.width = (w24.fail / total24 * 100) + '%';
                 }
 
+                // Update Active Cooldown List in Operations Card
+                const cdListEl = document.getElementById('label-cooldowns');
+                const activeCDs = [];
+                if (t.ag_quota && t.ag_quota !== "0.0") activeCDs.push(`AG Quota (${t.ag_quota}d)`);
+                if (t.ag_rl && t.ag_rl !== "0.0") activeCDs.push(`AG RL (${t.ag_rl}d)`);
+                if (t.gcli_quota && t.gcli_quota !== "0.0") activeCDs.push(`GCLI Quota (${t.gcli_quota}d)`);
+                if (t.gcli_rl && t.gcli_rl !== "0.0") activeCDs.push(`GCLI RL (${t.gcli_rl}d)`);
+                
+                (w24.cooldown_list || []).forEach(c => {
+                    if (c.status !== "Ready" && !c.status.includes("HEALTHY")) {
+                        activeCDs.push(`${c.name} (${c.status})`);
+                    }
+                });
+
+                if (activeCDs.length > 0) {
+                    cdListEl.innerHTML = activeCDs.map(txt => `<span class="text-red-500 font-black">${txt}</span>`).join(' • ');
+                } else {
+                    cdListEl.innerHTML = '<span class="text-emerald-500 font-bold">ALL SYSTEMS HEALTHY</span>';
+                }
+
                 document.getElementById('reliability-7d').innerText = `${w7.reliability || '0.0'}%`;
                 document.getElementById('reliability-30d').innerText = `${w30.reliability || '0.0'}%`;
 
-                const t = w24.timers || {};
                 const setTimer = (id, val) => {
                     const el = document.getElementById(id);
                     const unit = document.getElementById('unit-' + id.replace('timer-', ''));
+                    const card = el?.closest('.card');
                     if (!el) return;
                     if (!val || val === "0.0") {
                         el.innerText = "HEALTHY";
-                        el.classList.remove('text-amber-400', 'text-blue-400', 'text-2xl');
+                        el.classList.remove('text-amber-400', 'text-blue-400', 'text-red-500', 'text-2xl');
                         el.classList.add('text-emerald-400', 'text-base', 'font-bold');
                         if (unit) unit.classList.add('hidden');
+                        if (card) { card.classList.remove('border-l-red-500'); card.classList.add('border-l-slate-700'); }
                     } else {
                         el.innerText = val;
-                        el.classList.add('text-2xl');
-                        el.classList.remove('text-base', 'text-emerald-400', 'font-bold');
+                        el.classList.add('text-2xl', 'text-red-500');
+                        el.classList.remove('text-base', 'text-emerald-400', 'font-bold', 'text-amber-400', 'text-blue-400');
                         if (unit) unit.classList.remove('hidden');
+                        if (card) { card.classList.remove('border-l-slate-700'); card.classList.add('border-l-red-500'); }
                     }
                 };
 
