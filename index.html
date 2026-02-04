@@ -295,7 +295,8 @@
                     const cell = document.createElement('div');
                     
                     let colorClass = 'bg-slate-800/50';
-                    if (fCount > 0) colorClass = 'bg-red-500';
+                    // Threshold logic: Red only if failures dominate or no success exists
+                    if (fCount > 0 && (sCount === 0 || fCount >= sCount)) colorClass = 'bg-red-500';
                     else if (sCount > 0) colorClass = 'bg-emerald-400';
                     
                     cell.className = `w-full h-1 rounded-[1px] ${colorClass}`;
