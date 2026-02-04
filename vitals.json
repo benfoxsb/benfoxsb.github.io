@@ -1,5 +1,5 @@
 {
-  "updated": "2026-02-04T20:06:09Z",
+  "updated": "2026-02-04T20:09:31Z",
   "windows": {
     "24h": {
       "date": "2026-02-04",
@@ -80,6 +80,22 @@
     }
   ],
   "pulse": [
+    {
+      "date": "2026-02-04",
+      "time": "12:06",
+      "project": "repo-status",
+      "hash": "ef83605",
+      "url": "https://github.com/benfoxsb/status/commit/ef83605",
+      "summary": "ui: unified layout with multi-project pulse columns"
+    },
+    {
+      "date": "2026-02-04",
+      "time": "12:06",
+      "project": "repo-status",
+      "hash": "b4eba86",
+      "url": "https://github.com/benfoxsb/status/commit/b4eba86",
+      "summary": "data: focus pulse on code check-ins"
+    },
     {
       "date": "2026-02-04",
       "time": "11:57",
@@ -174,22 +190,6 @@
       "project": "repo-status",
       "hash": "447e31c",
       "url": "https://github.com/benfoxsb/status/commit/447e31c",
-      "summary": "data: fix timestamps and heatmap gaps"
-    },
-    {
-      "date": "2026-02-04",
-      "time": "11:20",
-      "project": "repo-status",
-      "hash": "985a7a6",
-      "url": "https://github.com/benfoxsb/status/commit/985a7a6",
-      "summary": "data: fix timestamps and heatmap gaps"
-    },
-    {
-      "date": "2026-02-04",
-      "time": "11:20",
-      "project": "repo-status",
-      "hash": "7ce38e8",
-      "url": "https://github.com/benfoxsb/status/commit/7ce38e8",
       "summary": "data: fix timestamps and heatmap gaps"
     },
     {
@@ -384,7 +384,8 @@
       "date": "2026-02-04",
       "success": {
         "10": "5",
-        "11": "11"
+        "11": "11",
+        "12": "2"
       },
       "fail": {
         "11": "2"
