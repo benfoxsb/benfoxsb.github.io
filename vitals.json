@@ -1,13 +1,13 @@
 {
-  "updated": "2026-02-04T07:33:35Z",
+  "updated": "2026-02-04T07:56:50Z",
   "windows": {
     "24h": {
-      "success": 185,
+      "success": 189,
       "fail": 160,
-      "cooldowns": 31,
+      "cooldowns": 37,
       "quotas": 19,
       "usage": {
-        "flash": 113,
+        "flash": 118,
         "pro": 13,
         "copilot": 49,
         "local": 0
