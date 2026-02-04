@@ -1,36 +1,36 @@
 {
-  "updated": "2026-02-04T08:11:56Z",
+  "updated": "2026-02-04T09:20:08Z",
   "windows": {
     "24h": {
-      "success": 0,
+      "success": 7,
       "fail": 0,
       "cooldowns": 0,
       "quotas": 0,
       "usage": {
-        "flash": 0,
-        "pro": 0,
+        "flash": 12,
+        "pro": 2,
         "copilot": 0,
         "local": 0
       }
     },
     "7d": {
-      "success": 192,
+      "success": 199,
       "fail": 160,
       "days": 2,
       "usage": {
-        "flash": 121,
-        "pro": 13,
+        "flash": 133,
+        "pro": 15,
         "copilot": 49,
         "local": 0
       }
     },
     "30d": {
-      "success": 192,
+      "success": 199,
       "fail": 160,
       "days": 2,
       "usage": {
-        "flash": 121,
-        "pro": 13,
+        "flash": 133,
+        "pro": 15,
         "copilot": 49,
         "local": 0
       }
@@ -48,13 +48,159 @@
     },
     {
       "date": "2026-02-04",
-      "success": 0,
+      "success": 7,
       "fail": 0,
-      "flash": 0,
-      "pro": 0,
+      "flash": 12,
+      "pro": 2,
       "copilot": 0,
       "local": 0
     }
   ],
-  "pulse": []
+  "pulse": [
+    {
+      "date": "2026-02-03",
+      "time": "07:18",
+      "model": "gemini-3-flash"
+    },
+    {
+      "date": "2026-02-03",
+      "time": "07:20",
+      "model": "gemini-3-flash"
+    },
+    {
+      "date": "2026-02-03",
+      "time": "07:31",
+      "model": "gemini-3-flash-preview"
+    },
+    {
+      "date": "2026-02-03",
+      "time": "07:33",
+      "model": "gemini-3-flash"
+    },
+    {
+      "date": "2026-02-03",
+      "time": "07:34",
+      "model": "gemini-3-flash"
+    },
+    {
+      "date": "2026-02-03",
+      "time": "07:44",
+      "model": "gemini-3-flash"
+    },
+    {
+      "date": "2026-02-03",
+      "time": "07:52",
+      "model": "gemini-3-flash"
+    },
+    {
+      "date": "2026-02-03",
+      "time": "07:55",
+      "model": "gemini-3-flash"
+    },
+    {
+      "date": "2026-02-03",
+      "time": "07:56",
+      "model": "gemini-3-flash"
+    },
+    {
+      "date": "2026-02-03",
+      "time": "07:59",
+      "model": "gemini-3-flash"
+    },
+    {
+      "date": "2026-02-03",
+      "time": "08:00",
+      "model": "gemini-3-flash"
+    },
+    {
+      "date": "2026-02-03",
+      "time": "08:06",
+      "model": "gemini-3-flash"
+    },
+    {
+      "date": "2026-02-03",
+      "time": "08:11",
+      "model": "gpt-5-mini"
+    },
+    {
+      "date": "2026-02-03",
+      "time": "08:11",
+      "model": "gemini-3-flash"
+    },
+    {
+      "date": "2026-02-03",
+      "time": "08:12",
+      "model": "gemini-3-flash-preview"
+    },
+    {
+      "date": "2026-02-04",
+      "time": "08:25",
+      "model": "gemini-3-flash"
+    },
+    {
+      "date": "2026-02-04",
+      "time": "08:31",
+      "model": "gemini-3-flash"
+    },
+    {
+      "date": "2026-02-04",
+      "time": "08:35",
+      "model": "gemini-3-flash"
+    },
+    {
+      "date": "2026-02-04",
+      "time": "08:36",
+      "model": "gemini-3-flash"
+    },
+    {
+      "date": "2026-02-04",
+      "time": "08:37",
+      "model": "gemini-3-pro-high"
+    },
+    {
+      "date": "2026-02-04",
+      "time": "08:37",
+      "model": "gemini-3-flash"
+    },
+    {
+      "date": "2026-02-04",
+      "time": "08:40",
+      "model": "gemini-3-flash"
+    },
+    {
+      "date": "2026-02-04",
+      "time": "08:40",
+      "model": "gemini-3-flash"
+    },
+    {
+      "date": "2026-02-04",
+      "time": "08:40",
+      "model": "gemini-3-flash"
+    },
+    {
+      "date": "2026-02-04",
+      "time": "08:42",
+      "model": "gemini-3-flash"
+    },
+    {
+      "date": "2026-02-04",
+      "time": "09:14",
+      "model": "gemini-3-flash"
+    },
+    {
+      "date": "2026-02-04",
+      "time": "09:15",
+      "model": "gemini-3-pro-high"
+    },
+    {
+      "date": "2026-02-04",
+      "time": "09:17",
+      "model": "gemini-3-flash"
+    },
+    {
+      "date": "2026-02-04",
+      "time": "09:19",
+      "model": "gemini-3-flash"
+    }
+  ]
 }
