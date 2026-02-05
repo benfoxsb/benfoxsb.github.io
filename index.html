@@ -235,7 +235,7 @@
                 }
 
                 const legendContainer = document.getElementById('dynamic-legend');
-                const activeModels = modelConfig.filter(m => (w7.usage[m.key] || 0) > 0 || m.key === 'ag_flash');
+                const activeModels = modelConfig.filter(m => (w7 && w7.usage && (w7.usage[m.key] || 0) > 0) || m.key === 'ag_flash');
                 legendContainer.innerHTML = activeModels.map(m => `<div class="flex items-center gap-1.5" style="color: ${m.color}"><span class="w-4 h-4 rounded-full" style="background-color: ${m.color}"></span> ${m.label}</div>`).join('');
 
                 renderHeatmap(data.heatmap); renderChart(data.history);
