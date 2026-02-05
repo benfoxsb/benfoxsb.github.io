@@ -1,5 +1,5 @@
 {
-  "updated": "2026-02-05T08:06:25Z",
+  "updated": "2026-02-05T08:06:57Z",
   "windows": {
     "24h": {
       "date": "2026-02-05",
@@ -189,15 +189,6 @@
       "hash": "607acf8",
       "url": "https://github.com/benfoxsb/benfoxsb.github.io/commit/607acf8",
       "summary": "data: focus pulse on code check-ins and PST alignment",
-      "model": "AG-GEMINI-3-FLASH"
-    },
-    {
-      "date": "2026-02-04",
-      "time": "23:21",
-      "project": "benfoxsb.github.io",
-      "hash": "96af805",
-      "url": "https://github.com/benfoxsb/benfoxsb.github.io/commit/96af805",
-      "summary": "feat: enable project cards and force 3-column layout",
       "model": "AG-GEMINI-3-FLASH"
     },
     {
