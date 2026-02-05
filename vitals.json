@@ -1,5 +1,5 @@
 {
-  "updated": "2026-02-05T10:25:32Z",
+  "updated": "2026-02-05T10:41:26Z",
   "windows": {
     "24h": {
       "date": "2026-02-05",
@@ -17,15 +17,6 @@
       "hash": "2eb240f",
       "url": "https://github.com/benfoxsb/benfoxsb.github.io/commit/2eb240f",
       "summary": "fix: manual data restore",
-      "model": "AG-GEMINI-3-FLASH"
-    },
-    {
-      "date": "2026-02-05",
-      "time": "00:14",
-      "project": "benfoxsb.github.io",
-      "hash": "7d8ae77",
-      "url": "https://github.com/benfoxsb/benfoxsb.github.io/commit/7d8ae77",
-      "summary": "fix: remove active shadow to strictly use labels for state",
       "model": "AG-GEMINI-3-FLASH"
     },
     {
