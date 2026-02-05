@@ -1,5 +1,5 @@
 {
-  "updated": "2026-02-05T00:07:33Z",
+  "updated": "2026-02-05T00:07:47Z",
   "windows": {
     "24h": {
       "date": "2026-02-04",
@@ -88,6 +88,15 @@
   "pulse": [
     {
       "date": "2026-02-04",
+      "time": "16:07",
+      "project": "benfoxsb.github.io",
+      "hash": "e62f9ff",
+      "url": "https://github.com/benfoxsb/benfoxsb.github.io/commit/e62f9ff",
+      "summary": "data: enhance cooldown detection and PST alignment",
+      "model": "AG-GEMINI-3-FLASH"
+    },
+    {
+      "date": "2026-02-04",
       "time": "16:06",
       "project": "benfoxsb.github.io",
       "hash": "cd2c47e",
@@ -148,15 +157,6 @@
       "url": "https://github.com/benfoxsb/benfoxsb.github.io/commit/d646733",
       "summary": "data: role-based model icons and PST alignment",
       "model": "AG-GEMINI-3-FLASH"
-    },
-    {
-      "date": "2026-02-04",
-      "time": "15:34",
-      "project": "benfoxsb.github.io",
-      "hash": "67e07d0",
-      "url": "https://github.com/benfoxsb/benfoxsb.github.io/commit/67e07d0",
-      "summary": "data: role-based model icons and PST alignment",
-      "model": "GC-GEMINI-3-FLASH-PREVIEW"
     },
     {
       "date": "2026-02-04",
