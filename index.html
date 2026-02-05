@@ -14,7 +14,7 @@
         @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: .5; } }
         ::-webkit-scrollbar { width: 4px; height: 4px; background: transparent; }
         ::-webkit-scrollbar-thumb { background: #2d334a; border-radius: 10px; }
-        .active-model { box-shadow: 0 0 15px rgba(16, 185, 129, 0.1); }
+        .active-model { border-color: #10b981; box-shadow: 0 0 15px rgba(16, 185, 129, 0.1); }
         .pulse-card { cursor: pointer; transition: background 0.2s; }
         .pulse-card:hover { background: #1e253a; }
         .pulse-expanded { display: none; margin-top: 1rem; padding-top: 1rem; border-top: 1px solid #2d334a; }
@@ -36,7 +36,12 @@
             <!-- Unified Performance Hub -->
             <div class="lg:col-span-2 card p-6 rounded-3xl flex flex-col">
                 <div class="mb-6">
-                    <h3 class="text-xs font-bold uppercase mb-6 tracking-widest text-emerald-400">System Performance</h3>
+                    <h3 class="text-xs font-bold uppercase mb-6 tracking-widest text-emerald-400">Operational Hub</h3>
+                    <div class="mt-auto mb-8">
+                        <h3 class="text-[10px] font-bold uppercase tracking-widest text-slate-500 mb-3">7D Activity Pattern</h3>
+                        <div id="heatmap-container" class="grid grid-cols-7 gap-1 h-32 overflow-hidden">
+                        </div>
+                    </div>
                     <div class="flex justify-between items-start mb-6">
                         <div>
                             <p class="text-[10px] font-bold text-slate-500 uppercase mb-2">24H Operations</p>
@@ -48,18 +53,13 @@
                         </div>
                         <div class="text-right">
                             <p class="text-[10px] font-bold text-slate-500 uppercase mb-2">Reliability</p>
-                            <p class="text-sm font-black text-blue-400 leading-tight">7D: <span id="reliability-7d">--%</span></p>
-                            <p class="text-sm font-black text-emerald-400 leading-tight">30D: <span id="reliability-30d">--%</span></p>
+                            <p class="text-base font-black text-blue-400 leading-tight">7D: <span id="reliability-7d">--%</span></p>
+                            <p class="text-base font-black text-emerald-400 leading-tight">30D: <span id="reliability-30d">--%</span></p>
                         </div>
                     </div>
-                    <div class="h-2 w-full bg-slate-800 rounded-full flex overflow-hidden mb-8">
+                    <div class="h-2 w-full bg-slate-800 rounded-full flex overflow-hidden">
                         <div id="bar-success-24h" class="h-full bg-emerald-500 transition-all duration-1000" style="width: 0%"></div>
                         <div id="bar-fail-24h" class="h-full bg-red-500 transition-all duration-1000" style="width: 0%"></div>
-                    </div>
-                </div>
-                <div class="mt-auto">
-                    <h3 class="text-[10px] font-bold uppercase tracking-widest text-slate-500 mb-3">7D Activity Pattern</h3>
-                    <div id="heatmap-container" class="grid grid-cols-7 gap-1 h-32 overflow-hidden">
                     </div>
                 </div>
             </div>
@@ -78,22 +78,22 @@
             <div class="lg:col-span-1 flex flex-col gap-4">
                 <div id="card-ag" class="card p-5 rounded-2xl flex-1 border-l-4 border-l-slate-700 overflow-hidden">
                     <div class="mb-4">
-                        <h3 class="text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-1">Ben Fox Agent</h3>
-                        <p class="text-[8px] text-slate-600 truncate">gen-lang-client-0036704643</p>
+                        <h3 id="billing-ag-name" class="text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-1">Ben Fox Agent</h3>
+                        <p id="billing-ag-id" class="text-[8px] text-slate-600 truncate">gen-lang-client-0036704643</p>
                     </div>
                     <div class="pt-3 border-t border-slate-800/50">
                         <p class="text-[8px] font-bold text-slate-500 uppercase mb-1">Current Cost</p>
-                        <p class="text-2xl font-black text-emerald-400 leading-none">$0.00 <span class="text-[8px] text-slate-600 font-normal">MTD</span></p>
+                        <p id="billing-ag-cost" class="text-2xl font-black text-emerald-400 leading-none">$0.00 <span class="text-[8px] text-slate-600 font-normal">MTD</span></p>
                     </div>
                 </div>
                 <div id="card-gcli" class="card p-5 rounded-2xl flex-1 border-l-4 border-l-slate-700 overflow-hidden">
                     <div class="mb-4">
-                        <h3 class="text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-1">GC Project</h3>
-                        <p class="text-[8px] text-slate-600 truncate">Agent Failover Mesh</p>
+                        <h3 id="billing-gc-name" class="text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-1">Agent Failover Mesh</h3>
+                        <p id="billing-gc-id" class="text-[8px] text-slate-600 truncate">gen-lang-mesh-001</p>
                     </div>
                     <div class="pt-3 border-t border-slate-800/50">
                         <p class="text-[8px] font-bold text-slate-500 uppercase mb-1">Current Cost</p>
-                        <p class="text-2xl font-black text-emerald-400 leading-none">$0.00 <span class="text-[8px] text-slate-600 font-normal">MTD</span></p>
+                        <p id="billing-gc-cost" class="text-2xl font-black text-emerald-400 leading-none">$0.00 <span class="text-[8px] text-slate-600 font-normal">MTD</span></p>
                     </div>
                 </div>
             </div>
@@ -130,7 +130,7 @@
             { key: 'gc_flash', label: 'GC FLASH', color: '#67e8f9', tw: 'cyan' },
             { key: 'gc_pro', label: 'GC PRO', color: '#c084fc', tw: 'indigo' },
             { key: 'gh_gpt5', label: 'GH GPT-5', color: '#10b981', tw: 'emerald' },
-            { key: 'gh_gpt4', label: 'GH GPT-4o', color: '#059669', tw: 'emerald' },
+            { key: 'gh_gpt4', label: 'GH GPT-4.1', color: '#059669', tw: 'emerald' },
             { key: 'ag_opus', label: 'AG OPUS', color: '#f43f5e', tw: 'rose' },
             { key: 'ag_sonnet', label: 'AG SONNET', color: '#f59e0b', tw: 'amber' },
             { key: 'lc_qwen', label: 'LC QWEN', color: '#64748b', tw: 'slate' }
@@ -152,7 +152,7 @@
             if (s.includes('ag-') && s.includes('pro')) return 'ag_pro';
             if (s.includes('ag-')) return 'ag_flash';
             if (s.includes('gc-') || s.includes('gcli')) return s.includes('pro') ? 'gcli_pro' : 'gc_flash';
-            if (s.includes('gh-') || s.includes('copilot')) return s.includes('4') ? 'gh_gpt4' : 'gh_gpt5';
+            if (s.includes('gh-') || s.includes('copilot')) return (s.includes('4') || s.includes('gh_gpt4')) ? 'gh_gpt4' : 'gh_gpt5';
             return 'lc_qwen';
         }
 
@@ -185,6 +185,15 @@
                 document.getElementById('reliability-7d').innerText = `${w7.reliability || '0.0'}%`;
                 document.getElementById('reliability-30d').innerText = `${w30.reliability || '0.0'}%`;
 
+                if (data.billing) {
+                    document.getElementById('billing-ag-name').innerText = data.billing.ag.name;
+                    document.getElementById('billing-ag-id').innerText = data.billing.ag.id;
+                    document.getElementById('billing-ag-cost').innerText = data.billing.ag.cost;
+                    document.getElementById('billing-gc-name').innerText = data.billing.gc.name;
+                    document.getElementById('billing-gc-id').innerText = data.billing.gc.id;
+                    document.getElementById('billing-gc-cost').innerText = data.billing.gc.cost;
+                }
+
                 const pipelineEl = document.getElementById('failover-path');
                 if (data.failover) {
                     let activeFound = false;
@@ -192,13 +201,13 @@
                         const qVal = t[item.quota_id]; const rVal = t[item.rl_id];
                         const isHit = (qVal && qVal !== "0.0") || (rVal && rVal !== "0.0");
                         const mKey = getModelKey(item.id);
-                        const cfg = modelConfig.find(c => c.key === mKey) || { tw: 'emerald' };
+                        const cfg = modelConfig.find(c => c.key === mKey) || { tw: 'emerald', label: item.display || item.name };
                         let statusText = "STANDBY"; let statusColor = "text-slate-500"; let border = "border-slate-800";
                         let roleIcon = item.icon || "🛡️"; let brainIndicator = ""; let reason = "";
                         
                         if (isHit) { 
                             statusText = "COOLDOWN"; statusColor = "text-red-500"; 
-                            reason = (qVal && qVal !== "0.0") ? `QUOTA (${qVal}d)` : `RL (${rVal}d)`;
+                            reason = (qVal && qVal !== "0.0") ? `QUOTA (${qVal}h)` : `RL (${rVal}h)`;
                         }
                         else if (!activeFound) { statusText = "ACTIVE"; statusColor = `text-${cfg.tw}-400`; border = `border-${cfg.tw}-500/50 active-model`; brainIndicator = "🧠"; activeFound = true; }
                         
@@ -206,13 +215,13 @@
                             <div class="card p-4 rounded-xl border-2 ${border} relative overflow-hidden transition-all duration-300" title="${item.name} | ${item.role}">
                                 <span class="absolute top-0 right-0 px-2 py-0.5 bg-slate-900 text-[8px] font-black text-slate-500 border-b border-l border-slate-800">${idx === 0 ? 'PRIME' : 'F-BACK'}</span>
                                 <div class="flex items-center gap-3">
-                                    <div class="relative">
-                                        <span class="text-xl">${roleIcon}</span>
-                                        ${brainIndicator ? `<span class="absolute -top-2 -right-2 text-xs pulse">${brainIndicator}</span>` : ''}
-                                    </div>
+                                    <span class="text-xl">${roleIcon}</span>
                                     <p class="text-sm font-bold text-slate-200 truncate">${cfg.label}</p>
                                 </div>
-                                <p class="text-sm font-black ${statusColor} mt-2 uppercase tracking-widest">${reason || statusText}</p>
+                                <div class="flex justify-between items-end mt-2">
+                                    <p class="text-[9px] font-black ${statusColor} uppercase tracking-widest">${reason || statusText}</p>
+                                    ${brainIndicator ? `<span class="text-xs pulse">${brainIndicator}</span>` : ''}
+                                </div>
                             </div>
                         `;
                     }).join('');
