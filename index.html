@@ -20,8 +20,9 @@
         .pulse-expanded { display: none; margin-top: 1rem; padding-top: 1rem; border-top: 1px solid #2d334a; }
         .proj-block { break-inside: avoid; margin-bottom: 2rem; width: 100%; display: inline-block; }
         #project-columns { display: flex; flex-direction: column; gap: 2rem; }
-        .pulse-col { display: flex; flex-direction: column; gap: 2rem; flex: 1; }
-        @media (min-width: 1024px) { #project-columns { flex-direction: row; } }
+        .pulse-col { display: flex; flex-direction: column; gap: 2rem; flex: 1; min-width: 0; }
+        @media (min-width: 1024px) { #project-columns { flex-direction: row; } .pulse-col { flex: 0 0 32%; } }
+        @media (min-width: 1440px) { .pulse-col { flex: 0 0 31%; } }
     </style>
 </head>
 <body class="p-4 md:p-8">
@@ -249,17 +250,16 @@
                     });
                     
                     const activeProjKeys = Object.keys(groups).filter(k => groups[k].length > 0).sort();
+                    console.log("Active Projects:", activeProjKeys);
                     const columnBins = [[], [], []];
                     
-                    // Manual distribution to ensure 3 columns are used if possible
                     activeProjKeys.forEach((proj, idx) => {
                         const items = groups[proj]; const days = {};
                         items.forEach(it => { const label = it.date === today ? 'Today' : 'Yesterday'; if (!days[label]) days[label] = []; days[label].push(it); });
 
                         const html = `<div class="proj-block"><div class="text-sm font-bold text-blue-400 uppercase tracking-[0.2em] mb-2 border-b-2 border-blue-500/20 pb-2">${proj}</div><div>${Object.keys(days).map((dayLabel, dIdx) => {
-                            const dayId = `${idx}-${dIdx}`;
+                            const dayId = `p${idx}-d${dIdx}`;
                             
-                            // Group identical summaries to prevent noise
                             const collapsedItems = [];
                             days[dayLabel].forEach(item => {
                                 const last = collapsedItems[collapsedItems.length - 1];
@@ -279,7 +279,7 @@
                                 const countBadge = item.count > 1 ? `<span class="bg-blue-500/20 text-blue-400 px-1.5 py-0.5 rounded text-[8px] font-black ml-2">x${item.count}</span>` : '';
                                 
                                 return `
-                                    <div class="card p-3 rounded-xl border-l-4 mb-2 group transition-all" style="border-left-color: ${cfg.color}; border-color: rgba(255,255,255,0.05); cursor: pointer; background: #1a2035;" onclick="togglePulse('${idx}-${dIdx}-${cIdx}')">
+                                    <div class="card p-3 rounded-xl border-l-4 mb-2 group transition-all" style="border-left-color: ${cfg.color}; border-color: rgba(255,255,255,0.05); cursor: pointer; background: #1a2035;" onclick="togglePulse('p${idx}-d${dIdx}-c${cIdx}')">
                                         <div class="flex flex-col gap-1">
                                             <div class="flex justify-between items-center">
                                                 <div class="flex items-center">
@@ -290,7 +290,7 @@
                                             </div>
                                             <span class="text-sm text-slate-200 font-medium leading-tight group-hover:text-blue-400 transition-colors truncate">${item.summary}</span>
                                         </div>
-                                        <div id="expanded-${idx}-${dIdx}-${cIdx}" class="pulse-expanded mt-3 pt-3 border-t border-slate-800">
+                                        <div id="expanded-p${idx}-d${dIdx}-c${cIdx}" class="pulse-expanded mt-3 pt-3 border-t border-slate-800">
                                             <div class="grid grid-cols-2 gap-4 mb-4">
                                                 <div>
                                                     <p class="text-[8px] font-bold text-slate-500 uppercase mb-1">Compute</p>
@@ -312,17 +312,12 @@
                             }).join('')}</div></div>`;
                         }).join('')}</div></div>`;
                         
-                        // Use a simple round-robin to populate all 3 bins
                         columnBins[idx % 3].push(html);
                     });
                     
-                    // Always render 3 columns if we have at least 3 projects, or just render available
-                    const colsToRender = activeProjKeys.length >= 3 ? 3 : activeProjKeys.length;
                     let finalHtml = "";
                     for(let i=0; i<3; i++) {
-                        if (columnBins[i].length > 0 || i < colsToRender) {
-                            finalHtml += `<div class="pulse-col">${columnBins[i].join('')}</div>`;
-                        }
+                        finalHtml += `<div class="pulse-col">${columnBins[i].join('')}</div>`;
                     }
                     pulseContainer.innerHTML = finalHtml;
                 }
