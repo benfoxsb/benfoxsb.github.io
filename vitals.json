@@ -1,5 +1,5 @@
 {
-  "updated": "2026-02-05T01:23:07Z",
+  "updated": "2026-02-05T01:23:32Z",
   "windows": {
     "24h": {
       "date": "2026-02-04",
@@ -87,6 +87,15 @@
     }
   ],
   "pulse": [
+    {
+      "date": "2026-02-04",
+      "time": "17:23",
+      "project": "benfoxsb.github.io",
+      "hash": "5ae538e",
+      "url": "https://github.com/benfoxsb/benfoxsb.github.io/commit/5ae538e",
+      "summary": "data: bulletproof midnight-to-midnight PST collection",
+      "model": "AG-GEMINI-3-FLASH"
+    },
     {
       "date": "2026-02-04",
       "time": "17:22",
@@ -202,15 +211,6 @@
       "hash": "68f5b99",
       "url": "https://github.com/benfoxsb/benfoxsb.github.io/commit/68f5b99",
       "summary": "data: bulletproof cooldown detection and unified PST alignment",
-      "model": "AG-GEMINI-3-FLASH"
-    },
-    {
-      "date": "2026-02-04",
-      "time": "16:51",
-      "project": "benfoxsb.github.io",
-      "hash": "f5b5505",
-      "url": "https://github.com/benfoxsb/benfoxsb.github.io/commit/f5b5505",
-      "summary": "data: consolidate health detection into single source of truth",
       "model": "AG-GEMINI-3-FLASH"
     },
     {
