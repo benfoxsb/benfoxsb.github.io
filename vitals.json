@@ -1,5 +1,5 @@
 {
-  "updated": "2026-02-05T09:04:06Z",
+  "updated": "2026-02-05T09:09:09Z",
   "windows": {
     "24h": {
       "date": "2026-02-05",
@@ -35,15 +35,6 @@
       "hash": "0890127",
       "url": "https://github.com/benfoxsb/benfoxsb.github.io/commit/0890127",
       "summary": "feat: apply refined card design to failover pipeline",
-      "model": "AG-GEMINI-3-FLASH"
-    },
-    {
-      "date": "2026-02-05",
-      "time": "00:00",
-      "project": "benfoxsb.github.io",
-      "hash": "f695974",
-      "url": "https://github.com/benfoxsb/benfoxsb.github.io/commit/f695974",
-      "summary": "feat: robust recency sorting and move model colors to shadow only",
       "model": "AG-GEMINI-3-FLASH"
     },
     {
