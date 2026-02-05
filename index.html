@@ -143,23 +143,14 @@
             return dates;
         }
 
-        function getModelKey(m) {
-            if (!m) return 'lc_qwen';
-            const s = m.toLowerCase();
-            if (s === 'ag_flash') return 'ag_flash';
-            if (s === 'ag_pro') return 'ag_pro';
-            if (s === 'gc_flash' || s === 'gcli_flash') return 'gc_flash';
-            if (s === 'gc_pro' || s === 'gcli_pro') return 'gc_pro';
-            if (s === 'gh_gpt5' || s === 'copilot' || s === 'gh-gpt-5') return 'gh_gpt5';
-            if (s === 'gh_gpt4' || s === 'copilot-4o' || s === 'gh-gpt-4.1') return 'gh_gpt4';
-            if (s === 'ag_sonnet' || s === 'sonnet') return 'ag_sonnet';
-            if (s === 'ag_opus' || s === 'opus') return 'ag_opus';
-            if (s === 'local' || s === 'lc_qwen') return 'lc_qwen';
-            
-            if (s.includes('sonnet')) return 'ag_sonnet';
-            if (s.includes('opus')) return 'ag_opus';
-            if (s.includes('pro')) return s.includes('gc') ? 'gc_pro' : 'ag_pro';
-            if (s.includes('flash')) return s.includes('gc') ? 'gc_flash' : 'ag_flash';
+        function getModelKey(id) {
+            if (id === 'ag_flash') return 'ag_flash';
+            if (id === 'ag_pro') return 'ag_pro';
+            if (id === 'gc_flash') return 'gc_flash';
+            if (id === 'ag_sonnet') return 'ag_sonnet';
+            if (id === 'gh_gpt5') return 'gh_gpt5';
+            if (id === 'gh_gpt4') return 'gh_gpt4';
+            if (id === 'lc_qwen') return 'lc_qwen';
             return 'lc_qwen';
         }
 
@@ -205,8 +196,8 @@
                 if (data.failover) {
                     let activeFound = false;
                     pipelineEl.innerHTML = data.failover.map((item, idx) => {
-                        const qVal = t[item.quota_id]; const rVal = t[item.rl_id];
-                        const isHit = (qVal && qVal !== "0.0" && qVal !== "null") || (rVal && rVal !== "0.0" && rVal !== "null");
+                        const val = t[item.quota_id] || t[item.rl_id];
+                        const isHit = (val && val !== "0.0" && val !== "null");
                         const mKey = getModelKey(item.id);
                         const cfg = modelConfig.find(c => c.key === mKey) || { tw: 'emerald', label: item.display || item.name };
                         let statusText = "STANDBY"; let statusColor = "text-slate-500"; let border = "border-slate-800";
@@ -214,7 +205,7 @@
                         
                         if (isHit) { 
                             statusText = "COOLDOWN"; statusColor = "text-red-500"; 
-                            reason = (qVal && qVal !== "0.0") ? `QUOTA (${qVal}h)` : `RL (${rVal}h)`;
+                            reason = `QUOTA (${val}h)`;
                         }
                         else if (!activeFound) { statusText = "ACTIVE"; statusColor = `text-${cfg.tw}-400`; border = `border-${cfg.tw}-500/50 active-model`; brainIndicator = "🧠"; activeFound = true; }
                         
@@ -226,7 +217,7 @@
                                     <p class="text-sm font-bold text-slate-200 truncate">${cfg.label}</p>
                                 </div>
                                 <div class="flex justify-between items-end mt-2 h-5">
-                                    <p class="text-sm font-black ${statusColor} uppercase tracking-widest leading-none">${reason || statusText}</p>
+                                    <p class="text-[10px] font-black ${statusColor} uppercase tracking-widest leading-none">${reason || statusText}</p>
                                     ${brainIndicator ? `<span class="text-sm pulse leading-none">${brainIndicator}</span>` : ''}
                                 </div>
                             </div>
@@ -252,7 +243,7 @@
                         return `<div class="flex flex-col gap-4 proj-col"><div class="text-sm font-bold text-blue-400 uppercase tracking-[0.2em] mb-2 border-b-2 border-blue-500/20 pb-2">${proj}</div>${Object.keys(days).map((dayLabel, dIdx) => {
                             const dayId = `${pIdx}-${dIdx}`;
                             return `<div><div class="text-[10px] font-black text-slate-500 uppercase tracking-widest mt-2 mb-2 ml-1 cursor-pointer hover:text-blue-400 flex items-center gap-2" onclick="toggleDay('${dayId}')"><svg id="icon-${dayId}" class="w-2 h-2 transition-transform" fill="currentColor" viewBox="0 0 20 20"><path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" /></svg>${dayLabel}</div><div id="day-group-${dayId}">${days[dayLabel].map((item, idx) => {
-                                const mKey = getModelKey(item.model);
+                                const mKey = getModelKey(item.model || '');
                                 const cfg = modelConfig.find(c => c.key === mKey) || modelConfig[8];
                                 let theme = { time: `text-${cfg.tw}-400`, border: `border-${cfg.tw}-500/30`, left: `border-l-${cfg.tw}-500` };
                                 return `<div class="card p-4 rounded-xl border-l-4 ${theme.left} ${theme.border} pulse-card group bg-[#1a2035] mb-2" onclick="togglePulse('${pIdx}-${dIdx}-${idx}')"><div class="flex flex-col gap-1"><div class="flex justify-between items-center"><span class="text-xs font-mono font-bold ${theme.time}">${item.time}</span><span class="text-[9px] font-mono text-slate-700 bg-slate-900 px-2 py-0.5 rounded">#${item.hash.substring(0,6)}</span></div><span class="text-sm text-slate-100 font-medium leading-tight group-hover:text-blue-400 transition-colors">${item.summary}</span></div><div id="expanded-${pIdx}-${dIdx}-${idx}" class="pulse-expanded"><p class="text-xs text-slate-400 leading-relaxed mb-4 whitespace-pre-wrap">${item.summary}</p><div class="flex justify-between items-center"><span class="text-[8px] font-black ${theme.time} uppercase tracking-tighter">${cfg.label}</span><a href="${item.url}" target="_blank" class="inline-flex items-center gap-1 text-[9px] font-bold text-blue-400 hover:text-white transition-colors bg-blue-500/10 px-2 py-1 rounded-lg border border-blue-500/20">VIEW COMMIT</a></div></div></div>`;
