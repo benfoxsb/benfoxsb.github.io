@@ -1,0 +1,29 @@
+{
+  "updated": "2026-02-05T08:45:00Z",
+  "windows": {
+    "24h": {
+      "date": "2026-02-05",
+      "success": 107,
+      "fail": 20,
+      "timers": {}
+    },
+    "7d": {
+      "success": 469,
+      "fail": 210,
+      "reliability": "69.1"
+    },
+    "30d": {
+      "success": 469,
+      "fail": 210,
+      "reliability": "69.1"
+    }
+  },
+  "history": [],
+  "pulse": [],
+  "heatmap": [],
+  "failover": [],
+  "billing": {
+    "ag": { "name": "Ben Fox Agent", "cost": "$0.00" },
+    "gc": { "name": "Agent Failover Mesh", "cost": "$0.00" }
+  }
+}
