@@ -39,7 +39,7 @@
                     <h3 class="text-xs font-bold uppercase mb-6 tracking-widest text-emerald-400">Operational Hub</h3>
                     <div class="mt-auto mb-8">
                         <h3 class="text-[10px] font-bold uppercase tracking-widest text-slate-500 mb-3">7D Activity Pattern</h3>
-                        <div id="heatmap-container" class="grid grid-cols-7 gap-1 h-32 overflow-hidden">
+                        <div id="heatmap-container" class="flex flex-row gap-1 h-32 overflow-hidden">
                         </div>
                     </div>
                     <div class="flex justify-between items-start mb-6">
@@ -144,13 +144,16 @@
         }
 
         function getModelKey(id) {
-            if (id === 'ag_flash') return 'ag_flash';
-            if (id === 'ag_pro') return 'ag_pro';
-            if (id === 'gc_flash') return 'gc_flash';
-            if (id === 'ag_sonnet') return 'ag_sonnet';
-            if (id === 'gh_gpt5') return 'gh_gpt5';
-            if (id === 'gh_gpt4') return 'gh_gpt4';
-            if (id === 'lc_qwen') return 'lc_qwen';
+            if (!id) return 'lc_qwen';
+            const s = id.toLowerCase();
+            if (s === 'ag_flash' || s.includes('ag') && s.includes('flash')) return 'ag_flash';
+            if (s === 'ag_pro' || s.includes('ag') && s.includes('pro')) return 'ag_pro';
+            if (s === 'gc_flash' || s.includes('gc') && s.includes('flash')) return 'gc_flash';
+            if (s === 'gc_pro' || s.includes('gc') && s.includes('pro')) return 'gc_pro';
+            if (s === 'gh_gpt5' || s.includes('gh') && s.includes('gpt-5') || s.includes('copilot')) return 'gh_gpt5';
+            if (s === 'gh_gpt4' || s.includes('gh') && s.includes('gpt-4') || s.includes('copilot-4o')) return 'gh_gpt4';
+            if (s === 'ag_sonnet' || s.includes('sonnet')) return 'ag_sonnet';
+            if (s === 'ag_opus' || s.includes('opus')) return 'ag_opus';
             return 'lc_qwen';
         }
 
@@ -196,7 +199,7 @@
                 if (data.failover) {
                     let activeFound = false;
                     pipelineEl.innerHTML = data.failover.map((item, idx) => {
-                        const val = t[item.quota_id] || t[item.rl_id];
+                        const val = t[item.quota_id];
                         const isHit = (val && val !== "0.0" && val !== "null");
                         const mKey = getModelKey(item.id);
                         const cfg = modelConfig.find(c => c.key === mKey) || { tw: 'emerald', label: item.display || item.name };
@@ -227,7 +230,7 @@
 
                 const legendContainer = document.getElementById('dynamic-legend');
                 const activeModels = modelConfig.filter(m => (w7.usage[m.key] || 0) > 0 || m.key === 'ag_flash');
-                legendContainer.innerHTML = activeModels.map(m => `<div class="flex items-center gap-1.5"><span class="w-4 h-4 rounded-full" style="background-color: ${m.color}"></span> ${m.label}</div>`).join('');
+                legendContainer.innerHTML = activeModels.map(m => `<div class="flex items-center gap-1.5 text-${m.tw}-400"><span class="w-4 h-4 rounded-full" style="background-color: ${m.color}"></span> ${m.label}</div>`).join('');
 
                 renderHeatmap(data.heatmap); renderChart(data.history);
 
@@ -260,7 +263,7 @@
             container.innerHTML = ''; const last7 = getLast7Dates(); const dateToHeatmap = {}; (heatmap || []).forEach(h => { if (h.date) dateToHeatmap[h.date] = h; });
             last7.forEach(date => {
                 const dayData = dateToHeatmap[date] || { success: {}, fail: {} };
-                const dayCol = document.createElement('div'); dayCol.className = 'flex flex-col gap-[2px] w-full';
+                const dayCol = document.createElement('div'); dayCol.className = 'flex flex-col gap-[2px] w-full h-full';
                 for (let hour = 0; hour < 24; hour++) {
                     const hrKey = hour.toString().padStart(2, '0'); const s = parseInt(dayData.success[hrKey] || 0); const f = parseInt(dayData.fail[hrKey] || 0);
                     const cell = document.createElement('div'); let color = 'bg-slate-800/50';
