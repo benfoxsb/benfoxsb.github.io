@@ -1,5 +1,5 @@
 {
-  "updated": "2026-02-05T02:52:17Z",
+  "updated": "2026-02-05T02:52:52Z",
   "windows": {
     "24h": {
       "date": "2026-02-04",
@@ -89,6 +89,15 @@
   "pulse": [
     {
       "date": "2026-02-04",
+      "time": "18:52",
+      "project": "benfoxsb.github.io",
+      "hash": "90ddb47",
+      "url": "https://github.com/benfoxsb/benfoxsb.github.io/commit/90ddb47",
+      "summary": "data: focus pulse on code check-ins and PST alignment",
+      "model": "AG-GEMINI-3-FLASH"
+    },
+    {
+      "date": "2026-02-04",
       "time": "18:47",
       "project": "gh-pm",
       "hash": "4f20ff7",
@@ -165,15 +174,6 @@
       "project": "benfoxsb.github.io",
       "hash": "9f9eae6",
       "url": "https://github.com/benfoxsb/benfoxsb.github.io/commit/9f9eae6",
-      "summary": "data: bulletproof midnight-to-midnight PST collection",
-      "model": "GC-GEMINI-3-FLASH-PREVIEW"
-    },
-    {
-      "date": "2026-02-04",
-      "time": "17:38",
-      "project": "benfoxsb.github.io",
-      "hash": "8c41329",
-      "url": "https://github.com/benfoxsb/benfoxsb.github.io/commit/8c41329",
       "summary": "data: bulletproof midnight-to-midnight PST collection",
       "model": "GC-GEMINI-3-FLASH-PREVIEW"
     },
