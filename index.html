@@ -248,15 +248,14 @@
                         groups[item.project].push(item); 
                     });
                     
-                    const projKeys = Object.keys(groups).sort();
+                    const activeProjKeys = Object.keys(groups).filter(k => groups[k].length > 0).sort();
                     const columnBins = [[], [], []];
-                    projKeys.forEach((proj, idx) => {
-                        const pIdx = idx;
+                    activeProjKeys.forEach((proj, idx) => {
                         const items = groups[proj]; const days = {};
                         items.forEach(it => { const label = it.date === today ? 'Today' : 'Yesterday'; if (!days[label]) days[label] = []; days[label].push(it); });
 
                         const html = `<div class="proj-block"><div class="text-sm font-bold text-blue-400 uppercase tracking-[0.2em] mb-2 border-b-2 border-blue-500/20 pb-2">${proj}</div><div>${Object.keys(days).map((dayLabel, dIdx) => {
-                            const dayId = `${pIdx}-${dIdx}`;
+                            const dayId = `${idx}-${dIdx}`;
                             
                             // Group identical summaries to prevent noise
                             const collapsedItems = [];
@@ -271,14 +270,14 @@
                                 }
                             });
 
-                            return `<div><div class="text-[10px] font-black text-slate-500 uppercase tracking-widest mt-2 mb-2 ml-1 cursor-pointer hover:text-blue-400 flex items-center gap-2" onclick="toggleDay('${dayId}')"><svg id="icon-${dayId}" class="w-2 h-2 transition-transform" fill="currentColor" viewBox="0 0 20 20"><path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" /></svg>${dayLabel}</div><div id="day-group-${dayId}">${collapsedItems.map((item, idx) => {
+                            return `<div><div class="text-[10px] font-black text-slate-500 uppercase tracking-widest mt-2 mb-2 ml-1 cursor-pointer hover:text-blue-400 flex items-center gap-2" onclick="toggleDay('${dayId}')"><svg id="icon-${dayId}" class="w-2 h-2 transition-transform" fill="currentColor" viewBox="0 0 20 20"><path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" /></svg>${dayLabel}</div><div id="day-group-${dayId}">${collapsedItems.map((item, cIdx) => {
                                 const mKey = getModelKey(item.model || '');
                                 const cfg = modelConfig.find(c => c.key === mKey) || modelConfig[8];
                                 const timeDisplay = item.count > 1 ? `${item.startTime} - ${item.endTime}` : item.time;
                                 const countBadge = item.count > 1 ? `<span class="bg-blue-500/20 text-blue-400 px-1.5 py-0.5 rounded text-[8px] font-black ml-2">x${item.count}</span>` : '';
                                 
                                 return `
-                                    <div class="card p-3 rounded-xl border-l-4 mb-2 group transition-all" style="border-left-color: ${cfg.color}; border-color: rgba(255,255,255,0.05); cursor: pointer; background: #1a2035;" onclick="togglePulse('${pIdx}-${dIdx}-${idx}')">
+                                    <div class="card p-3 rounded-xl border-l-4 mb-2 group transition-all" style="border-left-color: ${cfg.color}; border-color: rgba(255,255,255,0.05); cursor: pointer; background: #1a2035;" onclick="togglePulse('${idx}-${dIdx}-${cIdx}')">
                                         <div class="flex flex-col gap-1">
                                             <div class="flex justify-between items-center">
                                                 <div class="flex items-center">
@@ -289,7 +288,7 @@
                                             </div>
                                             <span class="text-sm text-slate-200 font-medium leading-tight group-hover:text-blue-400 transition-colors truncate">${item.summary}</span>
                                         </div>
-                                        <div id="expanded-${pIdx}-${dIdx}-${idx}" class="pulse-expanded mt-3 pt-3 border-t border-slate-800">
+                                        <div id="expanded-${idx}-${dIdx}-${cIdx}" class="pulse-expanded mt-3 pt-3 border-t border-slate-800">
                                             <div class="grid grid-cols-2 gap-4 mb-4">
                                                 <div>
                                                     <p class="text-[8px] font-bold text-slate-500 uppercase mb-1">Compute</p>
@@ -314,7 +313,7 @@
                         columnBins[idx % 3].push(html);
                     });
                     
-                    pulseContainer.innerHTML = columnBins.map(bin => `<div class="pulse-col">${bin.join('')}</div>`).join('');
+                    pulseContainer.innerHTML = columnBins.filter(bin => bin.length > 0).map(bin => `<div class="pulse-col">${bin.join('')}</div>`).join('');
                 }
                 document.getElementById('last-update').innerText = new Date(data.updated).toLocaleTimeString();
             } catch (e) { console.error("Dashboard sync failed", e); }
