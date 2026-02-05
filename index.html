@@ -14,7 +14,7 @@
         @keyframes pulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: .5; transform: scale(1.1); } }
         ::-webkit-scrollbar { width: 4px; height: 4px; background: transparent; }
         ::-webkit-scrollbar-thumb { background: #2d334a; border-radius: 10px; }
-        .active-model { border-left-color: #10b981 !important; box-shadow: -10px 0 15px rgba(16, 185, 129, 0.1); }
+        .active-model { box-shadow: -10px 0 15px rgba(16, 185, 129, 0.05); }
         .pulse-card { cursor: pointer; transition: background 0.2s; }
         .pulse-card:hover { background: #1e253a; }
         .pulse-expanded { display: none; margin-top: 1rem; padding-top: 1rem; border-top: 1px solid #2d334a; }
@@ -219,10 +219,10 @@
                             statusText = "COOLDOWN"; statusColor = "text-red-500"; 
                             reason = `QUOTA RESET (${val}h)`;
                         }
-                        else if (!activeFound) { statusText = "ACTIVE"; statusColor = `text-${cfg.tw}-400`; border = `border-${cfg.tw}-500/50 active-model`; brainIndicator = "🧠"; activeFound = true; }
+                        else if (!activeFound) { statusText = "ACTIVE"; statusColor = `text-${cfg.tw}-400`; border = `active-model`; brainIndicator = "🧠"; activeFound = true; }
                         
                         return `
-                            <div class="card p-4 rounded-xl border-2 ${border} relative overflow-hidden transition-all duration-300" title="${item.name} | ${item.role}">
+                            <div class="card p-4 rounded-xl ${border} relative overflow-hidden transition-all duration-300" style="border-left-color: ${cfg.color}" title="${item.name} | ${item.role}">
                                 <span class="absolute top-0 right-0 px-2 py-0.5 bg-slate-900 text-[8px] font-black text-slate-500 border-b border-l border-slate-800">${idx === 0 ? 'PRIME' : 'F-BACK'}</span>
                                 <div class="flex items-center gap-3">
                                     <span class="text-xl">${roleIcon}</span>
