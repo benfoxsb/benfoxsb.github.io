@@ -1,5 +1,5 @@
 {
-  "updated": "2026-02-04T23:50:57Z",
+  "updated": "2026-02-05T00:03:25Z",
   "windows": {
     "24h": {
       "date": "2026-02-04",
@@ -7,13 +7,13 @@
       "fail": 20,
       "ag_flash": 82,
       "ag_pro": 9,
-      "gcli_flash": 24,
+      "gcli_flash": 26,
       "gcli_pro": 0,
       "copilot": 6,
       "local": 0,
       "opus": 0,
       "sonnet": 4,
-      "cooldowns": 4,
+      "cooldowns": 5,
       "quotas": 10,
       "timers": {
         "ag_rl": "0.0",
@@ -29,7 +29,7 @@
       "usage": {
         "ag_flash": 203,
         "ag_pro": 22,
-        "gcli_flash": 24,
+        "gcli_flash": 26,
         "gcli_pro": 0,
         "copilot": 55,
         "local": 0,
@@ -45,7 +45,7 @@
       "usage": {
         "ag_flash": 203,
         "ag_pro": 22,
-        "gcli_flash": 24,
+        "gcli_flash": 26,
         "gcli_pro": 0,
         "copilot": 55,
         "local": 0,
@@ -71,7 +71,7 @@
       "fail": 20,
       "ag_flash": 82,
       "ag_pro": 9,
-      "gcli_flash": 24,
+      "gcli_flash": 26,
       "gcli_pro": 0,
       "copilot": 6,
       "local": 0,
@@ -95,6 +95,15 @@
       "project": "benfoxsb.github.io",
       "hash": "771ea88",
       "url": "https://github.com/benfoxsb/benfoxsb.github.io/commit/771ea88",
+      "summary": "data: role-based model icons and PST alignment",
+      "model": "AG-GEMINI-3-FLASH"
+    },
+    {
+      "date": "2026-02-04",
+      "time": "15:50",
+      "project": "benfoxsb.github.io",
+      "hash": "27bfb0e",
+      "url": "https://github.com/benfoxsb/benfoxsb.github.io/commit/27bfb0e",
       "summary": "data: role-based model icons and PST alignment",
       "model": "AG-GEMINI-3-FLASH"
     },
@@ -185,15 +194,6 @@
       "project": "benfoxsb.github.io",
       "hash": "cee3fb0",
       "url": "https://github.com/benfoxsb/benfoxsb.github.io/commit/cee3fb0",
-      "summary": "data: role-based model icons and PST alignment",
-      "model": "GC-GEMINI-3-FLASH-PREVIEW"
-    },
-    {
-      "date": "2026-02-04",
-      "time": "14:46",
-      "project": "benfoxsb.github.io",
-      "hash": "a8d720c",
-      "url": "https://github.com/benfoxsb/benfoxsb.github.io/commit/a8d720c",
       "summary": "data: role-based model icons and PST alignment",
       "model": "GC-GEMINI-3-FLASH-PREVIEW"
     },
@@ -417,7 +417,7 @@
         "12": "19",
         "13": "10",
         "14": "13",
-        "15": "14"
+        "15": "17"
       },
       "fail": {
         "11": "2",
