@@ -1,11 +1,11 @@
 {
-  "updated": "2026-02-05T06:21:21Z",
+  "updated": "2026-02-05T06:24:44Z",
   "windows": {
     "24h": {
       "date": "2026-02-04",
-      "success": 152,
+      "success": 153,
       "fail": 26,
-      "ag_flash": 95,
+      "ag_flash": 96,
       "ag_pro": 9,
       "gc_flash": 56,
       "gc_pro": 0,
@@ -17,7 +17,7 @@
       "cooldowns": 16,
       "quotas": 16,
       "timers": {
-        "ag_flash_cd": "13.9",
+        "ag_flash_cd": "13.8",
         "gc_flash_cd": "0.0",
         "sonnet_cd": "0.0",
         "ag_pro_cd": "0.0",
@@ -27,11 +27,11 @@
       }
     },
     "7d": {
-      "success": 344,
+      "success": 345,
       "fail": 186,
       "days": 2,
       "usage": {
-        "ag_flash": 216,
+        "ag_flash": 217,
         "ag_pro": 22,
         "gc_flash": 56,
         "gc_pro": 0,
@@ -44,11 +44,11 @@
       "reliability": "64.9"
     },
     "30d": {
-      "success": 344,
+      "success": 345,
       "fail": 186,
       "days": 2,
       "usage": {
-        "ag_flash": 216,
+        "ag_flash": 217,
         "ag_pro": 22,
         "gc_flash": 56,
         "gc_pro": 0,
@@ -73,9 +73,9 @@
     },
     {
       "date": "2026-02-04",
-      "success": 152,
+      "success": 153,
       "fail": 26,
-      "ag_flash": 95,
+      "ag_flash": 96,
       "ag_pro": 9,
       "gc_flash": 56,
       "gc_pro": 0,
@@ -87,6 +87,15 @@
     }
   ],
   "pulse": [
+    {
+      "date": "2026-02-04",
+      "time": "22:24",
+      "project": "benfoxsb.github.io",
+      "hash": "7f586ec",
+      "url": "https://github.com/benfoxsb/benfoxsb.github.io/commit/7f586ec",
+      "summary": "ui: limit pulse to today/yesterday and remove internal scrollbars",
+      "model": "AG-GEMINI-3-FLASH"
+    },
     {
       "date": "2026-02-04",
       "time": "22:21",
@@ -332,7 +341,7 @@
         "19": "4",
         "20": "4",
         "21": "4",
-        "22": "3"
+        "22": "4"
       },
       "fail": {
         "11": "2",
