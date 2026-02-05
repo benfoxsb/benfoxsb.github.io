@@ -1,5 +1,5 @@
 {
-  "updated": "2026-02-05T00:54:17Z",
+  "updated": "2026-02-05T00:54:36Z",
   "windows": {
     "24h": {
       "date": "2026-02-04",
@@ -89,6 +89,24 @@
   "pulse": [
     {
       "date": "2026-02-04",
+      "time": "16:54",
+      "project": "benfoxsb.github.io",
+      "hash": "ca7bc3d",
+      "url": "https://github.com/benfoxsb/benfoxsb.github.io/commit/ca7bc3d",
+      "summary": "ui: synchronize failover status and fix model mapping labels",
+      "model": "AGENT"
+    },
+    {
+      "date": "2026-02-04",
+      "time": "16:54",
+      "project": "benfoxsb.github.io",
+      "hash": "c2f69bd",
+      "url": "https://github.com/benfoxsb/benfoxsb.github.io/commit/c2f69bd",
+      "summary": "data: bulletproof cooldown detection and unified PST alignment",
+      "model": "AGENT"
+    },
+    {
+      "date": "2026-02-04",
       "time": "16:51",
       "project": "benfoxsb.github.io",
       "hash": "f5b5505",
@@ -148,24 +166,6 @@
       "hash": "02788f6",
       "url": "https://github.com/benfoxsb/benfoxsb.github.io/commit/02788f6",
       "summary": "data: bulletproof cooldown detection and role icon alignment",
-      "model": "AGENT"
-    },
-    {
-      "date": "2026-02-04",
-      "time": "16:40",
-      "project": "benfoxsb.github.io",
-      "hash": "830befe",
-      "url": "https://github.com/benfoxsb/benfoxsb.github.io/commit/830befe",
-      "summary": "ui: fix failover model mapping mismatch and layout alignment",
-      "model": "AGENT"
-    },
-    {
-      "date": "2026-02-04",
-      "time": "16:39",
-      "project": "benfoxsb.github.io",
-      "hash": "f29dadd",
-      "url": "https://github.com/benfoxsb/benfoxsb.github.io/commit/f29dadd",
-      "summary": "data: focus pulse on code check-ins and PST alignment",
       "model": "AGENT"
     },
     {
