@@ -18,10 +18,10 @@
         .pulse-card { cursor: pointer; transition: background 0.2s; }
         .pulse-card:hover { background: #1e253a; }
         .pulse-expanded { display: none; margin-top: 1rem; padding-top: 1rem; border-top: 1px solid #2d334a; }
+        /* Project Layer Styles */
         .proj-block { break-inside: avoid; margin-bottom: 2rem; width: 100%; display: block; }
-        #project-columns { display: grid; grid-template-columns: 1fr; gap: 2rem; align-items: flex-start; }
-        @media (min-width: 600px) { #project-columns { grid-template-columns: repeat(2, 1fr); } }
-        @media (min-width: 900px) { #project-columns { grid-template-columns: repeat(3, 1fr); } }
+        #project-columns { display: grid; grid-template-columns: repeat(1, 1fr); gap: 2rem; align-items: flex-start; }
+        @media (min-width: 768px) { #project-columns { grid-template-columns: repeat(3, 1fr); } }
     </style>
 </head>
 <body class="p-4 md:p-8">
@@ -179,6 +179,8 @@
                 const response = await fetch('vitals.json?nocache=' + Date.now());
                 const data = await response.json();
                 const w24 = data.windows['24h']; const w7 = data.windows['7d']; const w30 = data.windows['30d']; const t = w24.timers || {};
+                const today = getLocalYMD(new Date()); 
+                const yesterday = getLocalYMD(new Date(Date.now() - 86400000));
 
                 document.getElementById('stat-success').innerText = w24.success;
                 document.getElementById('stat-fail').innerText = w24.fail;
@@ -242,22 +244,21 @@
                 const pulseContainer = document.getElementById('project-columns');
                 if (data.pulse && data.pulse.length > 0) {
                     const groups = {}; 
-                    const today = getLocalYMD(new Date()); 
-                    const yesterday = getLocalYMD(new Date(Date.now() - 86400000));
                     
                     data.pulse.forEach(item => { 
-                        if (item.date !== today && item.date !== yesterday) return;
                         if (!groups[item.project]) groups[item.project] = []; 
                         groups[item.project].push(item); 
                     });
                     
-                    const activeProjKeys = Object.keys(groups).filter(k => groups[k].length > 0).sort();
+                    const activeProjKeys = Object.keys(groups).sort();
                     
                     pulseContainer.innerHTML = activeProjKeys.map((proj, i) => {
                         const items = groups[proj]; 
                         const days = {};
                         items.forEach(it => { 
-                            const label = it.date === today ? 'Today' : 'Yesterday'; 
+                            let label = it.date;
+                            if (it.date === today) label = 'Today';
+                            else if (it.date === yesterday) label = 'Yesterday';
                             if (!days[label]) days[label] = []; 
                             days[label].push(it); 
                         });
