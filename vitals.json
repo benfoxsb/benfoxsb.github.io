@@ -1,13 +1,13 @@
 {
-  "updated": "2026-02-05T01:37:34Z",
+  "updated": "2026-02-05T01:38:36Z",
   "windows": {
     "24h": {
       "date": "2026-02-04",
-      "success": 116,
+      "success": 117,
       "fail": 24,
       "ag_flash": 82,
       "ag_pro": 9,
-      "gc_flash": 46,
+      "gc_flash": 47,
       "gc_pro": 0,
       "gh_gpt5": 7,
       "gh_gpt4": 1,
@@ -27,13 +27,13 @@
       }
     },
     "7d": {
-      "success": 308,
+      "success": 309,
       "fail": 184,
       "days": 2,
       "usage": {
         "ag_flash": 203,
         "ag_pro": 22,
-        "gc_flash": 46,
+        "gc_flash": 47,
         "gc_pro": 0,
         "gh_gpt5": 56,
         "gh_gpt4": 1,
@@ -44,13 +44,13 @@
       "reliability": "62.6"
     },
     "30d": {
-      "success": 308,
+      "success": 309,
       "fail": 184,
       "days": 2,
       "usage": {
         "ag_flash": 203,
         "ag_pro": 22,
-        "gc_flash": 46,
+        "gc_flash": 47,
         "gc_pro": 0,
         "gh_gpt5": 56,
         "gh_gpt4": 1,
@@ -73,11 +73,11 @@
     },
     {
       "date": "2026-02-04",
-      "success": 116,
+      "success": 117,
       "fail": 24,
       "ag_flash": 82,
       "ag_pro": 9,
-      "gc_flash": 46,
+      "gc_flash": 47,
       "gc_pro": 0,
       "gh_gpt5": 7,
       "gh_gpt4": 1,
@@ -87,6 +87,15 @@
     }
   ],
   "pulse": [
+    {
+      "date": "2026-02-04",
+      "time": "17:37",
+      "project": "benfoxsb.github.io",
+      "hash": "5b873b7",
+      "url": "https://github.com/benfoxsb/benfoxsb.github.io/commit/5b873b7",
+      "summary": "data: bulletproof midnight-to-midnight PST collection",
+      "model": "GC-GEMINI-3-FLASH-PREVIEW"
+    },
     {
       "date": "2026-02-04",
       "time": "17:36",
@@ -202,15 +211,6 @@
       "hash": "5c8f552",
       "url": "https://github.com/benfoxsb/benfoxsb.github.io/commit/5c8f552",
       "summary": "ui: synchronize failover mapping and role icons",
-      "model": "AG-GEMINI-3-FLASH"
-    },
-    {
-      "date": "2026-02-04",
-      "time": "17:04",
-      "project": "benfoxsb.github.io",
-      "hash": "10180d3",
-      "url": "https://github.com/benfoxsb/benfoxsb.github.io/commit/10180d3",
-      "summary": "data: bulletproof cooldown detection and unified PST alignment",
       "model": "AG-GEMINI-3-FLASH"
     },
     {
@@ -426,7 +426,7 @@
         "14": "13",
         "15": "17",
         "16": "24",
-        "17": "17"
+        "17": "18"
       },
       "fail": {
         "11": "2",
