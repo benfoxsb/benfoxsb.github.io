@@ -1,5 +1,5 @@
 {
-  "updated": "2026-02-05T00:39:47Z",
+  "updated": "2026-02-05T00:48:02Z",
   "windows": {
     "24h": {
       "date": "2026-02-04",
@@ -7,7 +7,7 @@
       "fail": 20,
       "ag_flash": 82,
       "ag_pro": 9,
-      "gc_flash": 32,
+      "gc_flash": 34,
       "gc_pro": 0,
       "gh_gpt5": 6,
       "gh_gpt4": 0,
@@ -17,12 +17,14 @@
       "cooldowns": 10,
       "quotas": 12,
       "timers": {
-        "ag_rl": "23.7",
-        "ag_quota": "23.7",
-        "gc_rl": "23.7",
-        "gc_quota": "23.7",
-        "gh_quota": "0.0",
-        "sonnet_quota": "0.0"
+        "ag_quota": "0.0",
+        "ag_rl": "0.0",
+        "gc_quota": "0.0",
+        "gc_rl": "0.0",
+        "sonnet_quota": "0.0",
+        "ag_pro_quota": "0.0",
+        "gh_gpt5_quota": "0.0",
+        "gh_gpt4_quota": "0.0"
       }
     },
     "7d": {
@@ -32,7 +34,7 @@
       "usage": {
         "ag_flash": 203,
         "ag_pro": 22,
-        "gc_flash": 32,
+        "gc_flash": 34,
         "gc_pro": 0,
         "gh_gpt5": 55,
         "gh_gpt4": 0,
@@ -49,7 +51,7 @@
       "usage": {
         "ag_flash": 203,
         "ag_pro": 22,
-        "gc_flash": 32,
+        "gc_flash": 34,
         "gc_pro": 0,
         "gh_gpt5": 55,
         "gh_gpt4": 0,
@@ -76,7 +78,7 @@
       "fail": 20,
       "ag_flash": 82,
       "ag_pro": 9,
-      "gc_flash": 32,
+      "gc_flash": 34,
       "gc_pro": 0,
       "gh_gpt5": 6,
       "gh_gpt4": 0,
@@ -88,12 +90,30 @@
   "pulse": [
     {
       "date": "2026-02-04",
+      "time": "16:40",
+      "project": "benfoxsb.github.io",
+      "hash": "830befe",
+      "url": "https://github.com/benfoxsb/benfoxsb.github.io/commit/830befe",
+      "summary": "ui: fix failover model mapping mismatch and layout alignment",
+      "model": "AGENT"
+    },
+    {
+      "date": "2026-02-04",
+      "time": "16:39",
+      "project": "benfoxsb.github.io",
+      "hash": "f29dadd",
+      "url": "https://github.com/benfoxsb/benfoxsb.github.io/commit/f29dadd",
+      "summary": "data: focus pulse on code check-ins and PST alignment",
+      "model": "AGENT"
+    },
+    {
+      "date": "2026-02-04",
       "time": "16:38",
       "project": "benfoxsb.github.io",
       "hash": "1e91953",
       "url": "https://github.com/benfoxsb/benfoxsb.github.io/commit/1e91953",
       "summary": "ui: reorganize layout and fix model mapping in failover",
-      "model": "GC-GEMINI-3-FLASH-PREVIEW"
+      "model": "AGENT"
     },
     {
       "date": "2026-02-04",
@@ -102,7 +122,7 @@
       "hash": "893ed19",
       "url": "https://github.com/benfoxsb/benfoxsb.github.io/commit/893ed19",
       "summary": "data: focus pulse on code check-ins and PST alignment",
-      "model": "GC-GEMINI-3-FLASH-PREVIEW"
+      "model": "AGENT"
     },
     {
       "date": "2026-02-04",
@@ -111,7 +131,7 @@
       "hash": "0e3c0e8",
       "url": "https://github.com/benfoxsb/benfoxsb.github.io/commit/0e3c0e8",
       "summary": "data: focus pulse on code check-ins and PST alignment",
-      "model": "GC-GEMINI-3-FLASH-PREVIEW"
+      "model": "AGENT"
     },
     {
       "date": "2026-02-04",
@@ -120,7 +140,7 @@
       "hash": "1ca886e",
       "url": "https://github.com/benfoxsb/benfoxsb.github.io/commit/1ca886e",
       "summary": "data: focus pulse on code check-ins and PST alignment",
-      "model": "GC-GEMINI-3-FLASH-PREVIEW"
+      "model": "AGENT"
     },
     {
       "date": "2026-02-04",
@@ -129,7 +149,7 @@
       "hash": "07abad4",
       "url": "https://github.com/benfoxsb/benfoxsb.github.io/commit/07abad4",
       "summary": "data: focus pulse on code check-ins and PST alignment",
-      "model": "AG-GEMINI-3-FLASH"
+      "model": "AGENT"
     },
     {
       "date": "2026-02-04",
@@ -138,7 +158,7 @@
       "hash": "dba2693",
       "url": "https://github.com/benfoxsb/benfoxsb.github.io/commit/dba2693",
       "summary": "data: focus pulse on code check-ins and PST alignment",
-      "model": "AG-GEMINI-3-FLASH"
+      "model": "AGENT"
     },
     {
       "date": "2026-02-04",
@@ -147,7 +167,7 @@
       "hash": "c3a14b7",
       "url": "https://github.com/benfoxsb/benfoxsb.github.io/commit/c3a14b7",
       "summary": "ui: reorganize hub and enhance failover pipeline with reasons and billing",
-      "model": "AG-GEMINI-3-FLASH"
+      "model": "AGENT"
     },
     {
       "date": "2026-02-04",
@@ -156,7 +176,7 @@
       "hash": "8ea4f23",
       "url": "https://github.com/benfoxsb/benfoxsb.github.io/commit/8ea4f23",
       "summary": "data: enhance cooldown detection and PST alignment",
-      "model": "AG-GEMINI-3-FLASH"
+      "model": "AGENT"
     },
     {
       "date": "2026-02-04",
@@ -165,7 +185,7 @@
       "hash": "e62f9ff",
       "url": "https://github.com/benfoxsb/benfoxsb.github.io/commit/e62f9ff",
       "summary": "data: enhance cooldown detection and PST alignment",
-      "model": "AG-GEMINI-3-FLASH"
+      "model": "AGENT"
     },
     {
       "date": "2026-02-04",
@@ -174,7 +194,7 @@
       "hash": "bffc5b8",
       "url": "https://github.com/benfoxsb/benfoxsb.github.io/commit/bffc5b8",
       "summary": "data: enhance cooldown detection and PST alignment",
-      "model": "AG-GEMINI-3-FLASH"
+      "model": "AGENT"
     },
     {
       "date": "2026-02-04",
@@ -183,7 +203,7 @@
       "hash": "cd2c47e",
       "url": "https://github.com/benfoxsb/benfoxsb.github.io/commit/cd2c47e",
       "summary": "ui: implement billing cards and enhanced failover info",
-      "model": "AG-GEMINI-3-FLASH"
+      "model": "AGENT"
     },
     {
       "date": "2026-02-04",
@@ -192,25 +212,7 @@
       "hash": "337710b",
       "url": "https://github.com/benfoxsb/benfoxsb.github.io/commit/337710b",
       "summary": "data: enhance cooldown detection and PST alignment",
-      "model": "AG-GEMINI-3-FLASH"
-    },
-    {
-      "date": "2026-02-04",
-      "time": "16:03",
-      "project": "benfoxsb.github.io",
-      "hash": "670c687",
-      "url": "https://github.com/benfoxsb/benfoxsb.github.io/commit/670c687",
-      "summary": "data: role-based model icons and PST alignment",
-      "model": "AG-GEMINI-3-FLASH"
-    },
-    {
-      "date": "2026-02-04",
-      "time": "15:50",
-      "project": "benfoxsb.github.io",
-      "hash": "27bfb0e",
-      "url": "https://github.com/benfoxsb/benfoxsb.github.io/commit/27bfb0e",
-      "summary": "data: role-based model icons and PST alignment",
-      "model": "AG-GEMINI-3-FLASH"
+      "model": "AGENT"
     },
     {
       "date": "2026-02-03",
@@ -219,7 +221,7 @@
       "hash": "c96f65b",
       "url": "https://github.com/velocity-tech-io/website/commit/c96f65b",
       "summary": "chore: trigger deployment build after adding supabase secrets",
-      "model": "AG-GEMINI-3-FLASH"
+      "model": "AGENT"
     },
     {
       "date": "2026-02-03",
@@ -228,7 +230,7 @@
       "hash": "acf1b20",
       "url": "https://github.com/velocity-tech-io/website/commit/acf1b20",
       "summary": "chore: trigger deployment build after adding supabase secrets",
-      "model": "AG-GEMINI-3-FLASH"
+      "model": "AGENT"
     },
     {
       "date": "2026-02-03",
@@ -237,7 +239,7 @@
       "hash": "2803d32",
       "url": "https://github.com/velocity-tech-io/website/commit/2803d32",
       "summary": "fix: handle missing supabase env vars during build",
-      "model": "AG-GEMINI-3-FLASH"
+      "model": "AGENT"
     },
     {
       "date": "2026-02-03",
@@ -246,7 +248,7 @@
       "hash": "78a799d",
       "url": "https://github.com/velocity-tech-io/website/commit/78a799d",
       "summary": "feat: mount ChatWidget in RootLayout",
-      "model": "AG-GEMINI-3-FLASH"
+      "model": "AGENT"
     },
     {
       "date": "2026-02-03",
@@ -255,7 +257,7 @@
       "hash": "e5ce59d",
       "url": "https://github.com/velocity-tech-io/website/commit/e5ce59d",
       "summary": "fix: remove server-side API route to unblock static build",
-      "model": "AG-GEMINI-3-FLASH"
+      "model": "AGENT"
     },
     {
       "date": "2026-02-03",
@@ -264,7 +266,7 @@
       "hash": "37427bf",
       "url": "https://github.com/velocity-tech-io/website/commit/37427bf",
       "summary": "feat: complete client-side ChatWidget implementation with Supabase",
-      "model": "AG-GEMINI-3-FLASH"
+      "model": "AGENT"
     },
     {
       "date": "2026-02-03",
@@ -273,7 +275,7 @@
       "hash": "539b113",
       "url": "https://github.com/velocity-tech-io/website/commit/539b113",
       "summary": "fix: move chat logic to client-side for static export compatibility",
-      "model": "AG-GEMINI-3-FLASH"
+      "model": "AGENT"
     },
     {
       "date": "2026-02-01",
@@ -282,7 +284,7 @@
       "hash": "b4604e3",
       "url": "https://github.com/velocity-tech-io/website/commit/b4604e3",
       "summary": "Add ChatWidget and Supabase integration",
-      "model": "AG-GEMINI-3-FLASH"
+      "model": "AGENT"
     },
     {
       "date": "2026-02-01",
@@ -291,7 +293,7 @@
       "hash": "a0b6f5d",
       "url": "https://github.com/velocity-tech-io/snapcard.app/commit/a0b6f5d",
       "summary": "feat: Add landing page MVP with pricing and features",
-      "model": "AG-GEMINI-3-FLASH"
+      "model": "AGENT"
     },
     {
       "date": "2026-01-28",
@@ -300,7 +302,7 @@
       "hash": "fcf52f6",
       "url": "https://github.com/velocity-tech-io/website/commit/fcf52f6",
       "summary": "Enhance section descriptions with gradient text styling",
-      "model": "AG-GEMINI-3-FLASH"
+      "model": "AGENT"
     },
     {
       "date": "2026-01-28",
@@ -309,7 +311,7 @@
       "hash": "c3126ba",
       "url": "https://github.com/velocity-tech-io/website/commit/c3126ba",
       "summary": "Fix mobile horizontal scroll and disable zoom",
-      "model": "AG-GEMINI-3-FLASH"
+      "model": "AGENT"
     },
     {
       "date": "2026-01-27",
@@ -318,7 +320,7 @@
       "hash": "c1df911",
       "url": "https://github.com/velocity-tech-io/website/commit/c1df911",
       "summary": "perf: optimize mobile performance",
-      "model": "AG-GEMINI-3-FLASH"
+      "model": "AGENT"
     },
     {
       "date": "2026-01-27",
@@ -327,7 +329,7 @@
       "hash": "462e3c1",
       "url": "https://github.com/velocity-tech-io/website/commit/462e3c1",
       "summary": "Remove Google Fonts and switch to system fonts",
-      "model": "AG-GEMINI-3-FLASH"
+      "model": "AGENT"
     },
     {
       "date": "2026-01-27",
@@ -336,7 +338,7 @@
       "hash": "78cc034",
       "url": "https://github.com/velocity-tech-io/website/commit/78cc034",
       "summary": "Make website fully responsive for mobile browsers",
-      "model": "AG-GEMINI-3-FLASH"
+      "model": "AGENT"
     },
     {
       "date": "2026-01-27",
@@ -345,7 +347,7 @@
       "hash": "690d8b6",
       "url": "https://github.com/velocity-tech-io/website/commit/690d8b6",
       "summary": "fix: remove white border flash on navigation transitions",
-      "model": "AG-GEMINI-3-FLASH"
+      "model": "AGENT"
     }
   ],
   "heatmap": [
@@ -424,7 +426,7 @@
         "13": "10",
         "14": "13",
         "15": "17",
-        "16": "13"
+        "16": "16"
       },
       "fail": {
         "11": "2",
@@ -460,7 +462,7 @@
       "name": "Antigravity Claude Sonnet 4.5",
       "display": "AG SONNET",
       "role": "Complex Reasoning",
-      "icon": "🔬",
+      "icon": "🧠",
       "quota_id": "sonnet_quota",
       "rl_id": "sonnet_quota"
     },
@@ -469,9 +471,9 @@
       "name": "Antigravity Gemini 3 Pro",
       "display": "AG PRO",
       "role": "Vision & Audit",
-      "icon": "👁️",
-      "quota_id": "ag_quota",
-      "rl_id": "ag_rl"
+      "icon": "🔬",
+      "quota_id": "ag_pro_quota",
+      "rl_id": "ag_pro_quota"
     },
     {
       "id": "gh_gpt5",
@@ -479,8 +481,8 @@
       "display": "GH GPT-5",
       "role": "Code Optimization",
       "icon": "💻",
-      "quota_id": "gh_quota",
-      "rl_id": "gh_quota"
+      "quota_id": "gh_gpt5_quota",
+      "rl_id": "gh_gpt5_quota"
     },
     {
       "id": "gh_gpt4",
@@ -488,8 +490,8 @@
       "display": "GH GPT-4.1",
       "role": "Safety Backup",
       "icon": "📜",
-      "quota_id": "",
-      "rl_id": ""
+      "quota_id": "gh_gpt4_quota",
+      "rl_id": "gh_gpt4_quota"
     },
     {
       "id": "lc_qwen",
