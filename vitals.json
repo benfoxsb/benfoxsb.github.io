@@ -1,5 +1,5 @@
 {
-  "updated": "2026-02-05T06:54:28Z",
+  "updated": "2026-02-05T06:56:12Z",
   "windows": {
     "24h": {
       "date": "2026-02-04",
@@ -94,15 +94,6 @@
       "hash": "7f586ec",
       "url": "https://github.com/benfoxsb/benfoxsb.github.io/commit/7f586ec",
       "summary": "ui: limit pulse to today/yesterday and remove internal scrollbars",
-      "model": "AG-GEMINI-3-FLASH"
-    },
-    {
-      "date": "2026-02-04",
-      "time": "22:21",
-      "project": "benfoxsb.github.io",
-      "hash": "f0473be",
-      "url": "https://github.com/benfoxsb/benfoxsb.github.io/commit/f0473be",
-      "summary": "ui: dynamic masonry layout for project pulse cards",
       "model": "AG-GEMINI-3-FLASH"
     },
     {
