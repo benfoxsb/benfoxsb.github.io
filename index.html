@@ -146,13 +146,21 @@
         function getModelKey(m) {
             if (!m) return 'lc_qwen';
             const s = m.toLowerCase();
-            if (modelConfig.some(c => c.key === s)) return s;
-            if (s.includes('ag-') && s.includes('sonnet')) return 'ag_sonnet';
-            if (s.includes('ag-') && s.includes('opus')) return 'ag_opus';
-            if (s.includes('ag-') && s.includes('pro')) return 'ag_pro';
-            if (s.includes('ag-')) return 'ag_flash';
-            if (s.includes('gc-') || s.includes('gcli')) return s.includes('pro') ? 'gcli_pro' : 'gc_flash';
-            if (s.includes('gh-') || s.includes('copilot')) return (s.includes('4') || s.includes('gh_gpt4')) ? 'gh_gpt4' : 'gh_gpt5';
+            if (s === 'ag_flash') return 'ag_flash';
+            if (s === 'ag_pro') return 'ag_pro';
+            if (s === 'gc_flash' || s === 'gcli_flash') return 'gc_flash';
+            if (s === 'gc_pro' || s === 'gcli_pro') return 'gc_pro';
+            if (s === 'gh_gpt5' || s === 'copilot') return 'gh_gpt5';
+            if (s === 'gh_gpt4' || s === 'copilot-4o') return 'gh_gpt4';
+            if (s === 'ag_sonnet' || s === 'sonnet') return 'ag_sonnet';
+            if (s === 'ag_opus' || s === 'opus') return 'ag_opus';
+            if (s === 'local' || s === 'lc_qwen') return 'lc_qwen';
+            
+            if (s.includes('sonnet')) return 'ag_sonnet';
+            if (s.includes('opus')) return 'ag_opus';
+            if (s.includes('pro')) return s.includes('gc') ? 'gc_pro' : 'ag_pro';
+            if (s.includes('flash')) return s.includes('gc') ? 'gc_flash' : 'ag_flash';
+            if (s.includes('gh-') || s.includes('copilot')) return s.includes('4') ? 'gh_gpt4' : 'gh_gpt5';
             return 'lc_qwen';
         }
 
@@ -199,7 +207,7 @@
                     let activeFound = false;
                     pipelineEl.innerHTML = data.failover.map((item, idx) => {
                         const qVal = t[item.quota_id]; const rVal = t[item.rl_id];
-                        const isHit = (qVal && qVal !== "0.0") || (rVal && rVal !== "0.0");
+                        const isHit = (qVal && qVal !== "0.0" && qVal !== "null") || (rVal && rVal !== "0.0" && rVal !== "null");
                         const mKey = getModelKey(item.id);
                         const cfg = modelConfig.find(c => c.key === mKey) || { tw: 'emerald', label: item.display || item.name };
                         let statusText = "STANDBY"; let statusColor = "text-slate-500"; let border = "border-slate-800";
@@ -218,9 +226,9 @@
                                     <span class="text-xl">${roleIcon}</span>
                                     <p class="text-sm font-bold text-slate-200 truncate">${cfg.label}</p>
                                 </div>
-                                <div class="flex justify-between items-end mt-2">
-                                    <p class="text-[9px] font-black ${statusColor} uppercase tracking-widest">${reason || statusText}</p>
-                                    ${brainIndicator ? `<span class="text-xs pulse">${brainIndicator}</span>` : ''}
+                                <div class="flex justify-between items-end mt-2 h-5">
+                                    <p class="text-sm font-black ${statusColor} uppercase tracking-widest">${reason || statusText}</p>
+                                    ${brainIndicator ? `<span class="text-sm pulse">${brainIndicator}</span>` : ''}
                                 </div>
                             </div>
                         `;
