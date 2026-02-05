@@ -19,9 +19,9 @@
         .pulse-card:hover { background: #1e253a; }
         .pulse-expanded { display: none; margin-top: 1rem; padding-top: 1rem; border-top: 1px solid #2d334a; }
         .proj-block { break-inside: avoid; margin-bottom: 2rem; width: 100%; display: inline-block; }
-        #project-columns { display: block; column-count: 1; column-gap: 2rem; }
-        @media (min-width: 1024px) { #project-columns { column-count: 2; } }
-        @media (min-width: 1440px) { #project-columns { column-count: 3; } }
+        #project-columns { display: flex; flex-direction: column; gap: 2rem; }
+        .pulse-col { display: flex; flex-direction: column; gap: 2rem; flex: 1; }
+        @media (min-width: 1024px) { #project-columns { flex-direction: row; } }
     </style>
 </head>
 <body class="p-4 md:p-8">
@@ -248,11 +248,14 @@
                         groups[item.project].push(item); 
                     });
                     
-                    pulseContainer.innerHTML = Object.keys(groups).sort().map((proj, pIdx) => {
+                    const projKeys = Object.keys(groups).sort();
+                    const columnBins = [[], [], []];
+                    projKeys.forEach((proj, idx) => {
+                        const pIdx = idx;
                         const items = groups[proj]; const days = {};
                         items.forEach(it => { const label = it.date === today ? 'Today' : 'Yesterday'; if (!days[label]) days[label] = []; days[label].push(it); });
 
-                        return `<div class="proj-block"><div class="text-sm font-bold text-blue-400 uppercase tracking-[0.2em] mb-2 border-b-2 border-blue-500/20 pb-2">${proj}</div><div>${Object.keys(days).map((dayLabel, dIdx) => {
+                        const html = `<div class="proj-block"><div class="text-sm font-bold text-blue-400 uppercase tracking-[0.2em] mb-2 border-b-2 border-blue-500/20 pb-2">${proj}</div><div>${Object.keys(days).map((dayLabel, dIdx) => {
                             const dayId = `${pIdx}-${dIdx}`;
                             
                             // Group identical summaries to prevent noise
@@ -307,7 +310,11 @@
                                     </div>`;
                             }).join('')}</div></div>`;
                         }).join('')}</div></div>`;
-                    }).join('');
+                        
+                        columnBins[idx % 3].push(html);
+                    });
+                    
+                    pulseContainer.innerHTML = columnBins.map(bin => `<div class="pulse-col">${bin.join('')}</div>`).join('');
                 }
                 document.getElementById('last-update').innerText = new Date(data.updated).toLocaleTimeString();
             } catch (e) { console.error("Dashboard sync failed", e); }
