@@ -181,8 +181,8 @@
                 const data = await response.json();
                 const w24 = data.windows['24h']; const w7 = data.windows['7d']; const w30 = data.windows['30d']; const t = w24.timers || {};
 
-                document.getElementById('stat-success').innerText = w24.success;
-                document.getElementById('stat-fail').innerText = w24.fail;
+                document.getElementById('stat-success').innerText = w24.success || 0;
+                document.getElementById('stat-fail').innerText = w24.fail || 0;
                 if (w24.success + w24.fail > 0) {
                     const total = w24.success + w24.fail;
                     document.getElementById('bar-success-24h').style.width = (w24.success / total * 100) + '%';
