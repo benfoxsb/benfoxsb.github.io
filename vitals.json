@@ -1,11 +1,11 @@
 {
-  "updated": "2026-02-06T16:35:12Z",
+  "updated": "2026-02-06T18:35:06Z",
   "windows": {
     "24h": {
       "date": "2026-02-06",
-      "success": 73,
+      "success": 75,
       "fail": 0,
-      "ag_flash": 74,
+      "ag_flash": 76,
       "ag_pro": 0,
       "gc_flash": 0,
       "gc_pro": 0,
@@ -17,7 +17,7 @@
       "cooldowns": 4,
       "quotas": 0,
       "timers": {
-        "ag_flash_cd": "3.8",
+        "ag_flash_cd": "1.8",
         "gc_flash_cd": "0.0",
         "sonnet_cd": "0.0",
         "ag_pro_cd": "5.0",
@@ -27,11 +27,11 @@
       }
     },
     "7d": {
-      "success": 476,
+      "success": 478,
       "fail": 198,
       "days": 4,
       "usage": {
-        "ag_flash": 346,
+        "ag_flash": 348,
         "ag_pro": 22,
         "gc_flash": 58,
         "gc_pro": 0,
@@ -41,14 +41,14 @@
         "ag_opus": 1,
         "ag_sonnet": 8
       },
-      "reliability": "70.6"
+      "reliability": "70.7"
     },
     "30d": {
-      "success": 476,
+      "success": 478,
       "fail": 198,
       "days": 4,
       "usage": {
-        "ag_flash": 346,
+        "ag_flash": 348,
         "ag_pro": 22,
         "gc_flash": 58,
         "gc_pro": 0,
@@ -58,7 +58,7 @@
         "ag_opus": 1,
         "ag_sonnet": 8
       },
-      "reliability": "70.6"
+      "reliability": "70.7"
     }
   },
   "history": [
@@ -106,9 +106,9 @@
     },
     {
       "date": "2026-02-06",
-      "success": 73,
+      "success": 75,
       "fail": 0,
-      "ag_flash": 74,
+      "ag_flash": 76,
       "ag_pro": 0,
       "gc_flash": 0,
       "gc_pro": 0,
@@ -582,7 +582,7 @@
         "15:45": "1",
         "16:00": "1",
         "16:15": "2",
-        "16:30": "1"
+        "16:30": "3"
       },
       "fail": {}
     }
