@@ -20,9 +20,9 @@
         .pulse-expanded { display: none; margin-top: 1rem; padding-top: 1rem; border-top: 1px solid #2d334a; }
         /* Project Layer Styles - Masonry Layout */
         .proj-block { break-inside: avoid; margin-bottom: 2rem; width: 100%; display: block; }
-        #project-columns { column-count: 1; column-gap: 2rem; column-fill: auto; }
-        @media (min-width: 768px) { #project-columns { column-count: 2; } }
-        @media (min-width: 1280px) { #project-columns { column-count: 3; } }
+        #project-columns { display: grid; grid-template-columns: repeat(1, 1fr); gap: 2rem; }
+        @media (min-width: 768px) { #project-columns { grid-template-columns: repeat(2, 1fr); } }
+        @media (min-width: 1280px) { #project-columns { grid-template-columns: repeat(3, 1fr); } }
     </style>
 </head>
 <body class="p-4 md:p-8">
@@ -212,7 +212,7 @@
                         const isHit = (val && val !== "0.0" && val !== "null");
                         const mKey = getModelKey(item.id);
                         const cfg = modelConfig.find(c => c.key === mKey) || { tw: 'slate', label: item.display || item.name, color: '#2d334a' };
-                        let statusText = "HEALTHY"; let statusColor = "text-slate-500"; let border = "";
+                        let statusText = "STANDBY"; let statusColor = "text-slate-500"; let border = "";
                         let roleIcon = item.icon || "🛡️"; let brainIndicator = ""; let reason = "";
                         
                         if (isHit) { 
@@ -339,10 +339,23 @@
                 const dayData = dateToHeatmap[date] || { success: {}, fail: {} };
                 const dayCol = document.createElement('div'); dayCol.className = 'flex flex-col gap-[2px] w-full h-full';
                 for (let hour = 0; hour < 24; hour++) {
-                    const hrKey = hour.toString().padStart(2, '0'); const s = parseInt(dayData.success[hrKey] || 0); const f = parseInt(dayData.fail[hrKey] || 0);
-                    const cell = document.createElement('div'); let color = 'bg-slate-800/50';
-                    if (f > 0 && (s === 0 || f >= s)) color = 'bg-red-500'; else if (s > 0) color = 'bg-emerald-400';
-                    cell.className = `w-full flex-1 rounded-[1px] ${color}`; dayCol.appendChild(cell);
+                    const hrKey = hour.toString().padStart(2, '0');
+                    const s = parseInt(dayData.success[hrKey] || 0);
+                    const f = parseInt(dayData.fail[hrKey] || 0);
+                    const cell = document.createElement('div');
+                    let color = 'bg-slate-800/50';
+                    
+                    if (f > 0) {
+                        // If failures exist, use red. If successes also exist, maybe a stripes pattern or just prioritize red for visibility of issues.
+                        color = 'bg-red-500';
+                        if (s > 0) color = 'bg-orange-500'; // Mixed hour: orange
+                    } else if (s > 0) {
+                        color = 'bg-emerald-400';
+                    }
+                    
+                    cell.className = `w-full flex-1 rounded-[1px] ${color}`;
+                    cell.title = `${date} ${hrKey}:00 - S: ${s}, F: ${f}`;
+                    dayCol.appendChild(cell);
                 }
                 container.appendChild(dayCol);
             });
