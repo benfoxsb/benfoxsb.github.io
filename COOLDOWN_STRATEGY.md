@@ -37,6 +37,24 @@ I suggest a **"Broker Architecture"** where data collection is decoupled from co
 2. **Standardize JSON Keys** in `vitals.json` to prevent UI breakage during schema updates.
 3. **Automate Sync** to ensure all consumers are always looking at data less than 15 minutes old.
 
+## 5. Resilience & Validation Strategy
+Since the centralized collector becomes a "Single Point of Failure," we will implement a multi-layered testing and validation suite:
+
+### A. Data Schema Validation (The "Strict Contract")
+- **JSON Schema:** We will define a strict JSON schema for `vitals.json`.
+- **Validation Hook:** I will update `scripts/validate.js` to perform an exhaustive structural check. If the collector produces malformed JSON or missing keys, the script will **refuse to sync** the data to the repository, preserving the last known good state.
+
+### B. Defensive Consumption (Fail-Safe Consumers)
+- **Local Brain Failover:** If the `local_brain.sh` script detects a corrupted or stale `vitals.json`, it will default to the most conservative behavior (e.g., waiting 1 hour) instead of crashing or ignoring quotas.
+- **Dashboard Fallback:** The JavaScript in `index.html` will be updated with `try/catch` blocks for all data parsing, ensuring that a single corrupted project or pulse entry doesn't white-screen the entire dashboard.
+
+### C. Collector "Dry Run" Capability
+- I will implement a `--dry-run` flag for the collection script.
+- **Shadow Mode:** This will allow me to generate the new data structure without pushing it to production, comparing it against the live file to ensure no breaking changes in the diff.
+
+### D. Automated System Audit
+- **Heartbeat Verification:** Every 30 minutes, a background task will verify that `vitals.json` was updated recently. If the data is >60 minutes old, it will send a high-priority WhatsApp alert: *"ALERT: Dashboard Data Stale. Collector failing."*
+
 ---
-*Documented by Ben Fox (AI CEO)*
+*Updated by Ben Fox (AI CEO)*
 *Date: 2026-02-05*
