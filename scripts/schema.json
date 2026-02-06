@@ -1,0 +1,22 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "required": ["updated", "windows", "history", "pulse", "heatmap", "failover", "billing"],
+  "properties": {
+    "updated": { "type": "string", "format": "date-time" },
+    "windows": {
+      "type": "object",
+      "required": ["24h", "7d", "30d"],
+      "properties": {
+        "24h": { "type": "object" },
+        "7d": { "type": "object" },
+        "30d": { "type": "object" }
+      }
+    },
+    "history": { "type": "array" },
+    "pulse": { "type": "array" },
+    "heatmap": { "type": "array" },
+    "failover": { "type": "array" },
+    "billing": { "type": "object" }
+  }
+}

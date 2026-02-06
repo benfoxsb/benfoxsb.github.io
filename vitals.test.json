@@ -1,0 +1,665 @@
+{
+  "updated": "2026-02-06T08:36:50Z",
+  "windows": {
+    "24h": {
+      "date": "2026-02-06",
+      "success": 0,
+      "fail": 0,
+      "ag_flash": 0,
+      "ag_pro": 0,
+      "gc_flash": 0,
+      "gc_pro": 0,
+      "gh_gpt5": 0,
+      "gh_gpt4": 0,
+      "lc_qwen": 0,
+      "ag_opus": 0,
+      "ag_sonnet": 0,
+      "cooldowns": 0,
+      "quotas": 0,
+      "timers": {
+        "ag_flash_cd": "4.1",
+        "gc_flash_cd": "0.0",
+        "sonnet_cd": "0.0",
+        "ag_pro_cd": "5.0",
+        "gh_gpt5_cd": "0.0",
+        "gh_gpt4_cd": "0.0",
+        "lc_qwen_cd": "0.0"
+      }
+    },
+    "7d": {
+      "success": 403,
+      "fail": 198,
+      "days": 4,
+      "usage": {
+        "ag_flash": 272,
+        "ag_pro": 22,
+        "gc_flash": 58,
+        "gc_pro": 0,
+        "gh_gpt5": 58,
+        "gh_gpt4": 1,
+        "lc_qwen": 0,
+        "ag_opus": 1,
+        "ag_sonnet": 8
+      },
+      "reliability": "67"
+    },
+    "30d": {
+      "success": 403,
+      "fail": 198,
+      "days": 4,
+      "usage": {
+        "ag_flash": 272,
+        "ag_pro": 22,
+        "gc_flash": 58,
+        "gc_pro": 0,
+        "gh_gpt5": 58,
+        "gh_gpt4": 1,
+        "lc_qwen": 0,
+        "ag_opus": 1,
+        "ag_sonnet": 8
+      },
+      "reliability": "67"
+    }
+  },
+  "history": [
+    {
+      "date": "2026-02-03",
+      "success": 192,
+      "fail": 160,
+      "ag_flash": 121,
+      "ag_pro": 13,
+      "gc_flash": 0,
+      "gc_pro": 0,
+      "gh_gpt5": 49,
+      "gh_gpt4": 0,
+      "lc_qwen": 0,
+      "ag_opus": 0,
+      "ag_sonnet": 0
+    },
+    {
+      "date": "2026-02-04",
+      "success": 170,
+      "fail": 30,
+      "ag_flash": 111,
+      "ag_pro": 9,
+      "gc_flash": 58,
+      "gc_pro": 0,
+      "gh_gpt5": 8,
+      "gh_gpt4": 1,
+      "lc_qwen": 0,
+      "ag_opus": 1,
+      "ag_sonnet": 5
+    },
+    {
+      "date": "2026-02-05",
+      "success": 41,
+      "fail": 8,
+      "ag_flash": 40,
+      "ag_pro": 0,
+      "gc_flash": 0,
+      "gc_pro": 0,
+      "gh_gpt5": 1,
+      "gh_gpt4": 0,
+      "lc_qwen": 0,
+      "ag_opus": 0,
+      "ag_sonnet": 3
+    },
+    {
+      "date": "2026-02-06",
+      "success": 0,
+      "fail": 0,
+      "ag_flash": 0,
+      "ag_pro": 0,
+      "gc_flash": 0,
+      "gc_pro": 0,
+      "gh_gpt5": 0,
+      "gh_gpt4": 0,
+      "lc_qwen": 0,
+      "ag_opus": 0,
+      "ag_sonnet": 0
+    }
+  ],
+  "pulse": [
+    {
+      "date": "2026-02-06",
+      "time": "00:34",
+      "project": "benfoxsb.github.io",
+      "hash": "aa76d65",
+      "url": "https://github.com/benfoxsb/benfoxsb.github.io/commit/aa76d65",
+      "summary": "feat: phase 1 - infrastructure and safety rails complete",
+      "model": "AG-GEMINI-3-FLASH"
+    },
+    {
+      "date": "2026-02-05",
+      "time": "23:36",
+      "project": "benfoxsb.github.io",
+      "hash": "3f891e5",
+      "url": "https://github.com/benfoxsb/benfoxsb.github.io/commit/3f891e5",
+      "summary": "docs: create implementation plan for centralized data collection",
+      "model": "AG-GEMINI-3-FLASH"
+    },
+    {
+      "date": "2026-02-05",
+      "time": "23:32",
+      "project": "benfoxsb.github.io",
+      "hash": "7597c1e",
+      "url": "https://github.com/benfoxsb/benfoxsb.github.io/commit/7597c1e",
+      "summary": "docs: add resilience and validation strategy to cooldown plan",
+      "model": "AG-GEMINI-3-FLASH"
+    },
+    {
+      "date": "2026-02-05",
+      "time": "23:24",
+      "project": "benfoxsb.github.io",
+      "hash": "c00f812",
+      "url": "https://github.com/benfoxsb/benfoxsb.github.io/commit/c00f812",
+      "summary": "docs: analysis of model cooldown and data collection strategy",
+      "model": "AG-GEMINI-3-FLASH"
+    },
+    {
+      "date": "2026-02-05",
+      "time": "22:48",
+      "project": "benfoxsb.github.io",
+      "hash": "9dee49b",
+      "url": "https://github.com/benfoxsb/benfoxsb.github.io/commit/9dee49b",
+      "summary": "fix: stabilize model distribution chart and animation",
+      "model": "AG-GEMINI-3-FLASH"
+    },
+    {
+      "date": "2026-02-05",
+      "time": "22:32",
+      "project": "benfoxsb.github.io",
+      "hash": "c756d3c",
+      "url": "https://github.com/benfoxsb/benfoxsb.github.io/commit/c756d3c",
+      "summary": "Delete AUDIT_FEEDBACK.md",
+      "model": "AG-GEMINI-3-FLASH"
+    },
+    {
+      "date": "2026-02-05",
+      "time": "22:27",
+      "project": "benfoxsb.github.io",
+      "hash": "cd07fa1",
+      "url": "https://github.com/benfoxsb/benfoxsb.github.io/commit/cd07fa1",
+      "summary": "Merge branch 'develop'",
+      "model": "AG-GEMINI-3-FLASH"
+    },
+    {
+      "date": "2026-02-05",
+      "time": "22:27",
+      "project": "benfoxsb.github.io",
+      "hash": "313888b",
+      "url": "https://github.com/benfoxsb/benfoxsb.github.io/commit/313888b",
+      "summary": "feat: align top row charts and heatmap heights, fix empty space",
+      "model": "AG-GEMINI-3-FLASH"
+    },
+    {
+      "date": "2026-02-05",
+      "time": "22:08",
+      "project": "benfoxsb.github.io",
+      "hash": "d4133d0",
+      "url": "https://github.com/benfoxsb/benfoxsb.github.io/commit/d4133d0",
+      "summary": "Merge branch 'develop'",
+      "model": "AG-GEMINI-3-FLASH"
+    },
+    {
+      "date": "2026-02-05",
+      "time": "00:00",
+      "project": "core",
+      "hash": "7442757",
+      "url": "https://github.com/benfoxsb/workspace/commit/7442757",
+      "summary": "Nightly routine: sync workspace and compact memory",
+      "model": "AG-GEMINI-3-FLASH"
+    },
+    {
+      "date": "2026-02-04",
+      "time": "18:47",
+      "project": "gh-pm",
+      "hash": "4f20ff7",
+      "url": "https://github.com/benfoxsb/gh-pm/commit/4f20ff7",
+      "summary": "Add files via upload",
+      "model": "GH-GPT-5-MINI"
+    },
+    {
+      "date": "2026-02-04",
+      "time": "03:03",
+      "project": "core",
+      "hash": "71ab785",
+      "url": "https://github.com/benfoxsb/workspace/commit/71ab785",
+      "summary": "chore: update dashboard collector script and latest metrics for 2026-02-04",
+      "model": "AG-GEMINI-3-FLASH"
+    },
+    {
+      "date": "2026-02-04",
+      "time": "00:37",
+      "project": "core",
+      "hash": "ee4fa1b",
+      "url": "https://github.com/benfoxsb/workspace/commit/ee4fa1b",
+      "summary": "housekeeping: consolidate project structure, update dashboard suite, and add persistent metrics",
+      "model": "AG-GEMINI-3-FLASH"
+    },
+    {
+      "date": "2026-02-04",
+      "time": "00:01",
+      "project": "core",
+      "hash": "6d69fae",
+      "url": "https://github.com/benfoxsb/workspace/commit/6d69fae",
+      "summary": "chore: nightly CEO brain routine 🦊 [2026-02-04]",
+      "model": "AG-GEMINI-3-FLASH"
+    },
+    {
+      "date": "2026-02-03",
+      "time": "23:01",
+      "project": "core",
+      "hash": "a4f0811",
+      "url": "https://github.com/benfoxsb/workspace/commit/a4f0811",
+      "summary": "brain: nightly routine and memory compaction (2026-02-03)",
+      "model": "AG-GEMINI-3-FLASH"
+    },
+    {
+      "date": "2026-02-03",
+      "time": "21:35",
+      "project": "velocity-tech-site",
+      "hash": "c96f65b",
+      "url": "https://github.com/velocity-tech-io/website/commit/c96f65b",
+      "summary": "chore: trigger deployment build after adding supabase secrets",
+      "model": "AG-GEMINI-3-FLASH"
+    },
+    {
+      "date": "2026-02-03",
+      "time": "21:34",
+      "project": "velocity-tech-site",
+      "hash": "acf1b20",
+      "url": "https://github.com/velocity-tech-io/website/commit/acf1b20",
+      "summary": "chore: trigger deployment build after adding supabase secrets",
+      "model": "AG-GEMINI-3-FLASH"
+    },
+    {
+      "date": "2026-02-03",
+      "time": "21:18",
+      "project": "velocity-tech-site",
+      "hash": "2803d32",
+      "url": "https://github.com/velocity-tech-io/website/commit/2803d32",
+      "summary": "fix: handle missing supabase env vars during build",
+      "model": "AG-GEMINI-3-FLASH"
+    },
+    {
+      "date": "2026-02-03",
+      "time": "21:17",
+      "project": "velocity-tech-site",
+      "hash": "78a799d",
+      "url": "https://github.com/velocity-tech-io/website/commit/78a799d",
+      "summary": "feat: mount ChatWidget in RootLayout",
+      "model": "AG-GEMINI-3-FLASH"
+    },
+    {
+      "date": "2026-02-03",
+      "time": "21:10",
+      "project": "velocity-tech-site",
+      "hash": "e5ce59d",
+      "url": "https://github.com/velocity-tech-io/website/commit/e5ce59d",
+      "summary": "fix: remove server-side API route to unblock static build",
+      "model": "AG-GEMINI-3-FLASH"
+    },
+    {
+      "date": "2026-02-03",
+      "time": "20:51",
+      "project": "velocity-tech-site",
+      "hash": "37427bf",
+      "url": "https://github.com/velocity-tech-io/website/commit/37427bf",
+      "summary": "feat: complete client-side ChatWidget implementation with Supabase",
+      "model": "AG-GEMINI-3-FLASH"
+    },
+    {
+      "date": "2026-02-03",
+      "time": "18:10",
+      "project": "core",
+      "hash": "8652e8f",
+      "url": "https://github.com/benfoxsb/workspace/commit/8652e8f",
+      "summary": "brain: manual lock-in of today's technical milestones",
+      "model": "AG-GEMINI-3-FLASH"
+    },
+    {
+      "date": "2026-02-03",
+      "time": "17:46",
+      "project": "core",
+      "hash": "70849d4",
+      "url": "https://github.com/benfoxsb/workspace/commit/70849d4",
+      "summary": "brain: manual memory compaction during 429 blackout",
+      "model": "AG-GEMINI-3-FLASH"
+    },
+    {
+      "date": "2026-02-03",
+      "time": "11:22",
+      "project": "velocity-tech-site",
+      "hash": "539b113",
+      "url": "https://github.com/velocity-tech-io/website/commit/539b113",
+      "summary": "fix: move chat logic to client-side for static export compatibility",
+      "model": "AG-GEMINI-3-FLASH"
+    },
+    {
+      "date": "2026-02-03",
+      "time": "09:34",
+      "project": "core",
+      "hash": "9814e67",
+      "url": "https://github.com/benfoxsb/workspace/commit/9814e67",
+      "summary": "memory: compact MEMORY.md — 2026-02-03",
+      "model": "AG-GEMINI-3-FLASH"
+    },
+    {
+      "date": "2026-02-01",
+      "time": "23:59",
+      "project": "core",
+      "hash": "48862cc",
+      "url": "https://github.com/benfoxsb/workspace/commit/48862cc",
+      "summary": "Refactor: Organize projects and research into dedicated folder structure",
+      "model": "AG-GEMINI-3-FLASH"
+    },
+    {
+      "date": "2026-02-01",
+      "time": "23:29",
+      "project": "velocity-tech-site",
+      "hash": "b4604e3",
+      "url": "https://github.com/velocity-tech-io/website/commit/b4604e3",
+      "summary": "Add ChatWidget and Supabase integration",
+      "model": "AG-GEMINI-3-FLASH"
+    },
+    {
+      "date": "2026-02-01",
+      "time": "23:28",
+      "project": "core",
+      "hash": "62fa62f",
+      "url": "https://github.com/benfoxsb/workspace/commit/62fa62f",
+      "summary": "Allow website tracking in workspace",
+      "model": "AG-GEMINI-3-FLASH"
+    },
+    {
+      "date": "2026-02-01",
+      "time": "19:26",
+      "project": "core",
+      "hash": "a283058",
+      "url": "https://github.com/benfoxsb/workspace/commit/a283058",
+      "summary": "Update comms info",
+      "model": "AG-GEMINI-3-FLASH"
+    },
+    {
+      "date": "2026-02-01",
+      "time": "19:10",
+      "project": "core",
+      "hash": "8682598",
+      "url": "https://github.com/benfoxsb/workspace/commit/8682598",
+      "summary": "Update memory and workspace config",
+      "model": "AG-GEMINI-3-FLASH"
+    },
+    {
+      "date": "2026-02-01",
+      "time": "02:17",
+      "project": "snapcard.app",
+      "hash": "a0b6f5d",
+      "url": "https://github.com/velocity-tech-io/snapcard.app/commit/a0b6f5d",
+      "summary": "feat: Add landing page MVP with pricing and features",
+      "model": "AG-GEMINI-3-FLASH"
+    },
+    {
+      "date": "2026-01-28",
+      "time": "23:55",
+      "project": "velocity-tech-site",
+      "hash": "fcf52f6",
+      "url": "https://github.com/velocity-tech-io/website/commit/fcf52f6",
+      "summary": "Enhance section descriptions with gradient text styling",
+      "model": "AG-GEMINI-3-FLASH"
+    },
+    {
+      "date": "2026-01-28",
+      "time": "23:27",
+      "project": "velocity-tech-site",
+      "hash": "c3126ba",
+      "url": "https://github.com/velocity-tech-io/website/commit/c3126ba",
+      "summary": "Fix mobile horizontal scroll and disable zoom",
+      "model": "AG-GEMINI-3-FLASH"
+    },
+    {
+      "date": "2026-01-27",
+      "time": "23:30",
+      "project": "velocity-tech-site",
+      "hash": "c1df911",
+      "url": "https://github.com/velocity-tech-io/website/commit/c1df911",
+      "summary": "perf: optimize mobile performance",
+      "model": "AG-GEMINI-3-FLASH"
+    },
+    {
+      "date": "2026-01-27",
+      "time": "22:04",
+      "project": "velocity-tech-site",
+      "hash": "462e3c1",
+      "url": "https://github.com/velocity-tech-io/website/commit/462e3c1",
+      "summary": "Remove Google Fonts and switch to system fonts",
+      "model": "AG-GEMINI-3-FLASH"
+    },
+    {
+      "date": "2026-01-27",
+      "time": "14:37",
+      "project": "velocity-tech-site",
+      "hash": "78cc034",
+      "url": "https://github.com/velocity-tech-io/website/commit/78cc034",
+      "summary": "Make website fully responsive for mobile browsers",
+      "model": "AG-GEMINI-3-FLASH"
+    },
+    {
+      "date": "2026-01-27",
+      "time": "01:25",
+      "project": "velocity-tech-site",
+      "hash": "690d8b6",
+      "url": "https://github.com/velocity-tech-io/website/commit/690d8b6",
+      "summary": "fix: remove white border flash on navigation transitions",
+      "model": "AG-GEMINI-3-FLASH"
+    }
+  ],
+  "heatmap": [
+    {
+      "date": "2026-01-31",
+      "success": {},
+      "fail": {}
+    },
+    {
+      "date": "2026-02-01",
+      "success": {},
+      "fail": {}
+    },
+    {
+      "date": "2026-02-02",
+      "success": {},
+      "fail": {}
+    },
+    {
+      "date": "2026-02-03",
+      "success": {
+        "21:45": "1",
+        "22:00": "1"
+      },
+      "fail": {}
+    },
+    {
+      "date": "2026-02-04",
+      "success": {
+        "00:00": "5",
+        "00:15": "6",
+        "00:30": "7",
+        "00:45": "6",
+        "01:00": "4",
+        "01:15": "6",
+        "01:30": "12",
+        "01:45": "5",
+        "02:00": "4",
+        "02:15": "3",
+        "02:30": "3",
+        "02:45": "1",
+        "03:00": "1",
+        "03:15": "1",
+        "03:30": "1",
+        "03:45": "1",
+        "04:00": "1",
+        "04:15": "1",
+        "04:30": "1",
+        "04:45": "1",
+        "05:00": "1",
+        "05:15": "1",
+        "05:30": "1",
+        "05:45": "1",
+        "06:00": "1",
+        "06:15": "5",
+        "06:30": "2",
+        "06:45": "2",
+        "07:00": "1",
+        "07:15": "5",
+        "07:30": "4",
+        "07:45": "1",
+        "18:30": "1",
+        "18:45": "4",
+        "19:00": "2",
+        "19:15": "3",
+        "19:30": "3",
+        "19:45": "3",
+        "20:00": "3",
+        "20:15": "10",
+        "20:30": "2",
+        "20:45": "4",
+        "21:00": "3",
+        "21:15": "3",
+        "21:30": "2",
+        "21:45": "2",
+        "22:00": "2",
+        "22:15": "2",
+        "22:30": "6",
+        "22:45": "3",
+        "23:00": "2",
+        "23:15": "7",
+        "23:30": "4",
+        "23:45": "4"
+      },
+      "fail": {
+        "00:30": "2",
+        "01:30": "4",
+        "02:30": "2",
+        "06:30": "2",
+        "07:30": "2",
+        "19:00": "2",
+        "20:15": "4",
+        "21:15": "2",
+        "22:15": "2",
+        "22:45": "2",
+        "23:00": "2",
+        "23:15": "2",
+        "23:30": "2"
+      }
+    },
+    {
+      "date": "2026-02-05",
+      "success": {
+        "02:30": "2",
+        "02:45": "1",
+        "03:00": "2",
+        "03:15": "3",
+        "03:30": "2",
+        "03:45": "1",
+        "04:00": "1",
+        "05:45": "1",
+        "06:00": "4",
+        "06:15": "2",
+        "06:30": "2",
+        "06:45": "2",
+        "07:00": "2",
+        "07:15": "1",
+        "07:30": "2",
+        "08:00": "1",
+        "08:15": "2",
+        "08:30": "1",
+        "19:15": "7",
+        "19:30": "4",
+        "20:00": "1",
+        "20:15": "1",
+        "21:45": "2",
+        "22:15": "1",
+        "22:30": "1"
+      },
+      "fail": {
+        "19:15": "4",
+        "19:30": "4"
+      }
+    },
+    {
+      "date": "2026-02-06",
+      "success": {},
+      "fail": {}
+    }
+  ],
+  "failover": [
+    {
+      "id": "ag_flash",
+      "name": "AG Gemini 3 Flash",
+      "display": "AG FLASH",
+      "role": "Fast Operations",
+      "icon": "⚡",
+      "quota_id": "ag_flash_cd"
+    },
+    {
+      "id": "gc_flash",
+      "name": "GC Gemini 3 Flash",
+      "display": "GC FLASH",
+      "role": "Reliable Backup",
+      "icon": "🛡️",
+      "quota_id": "gc_flash_cd"
+    },
+    {
+      "id": "ag_sonnet",
+      "name": "AG Claude Sonnet 4.5",
+      "display": "AG SONNET",
+      "role": "Complex Reasoning",
+      "icon": "🔬",
+      "quota_id": "sonnet_cd"
+    },
+    {
+      "id": "ag_pro",
+      "name": "AG Gemini 3 Pro",
+      "display": "AG PRO",
+      "role": "Vision & Audit",
+      "icon": "👁️",
+      "quota_id": "ag_pro_cd"
+    },
+    {
+      "id": "gh_gpt5",
+      "name": "GH GPT-5-Mini",
+      "display": "GH GPT-5",
+      "role": "Code Optimization",
+      "icon": "💻",
+      "quota_id": "gh_gpt5_cd"
+    },
+    {
+      "id": "gh_gpt4",
+      "name": "GH GPT-4.1",
+      "display": "GH GPT-4.1",
+      "role": "Safety Backup",
+      "icon": "📜",
+      "quota_id": "gh_gpt4_cd"
+    },
+    {
+      "id": "lc_qwen",
+      "name": "Local Qwen Coder",
+      "display": "LC QWEN",
+      "role": "Local Safeguard",
+      "icon": "🏠",
+      "quota_id": "lc_qwen_cd"
+    }
+  ],
+  "billing": {
+    "ag": {
+      "name": "Ben Fox Agent",
+      "id": "gen-lang-client-0036704643",
+      "cost": "$0.00"
+    },
+    "gc": {
+      "name": "Agent Failover Mesh",
+      "id": "google-gemini-cli",
+      "cost": "$0.00"
+    }
+  }
+}
