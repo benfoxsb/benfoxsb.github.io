@@ -1,5 +1,5 @@
 {
-  "updated": "2026-02-06T16:34:39Z",
+  "updated": "2026-02-06T16:35:12Z",
   "windows": {
     "24h": {
       "date": "2026-02-06",
@@ -244,15 +244,6 @@
       "hash": "e3491a5",
       "url": "https://github.com/benfoxsb/workspace/commit/e3491a5",
       "summary": "habit: add 4-hour workspace sync rule",
-      "model": "AG-GEMINI-3-FLASH"
-    },
-    {
-      "date": "2026-02-06",
-      "time": "01:52",
-      "project": "benfoxsb.github.io",
-      "hash": "5b636c5",
-      "url": "https://github.com/benfoxsb/benfoxsb.github.io/commit/5b636c5",
-      "summary": "docs: standardize structure and update README (fixes #7)",
       "model": "AG-GEMINI-3-FLASH"
     },
     {
