@@ -39,10 +39,10 @@
         <div class="grid grid-cols-1 lg:grid-cols-6 gap-6 mb-8">
             <!-- Unified Performance Hub -->
             <div class="lg:col-span-2 card p-6 rounded-3xl flex flex-col" style="border-left-color: #10b981">
-                <div class="mb-6 h-full flex flex-col">
+                <div class="h-full flex flex-col">
                     <h3 class="text-xs font-bold uppercase mb-6 tracking-widest text-emerald-400">Operational Hub</h3>
                     
-                    <div class="mb-8">
+                    <div class="mb-6">
                         <div class="flex justify-between items-center mb-3">
                             <h3 class="text-[10px] font-bold uppercase tracking-widest text-slate-500">7D Activity Pattern (15m Intervals)</h3>
                             <div class="flex gap-2 text-[8px] font-bold uppercase tracking-tighter">
@@ -51,7 +51,7 @@
                                 <div class="flex items-center gap-1"><span class="w-2 h-2 rounded-sm bg-red-500"></span> Fail</div>
                             </div>
                         </div>
-                        <div id="heatmap-container" class="flex flex-row gap-2 h-48 overflow-hidden">
+                        <div id="heatmap-container" class="flex flex-row gap-2 h-64 overflow-hidden">
                         </div>
                     </div>
 
@@ -92,7 +92,6 @@
                 <div id="card-ag" class="card p-5 rounded-2xl flex-1 overflow-hidden" style="border-left-color: #64748b">
                     <div class="mb-4">
                         <h3 id="billing-ag-name" class="text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-1">Ben Fox Agent</h3>
-                        <p id="billing-ag-id" class="text-[8px] text-slate-600 truncate">gen-lang-client-0036704643</p>
                     </div>
                     <div class="pt-3 border-t border-slate-800/50">
                         <p class="text-[8px] font-bold text-slate-500 uppercase mb-1">Monthly Cost</p>
@@ -102,7 +101,6 @@
                 <div id="card-gcli" class="card p-5 rounded-2xl flex-1 overflow-hidden" style="border-left-color: #64748b">
                     <div class="mb-4">
                         <h3 id="billing-gc-name" class="text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-1">Agent Failover Mesh</h3>
-                        <p id="billing-gc-id" class="text-[8px] text-slate-600 truncate">gen-lang-mesh-001</p>
                     </div>
                     <div class="pt-3 border-t border-slate-800/50">
                         <p class="text-[8px] font-bold text-slate-500 uppercase mb-1">Monthly Cost</p>
@@ -204,10 +202,8 @@
 
                 if (data.billing) {
                     document.getElementById('billing-ag-name').innerText = data.billing.ag.name;
-                    document.getElementById('billing-ag-id').innerText = data.billing.ag.id;
                     document.getElementById('billing-ag-cost').innerText = data.billing.ag.cost;
                     document.getElementById('billing-gc-name').innerText = data.billing.gc.name;
-                    document.getElementById('billing-gc-id').innerText = data.billing.gc.id;
                     document.getElementById('billing-gc-cost').innerText = data.billing.gc.cost;
                 }
 
@@ -344,9 +340,9 @@
             container.innerHTML = ''; const last7 = getLast7Dates(); const dateToHeatmap = {}; (heatmap || []).forEach(h => { if (h.date) dateToHeatmap[h.date] = h; });
             last7.forEach(date => {
                 const dayData = dateToHeatmap[date] || { success: {}, fail: {} };
-                // Each day is a grid: 4 columns (15m segments) x 24 rows (hours)
+                // Each day is a grid: 24 columns (hours) x 4 rows (15m segments)
                 const dayCol = document.createElement('div'); 
-                dayCol.className = 'flex-1 grid grid-cols-4 gap-[1px] h-full';
+                dayCol.className = 'flex-1 grid grid-rows-4 grid-flow-col gap-[2px] h-full';
                 
                 for (let i = 0; i < 96; i++) {
                     const hour = Math.floor(i / 4).toString().padStart(2, '0');
