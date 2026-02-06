@@ -382,8 +382,21 @@
         }
 
         function renderChart(history) {
-            const ctx = document.getElementById('modelChart').getContext('2d'); const last7 = getLast7Dates(); const normalizedData = last7.map(date => (history || []).find(h => h.date === date) || { date });
-            if (chartInstance) chartInstance.destroy();
+            const ctx = document.getElementById('modelChart').getContext('2d'); 
+            const last7 = getLast7Dates(); 
+            const normalizedData = last7.map(date => (history || []).find(h => h.date === date) || { date });
+            
+            if (chartInstance) {
+                // UPDATE: Just update the data to prevent layout thrashing/doubling
+                chartInstance.data.labels = normalizedData.map(d => d.date.split('-').slice(1).join('/'));
+                chartInstance.data.datasets.forEach((dataset, i) => {
+                    const m = modelConfig[i];
+                    dataset.data = normalizedData.map(d => d[m.key] || (m.key === 'ag_flash' ? d.flash : (m.key === 'ag_pro' ? d.pro : 0)) || 0);
+                });
+                chartInstance.update('none'); // No animation for updates
+                return;
+            }
+
             chartInstance = new Chart(ctx, {
                 type: 'bar',
                 data: {
@@ -396,7 +409,8 @@
                         x: { stacked: true, grid: { display: false }, ticks: { color: '#64748b', font: { size: 10, weight: 'bold' } } },
                         y: { stacked: true, grid: { color: '#1e293b' }, ticks: { color: '#64748b', font: { size: 10, weight: 'bold' } } }
                     },
-                    plugins: { legend: { display: false } }
+                    plugins: { legend: { display: false } },
+                    animation: { duration: 1000 } // Initial animation only
                 }
             });
         }
