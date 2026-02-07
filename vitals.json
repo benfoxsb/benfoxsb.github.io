@@ -1,5 +1,5 @@
 {
-  "updated": "2026-02-07T07:07:50Z",
+  "updated": "2026-02-07T07:14:39Z",
   "windows": {
     "24h": {
       "date": "2026-02-06",
@@ -119,7 +119,7 @@
       "hash": "7fdb9cd",
       "url": "https://github.com/benfoxsb/workspace/commit/7fdb9cd",
       "summary": "feat: stabilize data broker / vitals collector (fixes #3)",
-      "model": "AG FLASH"
+      "model": "ag_flash"
     },
     {
       "date": "2026-02-06",
@@ -128,7 +128,7 @@
       "hash": "e36e5b3",
       "url": "https://github.com/benfoxsb/fiscalfox/commit/e36e5b3",
       "summary": "feat: sync latest dashboard visuals and accurate attribution logic (fixes #11)",
-      "model": "AG FLASH"
+      "model": "ag_flash"
     },
     {
       "date": "2026-02-06",
@@ -137,7 +137,7 @@
       "hash": "41e945d",
       "url": "https://github.com/benfoxsb/benfoxsb.github.io/commit/41e945d",
       "summary": "feat: simplify timezone to PST only (fixes #9)",
-      "model": "AG FLASH"
+      "model": "ag_flash"
     },
     {
       "date": "2026-02-06",
@@ -146,7 +146,7 @@
       "hash": "530085c",
       "url": "https://github.com/benfoxsb/fiscalfox/commit/530085c",
       "summary": "fix: health logic and script consolidation",
-      "model": "AG FLASH"
+      "model": "ag_flash"
     },
     {
       "date": "2026-02-06",
@@ -155,7 +155,7 @@
       "hash": "866336e",
       "url": "https://github.com/benfoxsb/fiscalfox/commit/866336e",
       "summary": "feat: consolidate architecture, port latest dashboard logic, and align terminology",
-      "model": "AG FLASH"
+      "model": "ag_flash"
     },
     {
       "date": "2026-02-06",
@@ -164,7 +164,7 @@
       "hash": "24b3d18",
       "url": "https://github.com/benfoxsb/gh-pm/commit/24b3d18",
       "summary": "docs: align SDLC terminology with latest standards (Design & Plan)",
-      "model": "AG FLASH"
+      "model": "ag_flash"
     },
     {
       "date": "2026-02-06",
@@ -173,7 +173,7 @@
       "hash": "13eb5ab",
       "url": "https://github.com/benfoxsb/gh-pm/commit/13eb5ab",
       "summary": "docs: add usage guidelines and best practices for agents",
-      "model": "AG FLASH"
+      "model": "ag_flash"
     },
     {
       "date": "2026-02-06",
@@ -182,7 +182,7 @@
       "hash": "45625e4",
       "url": "https://github.com/benfoxsb/gh-pm/commit/45625e4",
       "summary": "docs: finalize SKILL.md metadata and command syntax (fixes #4)",
-      "model": "AG FLASH"
+      "model": "ag_flash"
     },
     {
       "date": "2026-02-06",
@@ -191,7 +191,7 @@
       "hash": "03dceca",
       "url": "https://github.com/benfoxsb/gh-pm/commit/03dceca",
       "summary": "test: functional sweep results complete (fixes #3)",
-      "model": "AG FLASH"
+      "model": "ag_flash"
     },
     {
       "date": "2026-02-06",
@@ -200,7 +200,7 @@
       "hash": "fbd769d",
       "url": "https://github.com/benfoxsb/workspace/commit/fbd769d",
       "summary": "feat: add task summary to heartbeat",
-      "model": "AG FLASH"
+      "model": "ag_flash"
     },
     {
       "date": "2026-02-06",
@@ -209,7 +209,7 @@
       "hash": "6fb3258",
       "url": "https://github.com/benfoxsb/workspace/commit/6fb3258",
       "summary": "feat: restrict project pulse to public repositories",
-      "model": "AG FLASH"
+      "model": "ag_flash"
     },
     {
       "date": "2026-02-06",
@@ -218,7 +218,7 @@
       "hash": "0996805",
       "url": "https://github.com/benfoxsb/gh-pm/commit/0996805",
       "summary": "feat: add public sentinel",
-      "model": "AG FLASH"
+      "model": "ag_flash"
     },
     {
       "date": "2026-02-06",
@@ -227,7 +227,7 @@
       "hash": "1065749",
       "url": "https://github.com/benfoxsb/workspace/commit/1065749",
       "summary": "docs: organize all research and strategy documents into docs/research/",
-      "model": "AG FLASH"
+      "model": "ag_flash"
     },
     {
       "date": "2026-02-06",
@@ -236,7 +236,7 @@
       "hash": "e5cc254",
       "url": "https://github.com/benfoxsb/workspace/commit/e5cc254",
       "summary": "feat: add dynamic timezone heatmap investigation and roadmap story (fixes #9)",
-      "model": "AG FLASH"
+      "model": "ag_flash"
     },
     {
       "date": "2026-02-06",
@@ -245,7 +245,7 @@
       "hash": "62e314d",
       "url": "https://github.com/benfoxsb/workspace/commit/62e314d",
       "summary": "docs: initialize cloudflare domain monetization investigation",
-      "model": "AG FLASH"
+      "model": "ag_flash"
     },
     {
       "date": "2026-02-06",
@@ -254,7 +254,7 @@
       "hash": "d23419f",
       "url": "https://github.com/benfoxsb/workspace/commit/d23419f",
       "summary": "docs: add dogfooding requirement to FiscalFox strategy",
-      "model": "AG FLASH"
+      "model": "ag_flash"
     },
     {
       "date": "2026-02-06",
@@ -263,7 +263,7 @@
       "hash": "6736afe",
       "url": "https://github.com/benfoxsb/workspace/commit/6736afe",
       "summary": "docs: upgrade FiscalFox to a zero-config bootstrap engine",
-      "model": "AG FLASH"
+      "model": "ag_flash"
     },
     {
       "date": "2026-02-06",
@@ -272,7 +272,7 @@
       "hash": "8e800fa",
       "url": "https://github.com/benfoxsb/workspace/commit/8e800fa",
       "summary": "docs: move research strategy files to global docs folder",
-      "model": "AG FLASH"
+      "model": "ag_flash"
     },
     {
       "date": "2026-02-04",
@@ -281,7 +281,7 @@
       "hash": "4f20ff7",
       "url": "https://github.com/benfoxsb/gh-pm/commit/4f20ff7",
       "summary": "Add files via upload",
-      "model": "AG FLASH"
+      "model": "ag_flash"
     },
     {
       "date": "2026-02-03",
@@ -290,7 +290,7 @@
       "hash": "c96f65b",
       "url": "https://github.com/velocity-tech-io/website/commit/c96f65b",
       "summary": "chore: trigger deployment build after adding supabase secrets",
-      "model": "AG FLASH"
+      "model": "ag_flash"
     },
     {
       "date": "2026-02-03",
@@ -299,7 +299,7 @@
       "hash": "acf1b20",
       "url": "https://github.com/velocity-tech-io/website/commit/acf1b20",
       "summary": "chore: trigger deployment build after adding supabase secrets",
-      "model": "AG FLASH"
+      "model": "ag_flash"
     },
     {
       "date": "2026-02-03",
@@ -308,7 +308,7 @@
       "hash": "2803d32",
       "url": "https://github.com/velocity-tech-io/website/commit/2803d32",
       "summary": "fix: handle missing supabase env vars during build",
-      "model": "AG FLASH"
+      "model": "ag_flash"
     },
     {
       "date": "2026-02-03",
@@ -317,7 +317,7 @@
       "hash": "78a799d",
       "url": "https://github.com/velocity-tech-io/website/commit/78a799d",
       "summary": "feat: mount ChatWidget in RootLayout",
-      "model": "AG FLASH"
+      "model": "ag_flash"
     },
     {
       "date": "2026-02-03",
@@ -326,7 +326,7 @@
       "hash": "e5ce59d",
       "url": "https://github.com/velocity-tech-io/website/commit/e5ce59d",
       "summary": "fix: remove server-side API route to unblock static build",
-      "model": "AG FLASH"
+      "model": "ag_flash"
     },
     {
       "date": "2026-02-03",
@@ -335,7 +335,7 @@
       "hash": "37427bf",
       "url": "https://github.com/velocity-tech-io/website/commit/37427bf",
       "summary": "feat: complete client-side ChatWidget implementation with Supabase",
-      "model": "AG FLASH"
+      "model": "ag_flash"
     },
     {
       "date": "2026-02-03",
@@ -344,7 +344,7 @@
       "hash": "539b113",
       "url": "https://github.com/velocity-tech-io/website/commit/539b113",
       "summary": "fix: move chat logic to client-side for static export compatibility",
-      "model": "AG FLASH"
+      "model": "ag_flash"
     },
     {
       "date": "2026-02-01",
@@ -353,7 +353,7 @@
       "hash": "b4604e3",
       "url": "https://github.com/velocity-tech-io/website/commit/b4604e3",
       "summary": "Add ChatWidget and Supabase integration",
-      "model": "AG FLASH"
+      "model": "ag_flash"
     },
     {
       "date": "2026-02-01",
@@ -362,7 +362,7 @@
       "hash": "a0b6f5d",
       "url": "https://github.com/velocity-tech-io/snapcard.app/commit/a0b6f5d",
       "summary": "feat: Add landing page MVP with pricing and features",
-      "model": "AG FLASH"
+      "model": "ag_flash"
     },
     {
       "date": "2026-01-28",
@@ -371,7 +371,7 @@
       "hash": "fcf52f6",
       "url": "https://github.com/velocity-tech-io/website/commit/fcf52f6",
       "summary": "Enhance section descriptions with gradient text styling",
-      "model": "AG FLASH"
+      "model": "ag_flash"
     }
   ],
   "heatmap": [
