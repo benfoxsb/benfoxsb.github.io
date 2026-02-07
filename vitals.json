@@ -1,12 +1,12 @@
 {
-  "updated": "2026-02-07T20:27:29Z",
+  "updated": "2026-02-07T21:06:35Z",
   "windows": {
     "24h": {
       "date": "2026-02-07",
-      "success": 48,
-      "fail": 32,
-      "ag_flash": 45,
-      "ag_sonnet": 1,
+      "success": 54,
+      "fail": 38,
+      "ag_flash": 47,
+      "ag_sonnet": 4,
       "gc_flash": 0,
       "ag_pro": 0,
       "gh_gpt5": 0,
@@ -25,34 +25,34 @@
       }
     },
     "7d": {
-      "success": 352,
-      "fail": 70,
+      "success": 358,
+      "fail": 76,
       "days": 5,
       "usage": {
-        "ag_flash": 283,
-        "ag_sonnet": 3,
+        "ag_flash": 285,
+        "ag_sonnet": 6,
         "gc_flash": 58,
         "ag_pro": 4,
         "gh_gpt5": 0,
         "gh_gpt4": 0,
         "lc_qwen": 0
       },
-      "reliability": "83.4"
+      "reliability": "82.4"
     },
     "30d": {
-      "success": 352,
-      "fail": 70,
+      "success": 358,
+      "fail": 76,
       "days": 5,
       "usage": {
-        "ag_flash": 283,
-        "ag_sonnet": 3,
+        "ag_flash": 285,
+        "ag_sonnet": 6,
         "gc_flash": 58,
         "ag_pro": 4,
         "gh_gpt5": 0,
         "gh_gpt4": 0,
         "lc_qwen": 0
       },
-      "reliability": "83.4"
+      "reliability": "82.4"
     }
   },
   "history": [
@@ -112,10 +112,10 @@
     },
     {
       "date": "2026-02-07",
-      "success": 48,
-      "fail": 32,
-      "ag_flash": 45,
-      "ag_sonnet": 1,
+      "success": 54,
+      "fail": 38,
+      "ag_flash": 47,
+      "ag_sonnet": 4,
       "gc_flash": 0,
       "ag_pro": 0,
       "gh_gpt5": 0,
@@ -149,15 +149,6 @@
       "hash": "dfba3c6",
       "url": "https://github.com/benfoxsb/benfoxsb.github.io/commit/dfba3c6",
       "summary": "feat: implement ratio-based color gradations for heatmap",
-      "model": "ag_flash"
-    },
-    {
-      "date": "2026-02-07",
-      "time": "00:27",
-      "project": "benfoxsb.github.io",
-      "hash": "16318a7",
-      "url": "https://github.com/benfoxsb/benfoxsb.github.io/commit/16318a7",
-      "summary": "fix: resolve duplicate model colors (GH GPT-4 -> Pink, GC Flash/Pro refined)",
       "model": "ag_flash"
     },
     {
@@ -610,7 +601,8 @@
         "18:45": "1",
         "19:45": "3",
         "20:00": "1",
-        "20:15": "1"
+        "20:15": "3",
+        "20:30": "4"
       },
       "fail": {
         "06:30": "12",
@@ -618,7 +610,9 @@
         "07:15": "4",
         "08:15": "8",
         "19:45": "2",
-        "20:15": "2"
+        "20:15": "2",
+        "20:30": "4",
+        "21:00": "2"
       }
     }
   ],
