@@ -1,5 +1,5 @@
 {
-  "updated": "2026-02-07T07:17:41Z",
+  "updated": "2026-02-07T07:18:33Z",
   "windows": {
     "24h": {
       "date": "2026-02-06",
@@ -114,6 +114,15 @@
   "pulse": [
     {
       "date": "2026-02-06",
+      "time": "23:18",
+      "project": "benfoxsb.github.io",
+      "hash": "d71543f",
+      "url": "https://github.com/benfoxsb/benfoxsb.github.io/commit/d71543f",
+      "summary": "fix: improve frontend model matching flexibility",
+      "model": "ag_flash"
+    },
+    {
+      "date": "2026-02-06",
       "time": "23:17",
       "project": "benfoxsb.github.io",
       "hash": "abc405c",
@@ -137,15 +146,6 @@
       "hash": "e36e5b3",
       "url": "https://github.com/benfoxsb/fiscalfox/commit/e36e5b3",
       "summary": "feat: sync latest dashboard visuals and accurate attribution logic (fixes #11)",
-      "model": "ag_flash"
-    },
-    {
-      "date": "2026-02-06",
-      "time": "19:30",
-      "project": "benfoxsb.github.io",
-      "hash": "41e945d",
-      "url": "https://github.com/benfoxsb/benfoxsb.github.io/commit/41e945d",
-      "summary": "feat: simplify timezone to PST only (fixes #9)",
       "model": "ag_flash"
     },
     {
