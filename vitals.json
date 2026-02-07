@@ -1,18 +1,18 @@
 {
-  "updated": "2026-02-07T07:32:29Z",
+  "updated": "2026-02-07T08:21:53Z",
   "windows": {
     "24h": {
-      "date": "2026-02-06",
-      "success": 91,
-      "fail": 0,
-      "ag_flash": 91,
+      "date": "2026-02-07",
+      "success": 24,
+      "fail": 28,
+      "ag_flash": 24,
       "ag_sonnet": 0,
       "gc_flash": 0,
       "ag_pro": 0,
       "gh_gpt5": 0,
       "gh_gpt4": 0,
       "lc_qwen": 0,
-      "cooldowns": 4,
+      "cooldowns": 20,
       "quotas": 0,
       "timers": {
         "ag_flash_cd": "0.0",
@@ -25,11 +25,11 @@
       }
     },
     "7d": {
-      "success": 304,
-      "fail": 38,
-      "days": 4,
+      "success": 328,
+      "fail": 66,
+      "days": 5,
       "usage": {
-        "ag_flash": 238,
+        "ag_flash": 262,
         "ag_sonnet": 2,
         "gc_flash": 58,
         "ag_pro": 4,
@@ -37,14 +37,14 @@
         "gh_gpt4": 0,
         "lc_qwen": 0
       },
-      "reliability": "88.8"
+      "reliability": "83.2"
     },
     "30d": {
-      "success": 304,
-      "fail": 38,
-      "days": 4,
+      "success": 328,
+      "fail": 66,
+      "days": 5,
       "usage": {
-        "ag_flash": 238,
+        "ag_flash": 262,
         "ag_sonnet": 2,
         "gc_flash": 58,
         "ag_pro": 4,
@@ -52,7 +52,7 @@
         "gh_gpt4": 0,
         "lc_qwen": 0
       },
-      "reliability": "88.8"
+      "reliability": "83.2"
     }
   },
   "history": [
@@ -109,9 +109,48 @@
       "gh_gpt5": 0,
       "gh_gpt4": 0,
       "lc_qwen": 0
+    },
+    {
+      "date": "2026-02-07",
+      "success": 24,
+      "fail": 28,
+      "ag_flash": 24,
+      "ag_sonnet": 0,
+      "gc_flash": 0,
+      "ag_pro": 0,
+      "gh_gpt5": 0,
+      "gh_gpt4": 0,
+      "lc_qwen": 0
     }
   ],
   "pulse": [
+    {
+      "date": "2026-02-07",
+      "time": "00:21",
+      "project": "benfoxsb.github.io",
+      "hash": "a6d9c4c",
+      "url": "https://github.com/benfoxsb/benfoxsb.github.io/commit/a6d9c4c",
+      "summary": "fix: refine model color mapping logic to prevent duplication in failover pipeline",
+      "model": "ag_flash"
+    },
+    {
+      "date": "2026-02-07",
+      "time": "00:18",
+      "project": "benfoxsb.github.io",
+      "hash": "79314df",
+      "url": "https://github.com/benfoxsb/benfoxsb.github.io/commit/79314df",
+      "summary": "fix: resolve duplicate model colors in failover pipeline (GH GPT-4 -> Teal)",
+      "model": "ag_flash"
+    },
+    {
+      "date": "2026-02-06",
+      "time": "23:32",
+      "project": "core",
+      "hash": "d6f2ae0",
+      "url": "https://github.com/benfoxsb/workspace/commit/d6f2ae0",
+      "summary": "chore: point collector back to production main",
+      "model": "ag_flash"
+    },
     {
       "date": "2026-02-06",
       "time": "23:32",
@@ -293,15 +332,6 @@
       "model": "ag_flash"
     },
     {
-      "date": "2026-02-06",
-      "time": "02:21",
-      "project": "core",
-      "hash": "8e800fa",
-      "url": "https://github.com/benfoxsb/workspace/commit/8e800fa",
-      "summary": "docs: move research strategy files to global docs folder",
-      "model": "ag_flash"
-    },
-    {
       "date": "2026-02-04",
       "time": "18:47",
       "project": "gh-pm",
@@ -402,11 +432,6 @@
     }
   ],
   "heatmap": [
-    {
-      "date": "2026-01-31",
-      "success": {},
-      "fail": {}
-    },
     {
       "date": "2026-02-01",
       "success": {},
@@ -581,6 +606,34 @@
         "23:45": "1"
       },
       "fail": {}
+    },
+    {
+      "date": "2026-02-07",
+      "success": {
+        "00:00": "1",
+        "00:15": "1",
+        "01:30": "2",
+        "01:45": "1",
+        "02:00": "2",
+        "02:15": "1",
+        "02:30": "1",
+        "02:45": "1",
+        "03:30": "2",
+        "04:00": "2",
+        "04:15": "2",
+        "04:30": "2",
+        "06:30": "1",
+        "06:45": "1",
+        "07:00": "1",
+        "07:15": "2",
+        "07:30": "1"
+      },
+      "fail": {
+        "06:30": "12",
+        "06:45": "4",
+        "07:15": "4",
+        "08:15": "8"
+      }
     }
   ],
   "failover": [
