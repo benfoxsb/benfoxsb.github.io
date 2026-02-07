@@ -164,12 +164,12 @@
         function getModelKey(id) {
             if (!id) return 'lc_qwen';
             const s = id.toLowerCase().replace(/[- ]/g, '_');
-            if (s.includes('ag_flash') || s.includes('gemini_3_flash')) return 'ag_flash';
-            if (s.includes('ag_pro') || s.includes('gemini_3_pro')) return 'ag_pro';
-            if (s.includes('gc_flash') || s.includes('gemini_flash')) return 'gc_flash';
+            if (s.includes('ag_flash') || s.includes('flash')) return 'ag_flash';
+            if (s.includes('ag_pro') || s.includes('pro')) return 'ag_pro';
+            if (s.includes('gc_flash') || s.includes('latest')) return 'gc_flash';
             if (s.includes('gc_pro')) return 'gc_pro';
-            if (s.includes('gh_gpt5') || s.includes('gpt_5_mini')) return 'gh_gpt5';
-            if (s.includes('gh_gpt4') || s.includes('gpt_4o')) return 'gh_gpt4';
+            if (s.includes('gh_gpt5') || s.includes('gpt_5')) return 'gh_gpt5';
+            if (s.includes('gh_gpt4') || s.includes('gpt_4')) return 'gh_gpt4';
             if (s.includes('sonnet')) return 'ag_sonnet';
             if (s.includes('opus')) return 'ag_opus';
             if (s.includes('lc_') || s.includes('ollama') || s.includes('qwen')) return 'lc_qwen';
