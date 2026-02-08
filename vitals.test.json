@@ -1,18 +1,18 @@
 {
-  "updated": "2026-02-07T06:59:24Z",
+  "updated": "2026-02-08T06:57:01Z",
   "windows": {
     "24h": {
-      "date": "2026-02-06",
-      "success": 91,
-      "fail": 0,
-      "ag_flash": 91,
-      "ag_sonnet": 0,
+      "date": "2026-02-07",
+      "success": 79,
+      "fail": 50,
+      "ag_flash": 54,
+      "ag_sonnet": 11,
       "gc_flash": 0,
       "ag_pro": 0,
       "gh_gpt5": 0,
       "gh_gpt4": 0,
       "lc_qwen": 0,
-      "cooldowns": 4,
+      "cooldowns": 20,
       "quotas": 0,
       "timers": {
         "ag_flash_cd": "0.0",
@@ -25,34 +25,34 @@
       }
     },
     "7d": {
-      "success": 304,
-      "fail": 38,
-      "days": 4,
+      "success": 383,
+      "fail": 88,
+      "days": 5,
       "usage": {
-        "ag_flash": 238,
-        "ag_sonnet": 2,
+        "ag_flash": 292,
+        "ag_sonnet": 13,
         "gc_flash": 58,
         "ag_pro": 4,
         "gh_gpt5": 0,
         "gh_gpt4": 0,
         "lc_qwen": 0
       },
-      "reliability": "88.8"
+      "reliability": "81.3"
     },
     "30d": {
-      "success": 304,
-      "fail": 38,
-      "days": 4,
+      "success": 383,
+      "fail": 88,
+      "days": 5,
       "usage": {
-        "ag_flash": 238,
-        "ag_sonnet": 2,
+        "ag_flash": 292,
+        "ag_sonnet": 13,
         "gc_flash": 58,
         "ag_pro": 4,
         "gh_gpt5": 0,
         "gh_gpt4": 0,
         "lc_qwen": 0
       },
-      "reliability": "88.8"
+      "reliability": "81.3"
     }
   },
   "history": [
@@ -109,9 +109,93 @@
       "gh_gpt5": 0,
       "gh_gpt4": 0,
       "lc_qwen": 0
+    },
+    {
+      "date": "2026-02-07",
+      "success": 79,
+      "fail": 50,
+      "ag_flash": 54,
+      "ag_sonnet": 11,
+      "gc_flash": 0,
+      "ag_pro": 0,
+      "gh_gpt5": 0,
+      "gh_gpt4": 0,
+      "lc_qwen": 0
     }
   ],
   "pulse": [
+    {
+      "date": "2026-02-07",
+      "time": "14:21",
+      "project": "benfoxsb.github.io",
+      "hash": "f9a0771",
+      "url": "https://github.com/benfoxsb/benfoxsb.github.io/commit/f9a0771",
+      "summary": "docs: migrate from workspace",
+      "model": "ag_sonnet"
+    },
+    {
+      "date": "2026-02-07",
+      "time": "14:21",
+      "project": "benfoxsb.github.io",
+      "hash": "badf9b7",
+      "url": "https://github.com/benfoxsb/benfoxsb.github.io/commit/badf9b7",
+      "summary": "docs: migrate from workspace",
+      "model": "ag_sonnet"
+    },
+    {
+      "date": "2026-02-07",
+      "time": "14:21",
+      "project": "benfoxsb.github.io",
+      "hash": "a7f30a4",
+      "url": "https://github.com/benfoxsb/benfoxsb.github.io/commit/a7f30a4",
+      "summary": "docs: migrate from workspace",
+      "model": "ag_sonnet"
+    },
+    {
+      "date": "2026-02-07",
+      "time": "14:21",
+      "project": "benfoxsb.github.io",
+      "hash": "71da2ce",
+      "url": "https://github.com/benfoxsb/benfoxsb.github.io/commit/71da2ce",
+      "summary": "docs: migrate from workspace",
+      "model": "ag_sonnet"
+    },
+    {
+      "date": "2026-02-07",
+      "time": "08:35",
+      "project": "core",
+      "hash": "d10a11c",
+      "url": "https://github.com/benfoxsb/workspace/commit/d10a11c",
+      "summary": "brain: pre-restart workspace sync 2026-02-07 08:35",
+      "model": "ag_flash"
+    },
+    {
+      "date": "2026-02-06",
+      "time": "23:32",
+      "project": "core",
+      "hash": "4f7b3cf",
+      "url": "https://github.com/benfoxsb/workspace/commit/4f7b3cf",
+      "summary": "Merge pull request #4 from benfoxsb/feat/data-broker-stabilization",
+      "model": "ag_flash"
+    },
+    {
+      "date": "2026-02-06",
+      "time": "23:32",
+      "project": "core",
+      "hash": "13e2495",
+      "url": "https://github.com/benfoxsb/workspace/commit/13e2495",
+      "summary": "chore: point collector back to production main",
+      "model": "ag_flash"
+    },
+    {
+      "date": "2026-02-06",
+      "time": "22:59",
+      "project": "core",
+      "hash": "7fdb9cd",
+      "url": "https://github.com/benfoxsb/workspace/commit/7fdb9cd",
+      "summary": "feat: stabilize data broker / vitals collector (fixes #3)",
+      "model": "ag_flash"
+    },
     {
       "date": "2026-02-06",
       "time": "19:34",
@@ -119,16 +203,7 @@
       "hash": "e36e5b3",
       "url": "https://github.com/benfoxsb/fiscalfox/commit/e36e5b3",
       "summary": "feat: sync latest dashboard visuals and accurate attribution logic (fixes #11)",
-      "model": "AG FLASH"
-    },
-    {
-      "date": "2026-02-06",
-      "time": "19:30",
-      "project": "benfoxsb.github.io",
-      "hash": "41e945d",
-      "url": "https://github.com/benfoxsb/benfoxsb.github.io/commit/41e945d",
-      "summary": "feat: simplify timezone to PST only (fixes #9)",
-      "model": "AG FLASH"
+      "model": "ag_flash"
     },
     {
       "date": "2026-02-06",
@@ -137,7 +212,7 @@
       "hash": "530085c",
       "url": "https://github.com/benfoxsb/fiscalfox/commit/530085c",
       "summary": "fix: health logic and script consolidation",
-      "model": "AG FLASH"
+      "model": "ag_flash"
     },
     {
       "date": "2026-02-06",
@@ -146,7 +221,7 @@
       "hash": "866336e",
       "url": "https://github.com/benfoxsb/fiscalfox/commit/866336e",
       "summary": "feat: consolidate architecture, port latest dashboard logic, and align terminology",
-      "model": "AG FLASH"
+      "model": "ag_flash"
     },
     {
       "date": "2026-02-06",
@@ -155,7 +230,7 @@
       "hash": "24b3d18",
       "url": "https://github.com/benfoxsb/gh-pm/commit/24b3d18",
       "summary": "docs: align SDLC terminology with latest standards (Design & Plan)",
-      "model": "AG FLASH"
+      "model": "ag_flash"
     },
     {
       "date": "2026-02-06",
@@ -164,7 +239,7 @@
       "hash": "13eb5ab",
       "url": "https://github.com/benfoxsb/gh-pm/commit/13eb5ab",
       "summary": "docs: add usage guidelines and best practices for agents",
-      "model": "AG FLASH"
+      "model": "ag_flash"
     },
     {
       "date": "2026-02-06",
@@ -173,7 +248,7 @@
       "hash": "45625e4",
       "url": "https://github.com/benfoxsb/gh-pm/commit/45625e4",
       "summary": "docs: finalize SKILL.md metadata and command syntax (fixes #4)",
-      "model": "AG FLASH"
+      "model": "ag_flash"
     },
     {
       "date": "2026-02-06",
@@ -182,7 +257,7 @@
       "hash": "03dceca",
       "url": "https://github.com/benfoxsb/gh-pm/commit/03dceca",
       "summary": "test: functional sweep results complete (fixes #3)",
-      "model": "AG FLASH"
+      "model": "ag_flash"
     },
     {
       "date": "2026-02-06",
@@ -191,7 +266,7 @@
       "hash": "fbd769d",
       "url": "https://github.com/benfoxsb/workspace/commit/fbd769d",
       "summary": "feat: add task summary to heartbeat",
-      "model": "AG FLASH"
+      "model": "ag_flash"
     },
     {
       "date": "2026-02-06",
@@ -200,7 +275,7 @@
       "hash": "6fb3258",
       "url": "https://github.com/benfoxsb/workspace/commit/6fb3258",
       "summary": "feat: restrict project pulse to public repositories",
-      "model": "AG FLASH"
+      "model": "ag_flash"
     },
     {
       "date": "2026-02-06",
@@ -209,7 +284,7 @@
       "hash": "0996805",
       "url": "https://github.com/benfoxsb/gh-pm/commit/0996805",
       "summary": "feat: add public sentinel",
-      "model": "AG FLASH"
+      "model": "ag_flash"
     },
     {
       "date": "2026-02-06",
@@ -218,7 +293,7 @@
       "hash": "1065749",
       "url": "https://github.com/benfoxsb/workspace/commit/1065749",
       "summary": "docs: organize all research and strategy documents into docs/research/",
-      "model": "AG FLASH"
+      "model": "ag_flash"
     },
     {
       "date": "2026-02-06",
@@ -227,7 +302,7 @@
       "hash": "e5cc254",
       "url": "https://github.com/benfoxsb/workspace/commit/e5cc254",
       "summary": "feat: add dynamic timezone heatmap investigation and roadmap story (fixes #9)",
-      "model": "AG FLASH"
+      "model": "ag_flash"
     },
     {
       "date": "2026-02-06",
@@ -236,43 +311,7 @@
       "hash": "62e314d",
       "url": "https://github.com/benfoxsb/workspace/commit/62e314d",
       "summary": "docs: initialize cloudflare domain monetization investigation",
-      "model": "AG FLASH"
-    },
-    {
-      "date": "2026-02-06",
-      "time": "02:40",
-      "project": "core",
-      "hash": "d23419f",
-      "url": "https://github.com/benfoxsb/workspace/commit/d23419f",
-      "summary": "docs: add dogfooding requirement to FiscalFox strategy",
-      "model": "AG FLASH"
-    },
-    {
-      "date": "2026-02-06",
-      "time": "02:38",
-      "project": "core",
-      "hash": "6736afe",
-      "url": "https://github.com/benfoxsb/workspace/commit/6736afe",
-      "summary": "docs: upgrade FiscalFox to a zero-config bootstrap engine",
-      "model": "AG FLASH"
-    },
-    {
-      "date": "2026-02-06",
-      "time": "02:21",
-      "project": "core",
-      "hash": "8e800fa",
-      "url": "https://github.com/benfoxsb/workspace/commit/8e800fa",
-      "summary": "docs: move research strategy files to global docs folder",
-      "model": "AG FLASH"
-    },
-    {
-      "date": "2026-02-06",
-      "time": "02:21",
-      "project": "core",
-      "hash": "79b411f",
-      "url": "https://github.com/benfoxsb/workspace/commit/79b411f",
-      "summary": "infra: untrack active and research project folders to keep workspace repo focused on brain state",
-      "model": "AG FLASH"
+      "model": "ag_flash"
     },
     {
       "date": "2026-02-04",
@@ -281,7 +320,7 @@
       "hash": "4f20ff7",
       "url": "https://github.com/benfoxsb/gh-pm/commit/4f20ff7",
       "summary": "Add files via upload",
-      "model": "AG FLASH"
+      "model": "ag_flash"
     },
     {
       "date": "2026-02-03",
@@ -290,7 +329,7 @@
       "hash": "c96f65b",
       "url": "https://github.com/velocity-tech-io/website/commit/c96f65b",
       "summary": "chore: trigger deployment build after adding supabase secrets",
-      "model": "AG FLASH"
+      "model": "ag_flash"
     },
     {
       "date": "2026-02-03",
@@ -299,7 +338,7 @@
       "hash": "acf1b20",
       "url": "https://github.com/velocity-tech-io/website/commit/acf1b20",
       "summary": "chore: trigger deployment build after adding supabase secrets",
-      "model": "AG FLASH"
+      "model": "ag_flash"
     },
     {
       "date": "2026-02-03",
@@ -308,7 +347,7 @@
       "hash": "2803d32",
       "url": "https://github.com/velocity-tech-io/website/commit/2803d32",
       "summary": "fix: handle missing supabase env vars during build",
-      "model": "AG FLASH"
+      "model": "ag_flash"
     },
     {
       "date": "2026-02-03",
@@ -317,7 +356,7 @@
       "hash": "78a799d",
       "url": "https://github.com/velocity-tech-io/website/commit/78a799d",
       "summary": "feat: mount ChatWidget in RootLayout",
-      "model": "AG FLASH"
+      "model": "ag_flash"
     },
     {
       "date": "2026-02-03",
@@ -326,7 +365,7 @@
       "hash": "e5ce59d",
       "url": "https://github.com/velocity-tech-io/website/commit/e5ce59d",
       "summary": "fix: remove server-side API route to unblock static build",
-      "model": "AG FLASH"
+      "model": "ag_flash"
     },
     {
       "date": "2026-02-03",
@@ -335,7 +374,7 @@
       "hash": "37427bf",
       "url": "https://github.com/velocity-tech-io/website/commit/37427bf",
       "summary": "feat: complete client-side ChatWidget implementation with Supabase",
-      "model": "AG FLASH"
+      "model": "ag_flash"
     },
     {
       "date": "2026-02-03",
@@ -344,7 +383,7 @@
       "hash": "539b113",
       "url": "https://github.com/velocity-tech-io/website/commit/539b113",
       "summary": "fix: move chat logic to client-side for static export compatibility",
-      "model": "AG FLASH"
+      "model": "ag_flash"
     },
     {
       "date": "2026-02-01",
@@ -353,7 +392,7 @@
       "hash": "b4604e3",
       "url": "https://github.com/velocity-tech-io/website/commit/b4604e3",
       "summary": "Add ChatWidget and Supabase integration",
-      "model": "AG FLASH"
+      "model": "ag_flash"
     },
     {
       "date": "2026-02-01",
@@ -362,7 +401,7 @@
       "hash": "a0b6f5d",
       "url": "https://github.com/velocity-tech-io/snapcard.app/commit/a0b6f5d",
       "summary": "feat: Add landing page MVP with pricing and features",
-      "model": "AG FLASH"
+      "model": "ag_flash"
     },
     {
       "date": "2026-01-28",
@@ -371,15 +410,10 @@
       "hash": "fcf52f6",
       "url": "https://github.com/velocity-tech-io/website/commit/fcf52f6",
       "summary": "Enhance section descriptions with gradient text styling",
-      "model": "AG FLASH"
+      "model": "ag_flash"
     }
   ],
   "heatmap": [
-    {
-      "date": "2026-01-31",
-      "success": {},
-      "fail": {}
-    },
     {
       "date": "2026-02-01",
       "success": {},
@@ -554,6 +588,63 @@
         "23:45": "1"
       },
       "fail": {}
+    },
+    {
+      "date": "2026-02-07",
+      "success": {
+        "00:00": "1",
+        "00:15": "1",
+        "01:30": "2",
+        "01:45": "1",
+        "02:00": "2",
+        "02:15": "1",
+        "02:30": "1",
+        "02:45": "1",
+        "03:30": "2",
+        "04:00": "2",
+        "04:15": "2",
+        "04:30": "2",
+        "06:30": "1",
+        "06:45": "1",
+        "07:00": "1",
+        "07:15": "2",
+        "07:30": "1",
+        "08:15": "2",
+        "08:30": "2",
+        "16:00": "2",
+        "16:15": "4",
+        "16:30": "4",
+        "16:45": "3",
+        "17:00": "1",
+        "18:45": "1",
+        "19:45": "3",
+        "20:00": "1",
+        "20:15": "3",
+        "20:30": "4",
+        "21:00": "2",
+        "21:30": "2",
+        "21:45": "6",
+        "22:00": "2",
+        "22:15": "4",
+        "22:45": "2",
+        "23:15": "5",
+        "23:45": "2"
+      },
+      "fail": {
+        "06:30": "12",
+        "06:45": "4",
+        "07:15": "4",
+        "08:15": "8",
+        "19:45": "2",
+        "20:15": "2",
+        "20:30": "4",
+        "21:00": "2",
+        "21:30": "2",
+        "22:15": "4",
+        "22:45": "2",
+        "23:15": "2",
+        "23:45": "2"
+      }
     }
   ],
   "failover": [
