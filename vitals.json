@@ -1,5 +1,5 @@
 {
-  "updated": "2026-02-08T06:58:19Z",
+  "updated": "2026-02-08T06:59:16Z",
   "windows": {
     "24h": {
       "date": "2026-02-07",
@@ -136,10 +136,37 @@
     {
       "date": "2026-02-07",
       "time": "14:21",
+      "project": "velocity-tech-site",
+      "hash": "d9cd162",
+      "url": "https://github.com/velocity-tech-io/website/commit/d9cd162",
+      "summary": "docs: migrate research from workspace",
+      "model": "ag_sonnet"
+    },
+    {
+      "date": "2026-02-07",
+      "time": "14:21",
+      "project": "gh-pm",
+      "hash": "bdfbb1b",
+      "url": "https://github.com/benfoxsb/gh-pm/commit/bdfbb1b",
+      "summary": "docs: migrate research from workspace",
+      "model": "ag_sonnet"
+    },
+    {
+      "date": "2026-02-07",
+      "time": "14:21",
       "project": "benfoxsb.github.io",
       "hash": "badf9b7",
       "url": "https://github.com/benfoxsb/benfoxsb.github.io/commit/badf9b7",
       "summary": "docs: migrate from workspace",
+      "model": "ag_sonnet"
+    },
+    {
+      "date": "2026-02-07",
+      "time": "14:21",
+      "project": "fiscalfox",
+      "hash": "a998c2e",
+      "url": "https://github.com/benfoxsb/fiscalfox/commit/a998c2e",
+      "summary": "docs: migrate research from workspace",
       "model": "ag_sonnet"
     },
     {
@@ -154,11 +181,56 @@
     {
       "date": "2026-02-07",
       "time": "14:21",
+      "project": "fiscalfox",
+      "hash": "8901bb4",
+      "url": "https://github.com/benfoxsb/fiscalfox/commit/8901bb4",
+      "summary": "docs: migrate research from workspace",
+      "model": "ag_sonnet"
+    },
+    {
+      "date": "2026-02-07",
+      "time": "14:21",
       "project": "benfoxsb.github.io",
       "hash": "71da2ce",
       "url": "https://github.com/benfoxsb/benfoxsb.github.io/commit/71da2ce",
       "summary": "docs: migrate from workspace",
       "model": "ag_sonnet"
+    },
+    {
+      "date": "2026-02-07",
+      "time": "14:21",
+      "project": "fiscalfox",
+      "hash": "2f3c71b",
+      "url": "https://github.com/benfoxsb/fiscalfox/commit/2f3c71b",
+      "summary": "docs: migrate research from workspace",
+      "model": "ag_sonnet"
+    },
+    {
+      "date": "2026-02-07",
+      "time": "14:20",
+      "project": "fiscalfox",
+      "hash": "e654613",
+      "url": "https://github.com/benfoxsb/fiscalfox/commit/e654613",
+      "summary": "docs: migrate requirements from workspace",
+      "model": "ag_flash"
+    },
+    {
+      "date": "2026-02-07",
+      "time": "14:04",
+      "project": "fiscalfox",
+      "hash": "9821bc5",
+      "url": "https://github.com/benfoxsb/fiscalfox/commit/9821bc5",
+      "summary": "docs: upload FiscalFox audit and design findings",
+      "model": "ag_flash"
+    },
+    {
+      "date": "2026-02-07",
+      "time": "12:36",
+      "project": "fiscalfox",
+      "hash": "0a3a5b6",
+      "url": "https://github.com/benfoxsb/fiscalfox/commit/0a3a5b6",
+      "summary": "Update README.md",
+      "model": "ag_flash"
     },
     {
       "date": "2026-02-07",
@@ -200,8 +272,8 @@
       "date": "2026-02-06",
       "time": "19:34",
       "project": "fiscalfox",
-      "hash": "e36e5b3",
-      "url": "https://github.com/benfoxsb/fiscalfox/commit/e36e5b3",
+      "hash": "f778a66",
+      "url": "https://github.com/benfoxsb/fiscalfox/commit/f778a66",
       "summary": "feat: sync latest dashboard visuals and accurate attribution logic (fixes #11)",
       "model": "ag_flash"
     },
@@ -209,8 +281,8 @@
       "date": "2026-02-06",
       "time": "18:38",
       "project": "fiscalfox",
-      "hash": "530085c",
-      "url": "https://github.com/benfoxsb/fiscalfox/commit/530085c",
+      "hash": "442d8cc",
+      "url": "https://github.com/benfoxsb/fiscalfox/commit/442d8cc",
       "summary": "fix: health logic and script consolidation",
       "model": "ag_flash"
     },
@@ -218,8 +290,8 @@
       "date": "2026-02-06",
       "time": "18:37",
       "project": "fiscalfox",
-      "hash": "866336e",
-      "url": "https://github.com/benfoxsb/fiscalfox/commit/866336e",
+      "hash": "aff2417",
+      "url": "https://github.com/benfoxsb/fiscalfox/commit/aff2417",
       "summary": "feat: consolidate architecture, port latest dashboard logic, and align terminology",
       "model": "ag_flash"
     },
@@ -401,15 +473,6 @@
       "hash": "a0b6f5d",
       "url": "https://github.com/velocity-tech-io/snapcard.app/commit/a0b6f5d",
       "summary": "feat: Add landing page MVP with pricing and features",
-      "model": "ag_flash"
-    },
-    {
-      "date": "2026-01-28",
-      "time": "23:55",
-      "project": "velocity-tech-site",
-      "hash": "fcf52f6",
-      "url": "https://github.com/velocity-tech-io/website/commit/fcf52f6",
-      "summary": "Enhance section descriptions with gradient text styling",
       "model": "ag_flash"
     }
   ],
