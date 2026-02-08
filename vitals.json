@@ -1,5 +1,5 @@
 {
-  "updated": "2026-02-08T06:59:16Z",
+  "updated": "2026-02-08T07:04:46Z",
   "windows": {
     "24h": {
       "date": "2026-02-07",
@@ -242,6 +242,60 @@
       "model": "ag_flash"
     },
     {
+      "date": "2026-02-07",
+      "time": "00:37",
+      "project": "benfoxsb.github.io",
+      "hash": "fd29152",
+      "url": "https://github.com/benfoxsb/benfoxsb.github.io/commit/fd29152",
+      "summary": "style: enhance heatmap aesthetics with high-contrast vibrant palette and clean grid",
+      "model": "ag_flash"
+    },
+    {
+      "date": "2026-02-07",
+      "time": "00:32",
+      "project": "benfoxsb.github.io",
+      "hash": "dfba3c6",
+      "url": "https://github.com/benfoxsb/benfoxsb.github.io/commit/dfba3c6",
+      "summary": "feat: implement ratio-based color gradations for heatmap",
+      "model": "ag_flash"
+    },
+    {
+      "date": "2026-02-07",
+      "time": "00:27",
+      "project": "benfoxsb.github.io",
+      "hash": "16318a7",
+      "url": "https://github.com/benfoxsb/benfoxsb.github.io/commit/16318a7",
+      "summary": "fix: resolve duplicate model colors (GH GPT-4 -> Pink, GC Flash/Pro refined)",
+      "model": "ag_flash"
+    },
+    {
+      "date": "2026-02-07",
+      "time": "00:21",
+      "project": "benfoxsb.github.io",
+      "hash": "a6d9c4c",
+      "url": "https://github.com/benfoxsb/benfoxsb.github.io/commit/a6d9c4c",
+      "summary": "fix: refine model color mapping logic to prevent duplication in failover pipeline",
+      "model": "ag_flash"
+    },
+    {
+      "date": "2026-02-07",
+      "time": "00:18",
+      "project": "benfoxsb.github.io",
+      "hash": "79314df",
+      "url": "https://github.com/benfoxsb/benfoxsb.github.io/commit/79314df",
+      "summary": "fix: resolve duplicate model colors in failover pipeline (GH GPT-4 -> Teal)",
+      "model": "ag_flash"
+    },
+    {
+      "date": "2026-02-06",
+      "time": "23:32",
+      "project": "benfoxsb.github.io",
+      "hash": "688fbaf",
+      "url": "https://github.com/benfoxsb/benfoxsb.github.io/commit/688fbaf",
+      "summary": "fix: restore validated staging state to main",
+      "model": "ag_flash"
+    },
+    {
       "date": "2026-02-06",
       "time": "23:32",
       "project": "core",
@@ -261,6 +315,33 @@
     },
     {
       "date": "2026-02-06",
+      "time": "23:31",
+      "project": "benfoxsb.github.io",
+      "hash": "61d2cf0",
+      "url": "https://github.com/benfoxsb/benfoxsb.github.io/commit/61d2cf0",
+      "summary": "chore: resolve data conflict during merge",
+      "model": "ag_flash"
+    },
+    {
+      "date": "2026-02-06",
+      "time": "23:18",
+      "project": "benfoxsb.github.io",
+      "hash": "d71543f",
+      "url": "https://github.com/benfoxsb/benfoxsb.github.io/commit/d71543f",
+      "summary": "fix: improve frontend model matching flexibility",
+      "model": "ag_flash"
+    },
+    {
+      "date": "2026-02-06",
+      "time": "23:17",
+      "project": "benfoxsb.github.io",
+      "hash": "abc405c",
+      "url": "https://github.com/benfoxsb/benfoxsb.github.io/commit/abc405c",
+      "summary": "fix: frontend model matching and color logic",
+      "model": "ag_flash"
+    },
+    {
+      "date": "2026-02-06",
       "time": "22:59",
       "project": "core",
       "hash": "7fdb9cd",
@@ -270,11 +351,47 @@
     },
     {
       "date": "2026-02-06",
+      "time": "22:24",
+      "project": "benfoxsb.github.io",
+      "hash": "88e96a0",
+      "url": "https://github.com/benfoxsb/benfoxsb.github.io/commit/88e96a0",
+      "summary": "Merge branch 'develop'",
+      "model": "ag_flash"
+    },
+    {
+      "date": "2026-02-06",
       "time": "19:34",
       "project": "fiscalfox",
       "hash": "f778a66",
       "url": "https://github.com/benfoxsb/fiscalfox/commit/f778a66",
       "summary": "feat: sync latest dashboard visuals and accurate attribution logic (fixes #11)",
+      "model": "ag_flash"
+    },
+    {
+      "date": "2026-02-06",
+      "time": "19:30",
+      "project": "benfoxsb.github.io",
+      "hash": "e0875f2",
+      "url": "https://github.com/benfoxsb/benfoxsb.github.io/commit/e0875f2",
+      "summary": "Merge branch 'develop'",
+      "model": "ag_flash"
+    },
+    {
+      "date": "2026-02-06",
+      "time": "19:30",
+      "project": "benfoxsb.github.io",
+      "hash": "41e945d",
+      "url": "https://github.com/benfoxsb/benfoxsb.github.io/commit/41e945d",
+      "summary": "feat: simplify timezone to PST only (fixes #9)",
+      "model": "ag_flash"
+    },
+    {
+      "date": "2026-02-06",
+      "time": "18:53",
+      "project": "benfoxsb.github.io",
+      "hash": "4986993",
+      "url": "https://github.com/benfoxsb/benfoxsb.github.io/commit/4986993",
+      "summary": "Merge branch 'develop'",
       "model": "ag_flash"
     },
     {
@@ -297,11 +414,38 @@
     },
     {
       "date": "2026-02-06",
+      "time": "18:25",
+      "project": "benfoxsb.github.io",
+      "hash": "bec011b",
+      "url": "https://github.com/benfoxsb/benfoxsb.github.io/commit/bec011b",
+      "summary": "Merge branch 'develop'",
+      "model": "ag_flash"
+    },
+    {
+      "date": "2026-02-06",
+      "time": "18:25",
+      "project": "benfoxsb.github.io",
+      "hash": "072df7d",
+      "url": "https://github.com/benfoxsb/benfoxsb.github.io/commit/072df7d",
+      "summary": "feat: implement timezone-aware heatmap and add public sentinel",
+      "model": "ag_flash"
+    },
+    {
+      "date": "2026-02-06",
       "time": "18:03",
       "project": "gh-pm",
       "hash": "24b3d18",
       "url": "https://github.com/benfoxsb/gh-pm/commit/24b3d18",
       "summary": "docs: align SDLC terminology with latest standards (Design & Plan)",
+      "model": "ag_flash"
+    },
+    {
+      "date": "2026-02-06",
+      "time": "14:38",
+      "project": "benfoxsb.github.io",
+      "hash": "1251a71",
+      "url": "https://github.com/benfoxsb/benfoxsb.github.io/commit/1251a71",
+      "summary": "Merge branch 'develop'",
       "model": "ag_flash"
     },
     {
@@ -386,12 +530,111 @@
       "model": "ag_flash"
     },
     {
+      "date": "2026-02-06",
+      "time": "02:40",
+      "project": "core",
+      "hash": "d23419f",
+      "url": "https://github.com/benfoxsb/workspace/commit/d23419f",
+      "summary": "docs: add dogfooding requirement to FiscalFox strategy",
+      "model": "ag_flash"
+    },
+    {
+      "date": "2026-02-06",
+      "time": "02:38",
+      "project": "core",
+      "hash": "6736afe",
+      "url": "https://github.com/benfoxsb/workspace/commit/6736afe",
+      "summary": "docs: upgrade FiscalFox to a zero-config bootstrap engine",
+      "model": "ag_flash"
+    },
+    {
+      "date": "2026-02-06",
+      "time": "02:21",
+      "project": "core",
+      "hash": "8e800fa",
+      "url": "https://github.com/benfoxsb/workspace/commit/8e800fa",
+      "summary": "docs: move research strategy files to global docs folder",
+      "model": "ag_flash"
+    },
+    {
+      "date": "2026-02-06",
+      "time": "02:21",
+      "project": "core",
+      "hash": "79b411f",
+      "url": "https://github.com/benfoxsb/workspace/commit/79b411f",
+      "summary": "infra: untrack active and research project folders to keep workspace repo focused on brain state",
+      "model": "ag_flash"
+    },
+    {
+      "date": "2026-02-06",
+      "time": "02:15",
+      "project": "core",
+      "hash": "e514187",
+      "url": "https://github.com/benfoxsb/workspace/commit/e514187",
+      "summary": "brain: nightly routine and core infrastructure stabilization (2026-02-06)",
+      "model": "ag_flash"
+    },
+    {
+      "date": "2026-02-06",
+      "time": "02:15",
+      "project": "core",
+      "hash": "e3491a5",
+      "url": "https://github.com/benfoxsb/workspace/commit/e3491a5",
+      "summary": "habit: add 4-hour workspace sync rule",
+      "model": "ag_flash"
+    },
+    {
+      "date": "2026-02-05",
+      "time": "00:00",
+      "project": "core",
+      "hash": "7442757",
+      "url": "https://github.com/benfoxsb/workspace/commit/7442757",
+      "summary": "Nightly routine: sync workspace and compact memory",
+      "model": "ag_flash"
+    },
+    {
       "date": "2026-02-04",
       "time": "18:47",
       "project": "gh-pm",
       "hash": "4f20ff7",
       "url": "https://github.com/benfoxsb/gh-pm/commit/4f20ff7",
       "summary": "Add files via upload",
+      "model": "ag_flash"
+    },
+    {
+      "date": "2026-02-04",
+      "time": "03:03",
+      "project": "core",
+      "hash": "71ab785",
+      "url": "https://github.com/benfoxsb/workspace/commit/71ab785",
+      "summary": "chore: update dashboard collector script and latest metrics for 2026-02-04",
+      "model": "ag_flash"
+    },
+    {
+      "date": "2026-02-04",
+      "time": "00:37",
+      "project": "core",
+      "hash": "ee4fa1b",
+      "url": "https://github.com/benfoxsb/workspace/commit/ee4fa1b",
+      "summary": "housekeeping: consolidate project structure, update dashboard suite, and add persistent metrics",
+      "model": "ag_flash"
+    },
+    {
+      "date": "2026-02-04",
+      "time": "00:01",
+      "project": "core",
+      "hash": "6d69fae",
+      "url": "https://github.com/benfoxsb/workspace/commit/6d69fae",
+      "summary": "chore: nightly CEO brain routine 🦊 [2026-02-04]",
+      "model": "ag_flash"
+    },
+    {
+      "date": "2026-02-03",
+      "time": "23:01",
+      "project": "core",
+      "hash": "a4f0811",
+      "url": "https://github.com/benfoxsb/workspace/commit/a4f0811",
+      "summary": "brain: nightly routine and memory compaction (2026-02-03)",
       "model": "ag_flash"
     },
     {
@@ -419,60 +662,6 @@
       "hash": "2803d32",
       "url": "https://github.com/velocity-tech-io/website/commit/2803d32",
       "summary": "fix: handle missing supabase env vars during build",
-      "model": "ag_flash"
-    },
-    {
-      "date": "2026-02-03",
-      "time": "21:17",
-      "project": "velocity-tech-site",
-      "hash": "78a799d",
-      "url": "https://github.com/velocity-tech-io/website/commit/78a799d",
-      "summary": "feat: mount ChatWidget in RootLayout",
-      "model": "ag_flash"
-    },
-    {
-      "date": "2026-02-03",
-      "time": "21:10",
-      "project": "velocity-tech-site",
-      "hash": "e5ce59d",
-      "url": "https://github.com/velocity-tech-io/website/commit/e5ce59d",
-      "summary": "fix: remove server-side API route to unblock static build",
-      "model": "ag_flash"
-    },
-    {
-      "date": "2026-02-03",
-      "time": "20:51",
-      "project": "velocity-tech-site",
-      "hash": "37427bf",
-      "url": "https://github.com/velocity-tech-io/website/commit/37427bf",
-      "summary": "feat: complete client-side ChatWidget implementation with Supabase",
-      "model": "ag_flash"
-    },
-    {
-      "date": "2026-02-03",
-      "time": "11:22",
-      "project": "velocity-tech-site",
-      "hash": "539b113",
-      "url": "https://github.com/velocity-tech-io/website/commit/539b113",
-      "summary": "fix: move chat logic to client-side for static export compatibility",
-      "model": "ag_flash"
-    },
-    {
-      "date": "2026-02-01",
-      "time": "23:29",
-      "project": "velocity-tech-site",
-      "hash": "b4604e3",
-      "url": "https://github.com/velocity-tech-io/website/commit/b4604e3",
-      "summary": "Add ChatWidget and Supabase integration",
-      "model": "ag_flash"
-    },
-    {
-      "date": "2026-02-01",
-      "time": "02:17",
-      "project": "snapcard.app",
-      "hash": "a0b6f5d",
-      "url": "https://github.com/velocity-tech-io/snapcard.app/commit/a0b6f5d",
-      "summary": "feat: Add landing page MVP with pricing and features",
       "model": "ag_flash"
     }
   ],
